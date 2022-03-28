@@ -13739,8 +13739,8 @@ ULL h<span class="token punctuation">[</span>N<span class="token punctuation">]<
         <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
-        <tag>Hash</tag>
         <tag>Data Structure</tag>
+        <tag>Hash</tag>
       </tags>
   </entry>
   <entry>
@@ -17001,8 +17001,8 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
       <tags>
         <tag>Algorithm</tag>
         <tag>C++</tag>
-        <tag>High Precision</tag>
         <tag>Template</tag>
+        <tag>High Precision</tag>
       </tags>
   </entry>
   <entry>
@@ -17763,8 +17763,8 @@ class="math inline">\(mid-i+1\)</span> 。</li>
         <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
-        <tag>Template</tag>
         <tag>Sort</tag>
+        <tag>Template</tag>
       </tags>
   </entry>
 </search>
