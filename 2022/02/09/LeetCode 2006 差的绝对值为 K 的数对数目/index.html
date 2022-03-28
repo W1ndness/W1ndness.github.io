@@ -30,6 +30,8 @@
 <meta property="og:description" content="LeetCode 2006 差的绝对值为 K 的数对数目">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.shields.io/badge/Difficulty-Easy-light">
+<meta property="og:image" content="https://img.shields.io/badge/Date-2%2F7%2F2022-blueviolet">
+<meta property="og:image" content="https://img.shields.io/badge/Check-Accepted-brightgreen">
 <meta property="article:published_time" content="2022-02-08T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-02-09T12:55:04.000Z">
 <meta property="article:author" content="LeoLang">
@@ -162,8 +164,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-2006-%E5%B7%AE%E7%9A%84%E7%BB%9D%E5%AF%B9%E5%80%BC%E4%B8%BA-k-%E7%9A%84%E6%95%B0%E5%AF%B9%E6%95%B0%E7%9B%AE"><span class="nav-text">LeetCode 2006
-差的绝对值为 K 的数对数目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-link"><span class="nav-text">Problem Link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-description"><span class="nav-text">Problem Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#submit-code"><span class="nav-text">Submit Code</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#methods-a"><span class="nav-text">Methods a</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#methods-b"><span class="nav-text">Methods b</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code-explanation"><span class="nav-text">Code Explanation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reference"><span class="nav-text">Reference</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">LeetCode 2006 差的绝对值为 K 的数对数目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-link"><span class="nav-text">Problem Link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-description"><span class="nav-text">Problem Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#submit-code"><span class="nav-text">Submit Code</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#methods-a"><span class="nav-text">Methods a</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#methods-b"><span class="nav-text">Methods b</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code-explanation"><span class="nav-text">Code Explanation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reference"><span class="nav-text">Reference</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -322,7 +323,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.4k</span>
+      <span>2.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -340,23 +341,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="leetcode-2006-差的绝对值为-k-的数对数目">LeetCode 2006
-差的绝对值为 K 的数对数目</h1>
+        <h1>LeetCode 2006 差的绝对值为 K 的数对数目</h1>
 <span id="more"></span>
 <h3 id="problem-link">Problem Link</h3>
-<p><a
-target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-number-of-pairs-with-absolute-difference-k/">2006.
-差的绝对值为 K 的数对数目 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
-<p><img src="https://img.shields.io/badge/Difficulty-Easy-light"
-alt="Difficulty: Medium (shields.io)" /><img
-src="https://img.shields.io/badge/Date-2%2F7%2F2022-blueviolet"
-alt="Date: 2/9/2022 (shields.io)" /> <img
-src="https://img.shields.io/badge/Check-Accepted-brightgreen"
-alt="Check: Accepted (shields.io)" /></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-number-of-pairs-with-absolute-difference-k/">2006. 差的绝对值为 K 的数对数目 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<p><img src="https://img.shields.io/badge/Difficulty-Easy-light" alt="Difficulty: Medium (shields.io)"><img src="https://img.shields.io/badge/Date-2%2F7%2F2022-blueviolet" alt="Date: 2/9/2022 (shields.io)"> <img src="https://img.shields.io/badge/Check-Accepted-brightgreen" alt="Check: Accepted (shields.io)"></p>
 <h3 id="problem-description">Problem Description</h3>
-<p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code>
-，请你返回数对 <code>(i, j)</code> 的数目，满足 <code>i &lt; j</code> 且
-<code>|nums[i] - nums[j]| == k</code> 。</p>
+<p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> ，请你返回数对 <code>(i, j)</code> 的数目，满足 <code>i &lt; j</code> 且 <code>|nums[i] - nums[j]| == k</code> 。</p>
 <p><code>|x|</code> 的值定义为：</p>
 <ul>
 <li>如果 <code>x &gt;= 0</code> ，那么值为 <code>x</code> 。</li>
@@ -393,28 +384,19 @@ alt="Check: Accepted (shields.io)" /></p>
 <li>朴素暴力解法，双循环</li>
 <li>哈希表 + 一次遍历</li>
 </ul>
-<ol type="1">
-<li><p>暴力解法</p>
-<p>由于常数为 <span class="math inline">\(200\)</span>
-，二重循环复杂度最大为 <span class="math inline">\(O(n^2)\)</span> 但
-<span class="math inline">\(&lt;40000\)</span> ，可以承受。</p></li>
-<li><p>哈希表一次遍历</p>
+<ol>
+<li>
+<p>暴力解法</p>
+<p>由于常数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>200</mn></mrow><annotation encoding="application/x-tex">200</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span></span></span></span> ，二重循环复杂度最大为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 但 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>40000</mn></mrow><annotation encoding="application/x-tex">&lt;40000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span> ，可以承受。</p>
+</li>
+<li>
+<p>哈希表一次遍历</p>
 <p>对暴力解法进行改进，进行剪枝。那么，就应该统计各数字的数量，以避免重复计算。</p>
-<p>对于整数 <span class="math inline">\(x\)</span>
-，记其到目前为止出现次数为 <span class="math inline">\(T(x)\)</span>
-。那么对于整数 <span class="math inline">\(n\)</span>
-，满足条件的数对数量为 <span
-class="math inline">\(T(n-k)+T(n+k)\)</span> 。</p>
-<p>需要注意的是，这里需要边统计次数边更新答案，而不是现统计次数，再更新答案。采用后者解答会导致在出现次数为
-<span class="math inline">\(1\)</span> 的整数上出现重解的情况。</p>
+<p>对于整数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span> ，记其到目前为止出现次数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span> 。那么对于整数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> ，满足条件的数对数量为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mi>k</mi><mo stretchy="false">)</mo><mo>+</mo><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo>+</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(n-k)+T(n+k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span> 。</p>
+<p>需要注意的是，这里需要边统计次数边更新答案，而不是现统计次数，再更新答案。采用后者解答会导致在出现次数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 的整数上出现重解的情况。</p>
 <p>对于前者做法的解释是：</p>
-<p>在二重循环中，设我们寻找的一重循环位置为 <span
-class="math inline">\(i\)</span>
-，那么，为了避免重复，我们需要将二重循环设定为从其下一位开始，即设定
-<span class="math inline">\(j=i+1\)</span>
-。同样的，我们在使用一重循环统计时，由于循环的是原数组，且一般为从前向后循环，那么我们在遍历过程中应该知道在该位置之前满足
-<span class="math inline">\(|nums[i]-nums[j]|=k\)</span>
-的个数，即要知道遍历过的整数的出现次数。如果出现相同元素，也不影响统计。</p></li>
+<p>在二重循环中，设我们寻找的一重循环位置为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> ，那么，为了避免重复，我们需要将二重循环设定为从其下一位开始，即设定 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>=</mo><mi>i</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">j=i+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 。同样的，我们在使用一重循环统计时，由于循环的是原数组，且一般为从前向后循环，那么我们在遍历过程中应该知道在该位置之前满足 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi>n</mi><mi>u</mi><mi>m</mi><mi>s</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo>−</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>s</mi><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo><mi mathvariant="normal">∣</mi><mo>=</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">|nums[i]-nums[j]|=k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault">n</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 的个数，即要知道遍历过的整数的出现次数。如果出现相同元素，也不影响统计。</p>
+</li>
 </ol>
 <h3 id="submit-code">Submit Code</h3>
 <h4 id="methods-a">Methods a</h4>
@@ -493,10 +475,7 @@ class="math inline">\(i\)</span>
 <h3 id="code-explanation">Code Explanation</h3>
 <p>None</p>
 <h3 id="reference">Reference</h3>
-<p>LeetCode 官方题解 差的绝对值为 K 的数对数目 <a
-target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-number-of-pairs-with-absolute-difference-k/solution/chai-de-jue-dui-zhi-wei-k-de-shu-dui-shu-xspo/">差的绝对值为
-K 的数对数目 - 差的绝对值为 K 的数对数目 - 力扣（LeetCode）
-(leetcode-cn.com)</a></p>
+<p>LeetCode 官方题解 差的绝对值为 K 的数对数目 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-number-of-pairs-with-absolute-difference-k/solution/chai-de-jue-dui-zhi-wei-k-de-shu-dui-shu-xspo/">差的绝对值为 K 的数对数目 - 差的绝对值为 K 的数对数目 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
 
     </div>
 
@@ -575,14 +554,14 @@ K 的数对数目 - 差的绝对值为 K 的数对数目 - 力扣（LeetCode）
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">296k</span>
+    <span title="站点总字数">316k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:29</span>
+    <span title="站点阅读时长">4:48</span>
   </span>
 </div>
 <div class="busuanzi-count">
