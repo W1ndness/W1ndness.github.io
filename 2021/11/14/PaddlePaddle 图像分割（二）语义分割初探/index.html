@@ -29,6 +29,7 @@
 <meta property="og:site_name" content="W1ndness的技术栈">
 <meta property="og:description" content="前言 本文将初步介绍语义分割相关内容，并给出两个使用 PaddlePaddle 实现的分割网络实例。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/admin/Desktop/prediction%20and%20truth.png">
 <meta property="article:published_time" content="2021-11-13T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-11-14T14:53:40.000Z">
 <meta property="article:author" content="LeoLang">
@@ -38,6 +39,7 @@
 <meta property="article:tag" content="PaddlePaddle">
 <meta property="article:tag" content="Image Segmentation">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/admin/Desktop/prediction%20and%20truth.png">
 
 
 <link rel="canonical" href="https://leolang.top/2021/11/14/PaddlePaddle%20%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%EF%BC%88%E4%BA%8C%EF%BC%89%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E5%88%9D%E6%8E%A2/">
@@ -160,7 +162,8 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#paddlepaddle-%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E4%BA%8C%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E5%88%9D%E6%8E%A2"><span class="nav-text"> PaddlePaddle 图像分割（二）语义分割初探</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-reference"><span class="nav-text"> 0 Reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E5%88%9D%E6%8E%A2"><span class="nav-text"> 1 语义分割初探</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%B1%BB%E5%9E%8B"><span class="nav-text"> 1.1 图像分割类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text"> 1.2 图像分割的应用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95"><span class="nav-text"> 2 深度学习分割算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21-%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text"> 2.1 语义分割算法的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#211-%E6%A0%B9%E6%9C%AC%E7%9B%AE%E7%9A%84"><span class="nav-text"> 2.1.1 根本目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#212-%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="nav-text"> 2.1.2 基本流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#213-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-text"> 2.1.3 性能指标</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-demo"><span class="nav-text"> 3 Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#31-demo-1"><span class="nav-text"> 3.1 Demo 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#32-demo-2"><span class="nav-text"> 3.2 Demo 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-api-%E9%93%BE%E6%8E%A5"><span class="nav-text"> 4 API 链接</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#paddlepaddle-%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E4%BA%8C%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E5%88%9D%E6%8E%A2"><span class="nav-text">PaddlePaddle
+图像分割（二）语义分割初探</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-text">0 Reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E5%88%9D%E6%8E%A2"><span class="nav-text">1 语义分割初探</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%B1%BB%E5%9E%8B"><span class="nav-text">1.1 图像分割类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">1.2 图像分割的应用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95"><span class="nav-text">2 深度学习分割算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">2.1 语义分割算法的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B9%E6%9C%AC%E7%9B%AE%E7%9A%84"><span class="nav-text">2.1.1 根本目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="nav-text">2.1.2 基本流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-text">2.1.3 性能指标</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#demo"><span class="nav-text">3 Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#demo-1"><span class="nav-text">3.1 Demo 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#demo-2"><span class="nav-text">3.2 Demo 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#api-%E9%93%BE%E6%8E%A5"><span class="nav-text">4 API 链接</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -323,14 +326,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>9.4k</span>
+      <span>9.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>9 分钟</span>
+      <span>8 分钟</span>
     </span>
 </div>
 
@@ -341,60 +344,89 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>本文将初步介绍语义分割相关内容，并给出两个使用 PaddlePaddle 实现的分割网络实例。</p>
+        <h1 id="前言">前言</h1>
+<p>本文将初步介绍语义分割相关内容，并给出两个使用 PaddlePaddle
+实现的分割网络实例。</p>
 <span id="more"></span>
-<h1 id="paddlepaddle-图像分割二语义分割初探"><a class="markdownIt-Anchor" href="#paddlepaddle-图像分割二语义分割初探"></a> PaddlePaddle 图像分割（二）语义分割初探</h1>
-<h2 id="0-reference"><a class="markdownIt-Anchor" href="#0-reference"></a> 0 Reference</h2>
-<p><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/index">飞桨 AI Studio 图像分割7日打卡训练营 课节2 图像分割综述</a></p>
-<h2 id="1-语义分割初探"><a class="markdownIt-Anchor" href="#1-语义分割初探"></a> 1 语义分割初探</h2>
-<h3 id="11-图像分割类型"><a class="markdownIt-Anchor" href="#11-图像分割类型"></a> 1.1 图像分割类型</h3>
+<h1 id="paddlepaddle-图像分割二语义分割初探">PaddlePaddle
+图像分割（二）语义分割初探</h1>
+<h2 id="reference">0 Reference</h2>
+<p><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/index">飞桨 AI Studio
+图像分割7日打卡训练营 课节2 图像分割综述</a></p>
+<h2 id="语义分割初探">1 语义分割初探</h2>
+<h3 id="图像分割类型">1.1 图像分割类型</h3>
 <p>What are different kinds of image segmentation tasks?</p>
 <p>根据不同的任务和数据类型：</p>
 <ul>
-<li>
-<p>图像分割（Image Segmentation）</p>
+<li><p>图像分割（Image Segmentation）</p>
 <p>图像分割就是把图像分成若干个特定的、具有独特性质的区域并提出感兴趣目标的技术和过程。它是由图像处理到图像分析的关键步骤。现有的图像分割方法主要分以下几类：基于阈值的分割方法、基于区域的分割方法、基于边缘的分割方法以及基于特定理论的分割方法等。从数学角度来看，图像分割是将数字图像划分成互不相交的区域的过程。图像分割的过程也是一个标记过程，即把属于同一区域的像素赋予相同的编号。</p>
-<p>– From Baidu <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/10986705?fr=aladdin">图像分割</a></p>
-<p>In digital image processing and computer vision, image segmentation is the process of partitioning a digital image into multiple segments (sets of pixels, also known as image objects). The goal of segmentation is to simplify and/or change the representation of an image into something that is more meaningful and easier to analyze. Image segmentation is typically used to locate objects and boundaries (lines, curves, etc.) in images. More precisely, image segmentation is the process of assigning a label to every pixel in an image such that pixels with the same label share certain characteristics.</p>
-<p>The result of image segmentation is a set of segments that collectively cover the entire image, or a set of contours extracted from the image (see edge detection). Each of the pixels in a region are similar with respect to some characteristic or computed property , such as color, intensity, or texture. Adjacent regions are significantly different color respect to the same characteristic(s). When applied to a stack of images, typical in medical imaging, the resulting contours after image segmentation can be used to create 3D reconstructions with the help of interpolation algorithms like marching cubes.</p>
-<p>– From Wikipedia <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Image_segmentation">Image segmentation</a></p>
-</li>
-<li>
-<p>图像语义分割（Image Semantic Segmentation）</p>
-<p>Image segmentation is a computer vision task in which we label specific regions of an image according to what’s being shown. More specifically, the goal of semantic image segmentation is to label <em>each pixel</em> of an image with a corresponding <em><strong>class</strong></em> of what is being represented.</p>
-<p>– From Blog <a target="_blank" rel="noopener" href="https://www.jeremyjordan.me/semantic-segmentation/">An overview of semantic image segmentation.</a></p>
-</li>
-<li>
-<p>图像实例分割（Image Instance Segmentation）</p>
-</li>
-<li>
-<p>图像全景分割（Image Panoptic Segmentation）</p>
-</li>
-<li>
-<p>视频目标分割（Video Object Segmentation）</p>
-</li>
-<li>
-<p>视频实例分割（Video Instance Segmentation）</p>
-</li>
+<p>-- From Baidu <a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/10986705?fr=aladdin">图像分割</a></p>
+<p>In digital image processing and computer vision, image segmentation
+is the process of partitioning a digital image into multiple segments
+(sets of pixels, also known as image objects). The goal of segmentation
+is to simplify and/or change the representation of an image into
+something that is more meaningful and easier to analyze. Image
+segmentation is typically used to locate objects and boundaries (lines,
+curves, etc.) in images. More precisely, image segmentation is the
+process of assigning a label to every pixel in an image such that pixels
+with the same label share certain characteristics.</p>
+<p>The result of image segmentation is a set of segments that
+collectively cover the entire image, or a set of contours extracted from
+the image (see edge detection). Each of the pixels in a region are
+similar with respect to some characteristic or computed property , such
+as color, intensity, or texture. Adjacent regions are significantly
+different color respect to the same characteristic(s). When applied to a
+stack of images, typical in medical imaging, the resulting contours
+after image segmentation can be used to create 3D reconstructions with
+the help of interpolation algorithms like marching cubes.</p>
+<p>-- From Wikipedia <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Image_segmentation">Image
+segmentation</a></p></li>
+<li><p>图像语义分割（Image Semantic Segmentation）</p>
+<p>Image segmentation is a computer vision task in which we label
+specific regions of an image according to what's being shown. More
+specifically, the goal of semantic image segmentation is to label
+<em>each pixel</em> of an image with a corresponding
+<strong><em>class</em></strong> of what is being represented.</p>
+<p>-- From Blog <a
+target="_blank" rel="noopener" href="https://www.jeremyjordan.me/semantic-segmentation/">An overview of
+semantic image segmentation.</a></p></li>
+<li><p>图像实例分割（Image Instance Segmentation）</p></li>
+<li><p>图像全景分割（Image Panoptic Segmentation）</p></li>
+<li><p>视频目标分割（Video Object Segmentation）</p></li>
+<li><p>视频实例分割（Video Instance Segmentation）</p></li>
 </ul>
-<p>![image segmentation classification](C:\Users\admin\Desktop\image segmentation classification.png)</p>
-<p>Picture from Panoptic Segmentation, Alexander Kirillov et al. , arxiv <a target="_blank" rel="noopener" href="https://arxiv.org/format/1801.00868">1801.00868</a></p>
-<h3 id="12-图像分割的应用场景"><a class="markdownIt-Anchor" href="#12-图像分割的应用场景"></a> 1.2 图像分割的应用场景</h3>
+<figure>
+<img
+src="C:\Users\admin\Desktop\image%20segmentation%20classification.png"
+alt="image segmentation classification" />
+<figcaption aria-hidden="true">image segmentation
+classification</figcaption>
+</figure>
+<p>Picture from Panoptic Segmentation, Alexander Kirillov et al. , arxiv
+<a target="_blank" rel="noopener" href="https://arxiv.org/format/1801.00868">1801.00868</a></p>
+<h3 id="图像分割的应用场景">1.2 图像分割的应用场景</h3>
 <p>根据不同的任务和数据类型：</p>
-<ol>
+<ol type="1">
 <li>人像分割</li>
 <li>自动驾驶</li>
 <li>医学图像</li>
 <li>工业质检、分拣机器人</li>
 </ol>
-<h2 id="2-深度学习分割算法"><a class="markdownIt-Anchor" href="#2-深度学习分割算法"></a> 2 深度学习分割算法</h2>
-<h3 id="21-语义分割算法的基本概念"><a class="markdownIt-Anchor" href="#21-语义分割算法的基本概念"></a> 2.1 语义分割算法的基本概念</h3>
-<h4 id="211-根本目的"><a class="markdownIt-Anchor" href="#211-根本目的"></a> 2.1.1 根本目的</h4>
+<h2 id="深度学习分割算法">2 深度学习分割算法</h2>
+<h3 id="语义分割算法的基本概念">2.1 语义分割算法的基本概念</h3>
+<h4 id="根本目的">2.1.1 根本目的</h4>
 <p>语义分割算法的根本目的：<strong>像素级分类</strong></p>
-<p>![prediction and truth](C:\Users\admin\Desktop\prediction and truth.png)</p>
-<p>Picture from The One Hundred Layers Tiramisu: Fully Convolutional DenseNets for Semantic Segmentation, Simon Jegou et al, arxiv 1611.09326</p>
-<h4 id="212-基本流程"><a class="markdownIt-Anchor" href="#212-基本流程"></a> 2.1.2 基本流程</h4>
+<figure>
+<img src="C:\Users\admin\Desktop\prediction%20and%20truth.png"
+alt="prediction and truth" />
+<figcaption aria-hidden="true">prediction and truth</figcaption>
+</figure>
+<p>Picture from The One Hundred Layers Tiramisu: Fully Convolutional
+DenseNets for Semantic Segmentation, Simon Jegou et al, arxiv
+1611.09326</p>
+<h4 id="基本流程">2.1.2 基本流程</h4>
 <p>语义分割算法的基本流程：</p>
 <ul>
 <li>输入：图像（RGB）</li>
@@ -407,27 +439,30 @@
 <li>计算损失：loss = loss_func (out, label)</li>
 <li>反向：loss.backward()</li>
 <li>更新权重：optimizer.minimize (loss)</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="213-性能指标"><a class="markdownIt-Anchor" href="#213-性能指标"></a> 2.1.3 性能指标</h4>
+<h4 id="性能指标">2.1.3 性能指标</h4>
 <p>分割网络的评价指标：mIoU 和 mAcc</p>
 <ul>
 <li>mIoU: mean Intersection-over-Union</li>
 <li>mAcc: mean Accurary</li>
 </ul>
-<p><strong>mAcc：Prediction 和 Ground Truth 对应位置的 “分类” 准确率</strong></p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>c</mi><mi>c</mi><mo>=</mo><mfrac><mrow><mo>∑</mo><mtext><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">t</mi><mtext> </mtext><mi mathvariant="normal">P</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">x</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi></mtext></mrow><mrow><mo>∑</mo><mtext><mi mathvariant="normal">P</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">x</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi></mtext></mrow></mfrac></mrow><annotation encoding="application/x-tex">Acc=\frac{\sum\text{Correct Pixel}}{\sum\text{Pixel}}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.427em;"></span><span class="strut bottom" style="height:2.36301em;vertical-align:-0.93601em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">A</span><span class="mord mathit">c</span><span class="mord mathit">c</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.6859999999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="op-symbol small-op mop" style="top:-0.0000050000000000050004em;">∑</span><span class="text mord textstyle cramped"><span class="mord mathrm">P</span><span class="mord mathrm">i</span><span class="mord mathrm">x</span><span class="mord mathrm">e</span><span class="mord mathrm">l</span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="op-symbol small-op mop" style="top:-0.0000050000000000050004em;">∑</span><span class="text mord textstyle uncramped"><span class="mord mathrm">C</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span><span class="mord mathrm">r</span><span class="mord mathrm">e</span><span class="mord mathrm">c</span><span class="mord mathrm">t</span><span class="mord mspace"> </span><span class="mord mathrm">P</span><span class="mord mathrm">i</span><span class="mord mathrm">x</span><span class="mord mathrm">e</span><span class="mord mathrm">l</span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>A</mi><mi>c</mi><mi>c</mi><mo>=</mo><mo>∑</mo><mi>A</mi><mi>c</mi><mi>c</mi><mo fence="false">/</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">mAcc=\sum Acc\Big/n
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.15em;"></span><span class="strut bottom" style="height:1.80002em;vertical-align:-0.65002em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">m</span><span class="mord mathit">A</span><span class="mord mathit">c</span><span class="mord mathit">c</span><span class="mrel">=</span><span class="op-symbol large-op mop" style="top:-0.000004999999999977245em;">∑</span><span class="mord mathit">A</span><span class="mord mathit">c</span><span class="mord mathit">c</span><span class="mord"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing size2">/</span></span></span><span class="mord mathit">n</span></span></span></span></span></p>
-<p><strong>mIoU：分割每一类别的交并比（IoU）</strong></p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi><mi>o</mi><mi>U</mi><mo>=</mo><mfrac><mrow><mtext><mi mathvariant="normal">A</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mtext> </mtext><mi mathvariant="normal">o</mi><mi mathvariant="normal">f</mi><mtext> </mtext><mi mathvariant="normal">O</mi><mi mathvariant="normal">v</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">p</mi></mtext></mrow><mrow><mtext><mi mathvariant="normal">A</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mtext> </mtext><mi mathvariant="normal">o</mi><mi mathvariant="normal">f</mi><mtext> </mtext><mi mathvariant="normal">U</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi></mtext></mrow></mfrac></mrow><annotation encoding="application/x-tex">IoU=\frac{\text{Area of Overlap}}{\text{Area of Union}}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.37144em;"></span><span class="strut bottom" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">I</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.10903em;">U</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="text mord textstyle cramped"><span class="mord mathrm">A</span><span class="mord mathrm">r</span><span class="mord mathrm">e</span><span class="mord mathrm">a</span><span class="mord mspace"> </span><span class="mord mathrm">o</span><span class="mord mathrm" style="margin-right:0.07778em;">f</span><span class="mord mspace"> </span><span class="mord mathrm">U</span><span class="mord mathrm">n</span><span class="mord mathrm">i</span><span class="mord mathrm">o</span><span class="mord mathrm">n</span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">A</span><span class="mord mathrm">r</span><span class="mord mathrm">e</span><span class="mord mathrm">a</span><span class="mord mspace"> </span><span class="mord mathrm">o</span><span class="mord mathrm" style="margin-right:0.07778em;">f</span><span class="mord mspace"> </span><span class="mord mathrm">O</span><span class="mord mathrm" style="margin-right:0.01389em;">v</span><span class="mord mathrm">e</span><span class="mord mathrm">r</span><span class="mord mathrm">l</span><span class="mord mathrm">a</span><span class="mord mathrm">p</span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>I</mi><mi>o</mi><mi>U</mi><mo>=</mo><mo>∑</mo><mi>I</mi><mi>o</mi><mi>U</mi><mo fence="false">/</mo><mtext><mi mathvariant="normal">k</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">s</mi></mtext></mrow><annotation encoding="application/x-tex">mIoU=\sum IoU\Big/\text{kinds}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.15em;"></span><span class="strut bottom" style="height:1.80002em;vertical-align:-0.65002em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">m</span><span class="mord mathit" style="margin-right:0.07847em;">I</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.10903em;">U</span><span class="mrel">=</span><span class="op-symbol large-op mop" style="top:-0.000004999999999977245em;">∑</span><span class="mord mathit" style="margin-right:0.07847em;">I</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.10903em;">U</span><span class="mord"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing size2">/</span></span></span><span class="text mord displaystyle textstyle uncramped"><span class="mord mathrm">k</span><span class="mord mathrm">i</span><span class="mord mathrm">n</span><span class="mord mathrm">d</span><span class="mord mathrm">s</span></span></span></span></span></span></p>
-<h2 id="3-demo"><a class="markdownIt-Anchor" href="#3-demo"></a> 3 Demo</h2>
-<h3 id="31-demo-1"><a class="markdownIt-Anchor" href="#31-demo-1"></a> 3.1 Demo 1</h3>
+<p><strong>mAcc：Prediction 和 Ground Truth 对应位置的 “分类”
+准确率</strong> <span class="math display">\[
+Acc=\frac{\sum\text{Correct Pixel}}{\sum\text{Pixel}}
+\]</span></p>
+<p><span class="math display">\[
+mAcc=\sum Acc\Big/n
+\]</span></p>
+<p><strong>mIoU：分割每一类别的交并比（IoU）</strong> <span
+class="math display">\[
+IoU=\frac{\text{Area of Overlap}}{\text{Area of Union}}
+\]</span></p>
+<p><span class="math display">\[
+mIoU=\sum IoU\Big/\text{kinds}
+\]</span></p>
+<h2 id="demo">3 Demo</h2>
+<h3 id="demo-1">3.1 Demo 1</h3>
 <p>basic_model.py</p>
 <p>Based on PaddlePaddle 1.8.x, Python 3.7, CPU.</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> paddle
@@ -466,7 +501,7 @@ np<span class="token punctuation">.</span>set_printoptions<span class="token pun
 <p>Result:</p>
 <pre class="language-python" data-language="python"><code class="language-python">Input data shape <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span>
 Output data shape<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">59</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span></code></pre>
-<h3 id="32-demo-2"><a class="markdownIt-Anchor" href="#32-demo-2"></a> 3.2 Demo 2</h3>
+<h3 id="demo-2">3.2 Demo 2</h3>
 <p>basic_dataloader.py</p>
 <p>Based on PaddlePaddle 1.8.x, Python 3.7, CPU.</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
@@ -692,11 +727,15 @@ Iter <span class="token number">8</span><span class="token punctuation">,</span>
 <span class="token punctuation">(</span><span class="token number">333</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token number">333</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span>
 <span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span>
 Iter <span class="token number">9</span><span class="token punctuation">,</span> Data shape<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">256</span><span class="token punctuation">,</span> <span class="token number">256</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> Label shape<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">256</span><span class="token punctuation">,</span> <span class="token number">256</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span></code></pre>
-<h2 id="4-api-链接"><a class="markdownIt-Anchor" href="#4-api-链接"></a> 4 API 链接</h2>
+<h2 id="api-链接">4 API 链接</h2>
 <p>opencv：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://docs.opencv.org/4.5.4/d9/df8/tutorial_root.html">OpenCV: OpenCV Tutorials</a></li>
-<li><a target="_blank" rel="noopener" href="https://docs.opencv.org/4.5.4/d6/d00/tutorial_py_root.html">OpenCV: OpenCV-Python Tutorials</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://docs.opencv.org/4.5.4/d9/df8/tutorial_root.html">OpenCV:
+OpenCV Tutorials</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://docs.opencv.org/4.5.4/d6/d00/tutorial_py_root.html">OpenCV:
+OpenCV-Python Tutorials</a></li>
 </ul>
 
     </div>
@@ -776,14 +815,14 @@ Iter <span class="token number">9</span><span class="token punctuation">,</span>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">314k</span>
+    <span title="站点总字数">296k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:45</span>
+    <span title="站点阅读时长">4:29</span>
   </span>
 </div>
 <div class="busuanzi-count">
