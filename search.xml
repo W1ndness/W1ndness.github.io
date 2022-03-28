@@ -1151,9 +1151,9 @@ class="math inline">\(O(n^3)=50^3=1.25\times 10^5\)</span>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Java</tag>
         <tag>Hash</tag>
         <tag>LeetCode</tag>
@@ -1470,9 +1470,9 @@ href="https://leetcode-cn.com/problems/maximum-number-of-achievable-transfer-req
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Java</tag>
         <tag>LeetCode</tag>
         <tag>DFS</tag>
@@ -1786,9 +1786,9 @@ href="https://leetcode-cn.com/problems/single-element-in-a-sorted-array/solution
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Java</tag>
         <tag>Hash</tag>
         <tag>LeetCode</tag>
@@ -1922,9 +1922,9 @@ href="https://leetcode-cn.com/problems/maximum-number-of-balloons/solution/qi-qi
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Java</tag>
         <tag>Hash</tag>
         <tag>LeetCode</tag>
@@ -2458,9 +2458,9 @@ href="https://leetcode-cn.com/problems/number-of-enclaves/solution/gong-shui-san
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Java</tag>
         <tag>LeetCode</tag>
       </tags>
@@ -2612,9 +2612,9 @@ href="https://leetcode-cn.com/problems/simplified-fractions/solution/zui-jian-fe
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Java</tag>
         <tag>LeetCode</tag>
       </tags>
@@ -2733,9 +2733,9 @@ href="https://leetcode-cn.com/problems/minimum-difference-between-highest-and-lo
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Java</tag>
         <tag>LeetCode</tag>
       </tags>
@@ -2906,9 +2906,9 @@ K 的数对数目 - 差的绝对值为 K 的数对数目 - 力扣（LeetCode）
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Java</tag>
         <tag>LeetCode</tag>
       </tags>
@@ -3227,9 +3227,9 @@ href="https://leetcode-cn.com/problems/grid-illumination/solution/gong-shui-san-
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Java</tag>
         <tag>Hash</tag>
         <tag>LeetCode</tag>
@@ -3461,9 +3461,9 @@ href="https://leetcode-cn.com/problems/longest-happy-string/solution/zui-chang-k
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Java</tag>
         <tag>LeetCode</tag>
       </tags>
@@ -5581,9 +5581,9 @@ f(i,j)=f(i-1,j-1)+f(i-j,j)
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>DP</tag>
       </tags>
   </entry>
@@ -5689,9 +5689,9 @@ f(i,j)=\min_{i\le k\le j}\{f(i,k)+f(k+1,j)+s_j-s_{i-1}\}
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>DP</tag>
       </tags>
   </entry>
@@ -6332,9 +6332,9 @@ href="https://www.acwing.com/problem/content/description/901/">AcWing
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>DP</tag>
       </tags>
   </entry>
@@ -7321,9 +7321,9 @@ W_{iS_i}\\
         <category>动态规划</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>DP</tag>
       </tags>
   </entry>
@@ -7711,9 +7711,9 @@ class="math display">\[
         <category>数学知识</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Number Theory</tag>
         <tag>Game Theory</tag>
         <tag>Nim games</tag>
@@ -7858,9 +7858,9 @@ class="math inline">\(\displaystyle
         <category>数学知识</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Number Theory</tag>
         <tag>Inclusion and Exclusion principle</tag>
       </tags>
@@ -8636,9 +8636,9 @@ res <span class="token operator">=</span> factorial<span class="token punctuatio
         <category>数学知识</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Number Theory</tag>
         <tag>Combination number</tag>
       </tags>
@@ -9023,9 +9023,9 @@ i,\displaystyle-r_k\times\frac{a_{ij}}{a_{kj}}+r_i\)</span>​​​​​</li>
         <category>数学知识</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Number Theory</tag>
         <tag>Gauss-Jordan Elimination</tag>
       </tags>
@@ -9807,9 +9807,9 @@ LL <span class="token function">exgcd</span><span class="token punctuation">(</s
         <category>数学知识</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Number Theory</tag>
         <tag>Euler function</tag>
         <tag>Fast power multiplication</tag>
@@ -10490,9 +10490,9 @@ if __name__ &#x3D;&#x3D; &#39;__main__&#39;:
         <category>数学知识</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Number Theory</tag>
         <tag>Prime number</tag>
         <tag>Divisor</tag>
@@ -10959,9 +10959,9 @@ class="math inline">\(A\)</span>
         <category>搜索与图论</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Bipartite Graph</tag>
         <tag>Hungarian Algorithm</tag>
       </tags>
@@ -11935,9 +11935,9 @@ item <span class="token operator">=</span> Queue<span class="token punctuation">
         <category>搜索与图论</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Shortest Path</tag>
         <tag>Dijkstra</tag>
         <tag>SPFA</tag>
@@ -12886,9 +12886,9 @@ DFS 和 BFS
         <category>搜索与图论</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>DFS</tag>
         <tag>BFS</tag>
       </tags>
@@ -13196,9 +13196,9 @@ class="math inline">\(a,b\)</span>
         <category>搜索与图论</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Minimum spanning tree</tag>
         <tag>Prim</tag>
         <tag>Kruskal</tag>
@@ -13379,9 +13379,9 @@ s<span class="token punctuation">.</span><span class="token function">flip</span
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>STL</tag>
         <tag>Data Structure</tag>
       </tags>
@@ -13736,9 +13736,9 @@ ULL h<span class="token punctuation">[</span>N<span class="token punctuation">]<
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Data Structure</tag>
         <tag>Hash</tag>
       </tags>
@@ -14074,9 +14074,9 @@ h<span class="token punctuation">[</span>k<span class="token punctuation">]</spa
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Data Structure</tag>
         <tag>Heap</tag>
       </tags>
@@ -14430,9 +14430,9 @@ class="math inline">\(d(x)+i-d(y)\equiv0(\text{mod }3)\)</span>​​
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Data Structure</tag>
         <tag>Union Set</tag>
       </tags>
@@ -14707,9 +14707,9 @@ class="math inline">\(1\)</span>​
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Trie</tag>
         <tag>Data Struture</tag>
       </tags>
@@ -14836,9 +14836,9 @@ j <span class="token operator">=</span> <span class="token number">0</span>
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>KMP</tag>
       </tags>
   </entry>
@@ -15306,9 +15306,9 @@ tt <span class="token operator">=</span> <span class="token operator">-</span><s
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Data Structure</tag>
         <tag>Stack</tag>
         <tag>Queue</tag>
@@ -15617,9 +15617,9 @@ class="math inline">\(1\)</span> 是两个空结点！！！</p>
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Data Structure</tag>
         <tag>Link list</tag>
       </tags>
@@ -15962,9 +15962,9 @@ res<span class="token punctuation">.</span>append<span class="token punctuation"
         <category>基础算法</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Template</tag>
         <tag>Bit operation</tag>
         <tag>Discretization</tag>
@@ -16137,9 +16137,9 @@ j <span class="token operator">=</span> <span class="token number">0</span>
         <category>基础算法</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Template</tag>
         <tag>Double pointer algorithm</tag>
       </tags>
@@ -16663,9 +16663,9 @@ href="https://www.acwing.com/activity/content/problem/content/832/1/">AcWing
         <category>基础算法</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Template</tag>
         <tag>Prefix sum</tag>
         <tag>Difference</tag>
@@ -17323,9 +17323,9 @@ eps <span class="token operator">=</span> <span class="token number">1e</span><s
         <category>基础算法</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Template</tag>
         <tag>Binary Search</tag>
       </tags>
@@ -17760,9 +17760,9 @@ class="math inline">\(mid-i+1\)</span> 。</li>
         <category>基础算法</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Algorithm</tag>
         <tag>C++</tag>
+        <tag>Python</tag>
         <tag>Sort</tag>
         <tag>Template</tag>
       </tags>
