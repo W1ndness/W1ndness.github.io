@@ -30,12 +30,16 @@
 <meta property="og:description" content="LeetCode 1601 最多可达成的换楼请求数目">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.shields.io/badge/Difficulty-Hard-red">
+<meta property="og:image" content="https://img.shields.io/badge/Date-2%2F28%2F2022-blueviolet">
+<meta property="og:image" content="https://img.shields.io/badge/Check-Accepted-brightgreen">
+<meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/26/move1.jpg">
+<meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/26/move2.jpg">
 <meta property="article:published_time" content="2022-02-14T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-02-28T09:49:52.497Z">
 <meta property="article:author" content="LeoLang">
-<meta property="article:tag" content="Python">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="C++">
+<meta property="article:tag" content="Python">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="DFS">
@@ -163,8 +167,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-1601-%E6%9C%80%E5%A4%9A%E5%8F%AF%E8%BE%BE%E6%88%90%E7%9A%84%E6%8D%A2%E6%A5%BC%E8%AF%B7%E6%B1%82%E6%95%B0%E7%9B%AE"><span class="nav-text">LeetCode 1601
-最多可达成的换楼请求数目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-link"><span class="nav-text">Problem Link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-description"><span class="nav-text">Problem Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#submit-code"><span class="nav-text">Submit Code</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#methods-a"><span class="nav-text">Methods a</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#methods-b"><span class="nav-text">Methods b</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code-explanation"><span class="nav-text">Code Explanation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reference"><span class="nav-text">Reference</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-1601-%E6%9C%80%E5%A4%9A%E5%8F%AF%E8%BE%BE%E6%88%90%E7%9A%84%E6%8D%A2%E6%A5%BC%E8%AF%B7%E6%B1%82%E6%95%B0%E7%9B%AE"><span class="nav-text"> LeetCode 1601 最多可达成的换楼请求数目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-link"><span class="nav-text"> Problem Link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-description"><span class="nav-text"> Problem Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text"> Solution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#submit-code"><span class="nav-text"> Submit Code</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#methods-a"><span class="nav-text"> Methods a</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#methods-b"><span class="nav-text"> Methods b</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code-explanation"><span class="nav-text"> Code Explanation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reference"><span class="nav-text"> Reference</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -347,43 +350,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="leetcode-1601-最多可达成的换楼请求数目">LeetCode 1601
-最多可达成的换楼请求数目</h1>
+        <h1 id="leetcode-1601-最多可达成的换楼请求数目"><a class="markdownIt-Anchor" href="#leetcode-1601-最多可达成的换楼请求数目"></a> LeetCode 1601 最多可达成的换楼请求数目</h1>
 <span id="more"></span>
-<h3 id="problem-link">Problem Link</h3>
-<p><a
-target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-number-of-achievable-transfer-requests/">1601.
-最多可达成的换楼请求数目 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
-<p><img src="https://img.shields.io/badge/Difficulty-Hard-red"
-alt="Difficulty: Medium (shields.io)" /><img
-src="https://img.shields.io/badge/Date-2%2F28%2F2022-blueviolet"
-alt="Date: 2/28/2022 (shields.io)" /> <img
-src="https://img.shields.io/badge/Check-Accepted-brightgreen"
-alt="Check: Accepted (shields.io)" /></p>
-<h3 id="problem-description">Problem Description</h3>
-<p>我们有 <code>n</code> 栋楼，编号从 <code>0</code> 到
-<code>n - 1</code>
-。每栋楼有若干员工。由于现在是换楼的季节，部分员工想要换一栋楼居住。</p>
-<p>给你一个数组 <code>requests</code> ，其中
-<code>requests[i] = [fromi, toi]</code> ，表示一个员工请求从编号为
-<code>fromi</code> 的楼搬到编号为 <code>toi</code> 的楼。</p>
-<p>一开始
-<strong>所有楼都是满的</strong>，所以从请求列表中选出的若干个请求是可行的需要满足
-<strong>每栋楼员工净变化为 0</strong> 。意思是每栋楼
-<strong>离开</strong> 的员工数目 <strong>等于</strong> 该楼
-<strong>搬入</strong> 的员工数数目。比方说 <code>n = 3</code>
-且两个员工要离开楼 <code>0</code> ，一个员工要离开楼 <code>1</code>
-，一个员工要离开楼 <code>2</code>
-，如果该请求列表可行，应该要有两个员工搬入楼 <code>0</code>
-，一个员工搬入楼 <code>1</code> ，一个员工搬入楼 <code>2</code> 。</p>
+<h3 id="problem-link"><a class="markdownIt-Anchor" href="#problem-link"></a> Problem Link</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-number-of-achievable-transfer-requests/">1601. 最多可达成的换楼请求数目 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<p><img src="https://img.shields.io/badge/Difficulty-Hard-red" alt="Difficulty: Medium (shields.io)" /><img src="https://img.shields.io/badge/Date-2%2F28%2F2022-blueviolet" alt="Date: 2/28/2022 (shields.io)" /> <img src="https://img.shields.io/badge/Check-Accepted-brightgreen" alt="Check: Accepted (shields.io)" /></p>
+<h3 id="problem-description"><a class="markdownIt-Anchor" href="#problem-description"></a> Problem Description</h3>
+<p>我们有 <code>n</code> 栋楼，编号从 <code>0</code> 到 <code>n - 1</code> 。每栋楼有若干员工。由于现在是换楼的季节，部分员工想要换一栋楼居住。</p>
+<p>给你一个数组 <code>requests</code> ，其中 <code>requests[i] = [fromi, toi]</code> ，表示一个员工请求从编号为 <code>fromi</code> 的楼搬到编号为 <code>toi</code> 的楼。</p>
+<p>一开始 <strong>所有楼都是满的</strong>，所以从请求列表中选出的若干个请求是可行的需要满足 <strong>每栋楼员工净变化为 0</strong> 。意思是每栋楼 <strong>离开</strong> 的员工数目 <strong>等于</strong> 该楼 <strong>搬入</strong> 的员工数数目。比方说 <code>n = 3</code> 且两个员工要离开楼 <code>0</code> ，一个员工要离开楼 <code>1</code> ，一个员工要离开楼 <code>2</code> ，如果该请求列表可行，应该要有两个员工搬入楼 <code>0</code> ，一个员工搬入楼 <code>1</code> ，一个员工搬入楼 <code>2</code> 。</p>
 <p>请你从原请求列表中选出若干个请求，使得它们是一个可行的请求列表，并返回所有可行列表中最大请求数目。</p>
 <p><strong>示例 1：</strong></p>
-<figure>
-<img
-src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/26/move1.jpg"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/26/move1.jpg" alt="img" /></p>
 <pre class="language-none"><code class="language-none">输入：n &#x3D; 5, requests &#x3D; [[0,1],[1,0],[0,1],[1,2],[2,0],[3,4]]
 输出：5
 解释：请求列表如下：
@@ -396,12 +374,7 @@ alt="img" />
 我们可以让 y，a 和 z 三人在三栋楼间交换位置，满足他们的要求。
 所以最多可以满足 5 个请求。</code></pre>
 <p><strong>示例 2：</strong></p>
-<figure>
-<img
-src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/26/move2.jpg"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/26/move2.jpg" alt="img" /></p>
 <pre class="language-none"><code class="language-none">输入：n &#x3D; 3, requests &#x3D; [[0,0],[1,2],[2,1]]
 输出：3
 解释：请求列表如下：
@@ -419,34 +392,15 @@ alt="img" />
 <li><code>requests[i].length == 2</code></li>
 <li><code>0 &lt;= fromi, toi &lt; n</code></li>
 </ul>
-<h3 id="solution">Solution</h3>
+<h3 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h3>
 <p>首先，是朴素的暴力枚举做法。</p>
 <p>本题实质上是一个搜索问题，对于每一个请求，都有满足和不满足两种可能，那么这样也就形成了两种决策分支。搜索树的每一个节点表示的状态为每一个请求的选取状态，最终形成一个包含所有决策可能的决策树。</p>
-<p>那么首先就可以想到深度优先搜索（DFS）。我们假定根节点为任何决策都不予满足，即没有发生换楼的初始状态。对于每一个请求，我们可以选取或不选取，若不选取，则直接进入该节点的子节点，即对下一个位置的请求作出是否满足的决策；若选取，则需要进行相应状态的更新。这也是
-DFS 的基本思路。</p>
-<p>那么下面分析需要哪些量进行维护而实现最终题目要求。题目要求每一栋楼的净变化为
-<span class="math inline">\(0\)</span>
-，那么我们应该为每一栋楼维护一个变化值 <span
-class="math inline">\(\Delta\)</span> ，如果最终 <span
-class="math inline">\(\Delta=0\)</span> ，证明这栋楼变化量为 <span
-class="math inline">\(0\)</span> 。如果最终的结果所有楼的 <span
-class="math inline">\(\Delta=0\)</span>
-，那么证明符合要求，就可以更新答案。那么如何统计没有变化的楼的数量呢？当楼的数量变多时，显然每次都遍历一边整个
-<span class="math inline">\(\Delta\)</span>
-数组是不可能的，那么优化的方法就是动态维护一个记录 <span
-class="math inline">\(\Delta=0\)</span>
-数量的变量，如果最后这个变量和楼的数量相等，那么证明该种决策方式成立。</p>
+<p>那么首先就可以想到深度优先搜索（DFS）。我们假定根节点为任何决策都不予满足，即没有发生换楼的初始状态。对于每一个请求，我们可以选取或不选取，若不选取，则直接进入该节点的子节点，即对下一个位置的请求作出是否满足的决策；若选取，则需要进行相应状态的更新。这也是 DFS 的基本思路。</p>
+<p>那么下面分析需要哪些量进行维护而实现最终题目要求。题目要求每一栋楼的净变化为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span></span></span></span> ，那么我们应该为每一栋楼维护一个变化值 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">\Delta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">Δ</span></span></span></span> ，如果最终 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">Δ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Delta=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">Δ</span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span></span> ，证明这栋楼变化量为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span></span></span></span> 。如果最终的结果所有楼的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">Δ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Delta=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">Δ</span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span></span> ，那么证明符合要求，就可以更新答案。那么如何统计没有变化的楼的数量呢？当楼的数量变多时，显然每次都遍历一边整个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">\Delta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">Δ</span></span></span></span> 数组是不可能的，那么优化的方法就是动态维护一个记录 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">Δ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Delta=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">Δ</span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span></span> 数量的变量，如果最后这个变量和楼的数量相等，那么证明该种决策方式成立。</p>
 <p>最后，对于答案，只需要维护成立的决策方式中被满足的请求数量最大的即可。</p>
-<p>接下来讨论如何优化上述算法。一般来说，对于枚举算法的优化是二进制压缩，即通过一掩码
-<span class="math inline">\(mask\)</span> 表示当前状态，如果当前位为
-<span class="math inline">\(1\)</span>
-，表示满足当前情况。那么，本题就通过二进制压缩枚举情况，枚举 <span
-class="math inline">\([0,2^m-1]\)</span>
-区间内的所有整数作为每一种情况，对于每一种情况的处理思路等同于上面的处理思路。如果二进制枚举的情况从小到大数字中
-<span class="math inline">\(1\)</span>
-的数目比当前答案大，并且当前情况符合题意，那么便更新答案。最终即可得到答案。</p>
-<h3 id="submit-code">Submit Code</h3>
-<h4 id="methods-a">Methods a</h4>
+<p>接下来讨论如何优化上述算法。一般来说，对于枚举算法的优化是二进制压缩，即通过一掩码 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>a</mi><mi>s</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">mask</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span><span class="mord mathit">a</span><span class="mord mathit">s</span><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 表示当前状态，如果当前位为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> ，表示满足当前情况。那么，本题就通过二进制压缩枚举情况，枚举 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mn>0</mn><mo separator="true">,</mo><msup><mn>2</mn><mi>m</mi></msup><mo>−</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">[0,2^m-1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit">m</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">]</span></span></span></span> 区间内的所有整数作为每一种情况，对于每一种情况的处理思路等同于上面的处理思路。如果二进制枚举的情况从小到大数字中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> 的数目比当前答案大，并且当前情况符合题意，那么便更新答案。最终即可得到答案。</p>
+<h3 id="submit-code"><a class="markdownIt-Anchor" href="#submit-code"></a> Submit Code</h3>
+<h4 id="methods-a"><a class="markdownIt-Anchor" href="#methods-a"></a> Methods a</h4>
 <p><strong>lang = C++</strong></p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
 <span class="token keyword">private</span><span class="token operator">:</span>
@@ -553,7 +507,7 @@ class="math inline">\([0,2^m-1]\)</span>
         zeros <span class="token operator">=</span> backup<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
-<h4 id="methods-b">Methods b</h4>
+<h4 id="methods-b"><a class="markdownIt-Anchor" href="#methods-b"></a> Methods b</h4>
 <p><strong>lang = C++</strong></p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
@@ -631,24 +585,19 @@ class="math inline">\([0,2^m-1]\)</span>
         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
-<h3 id="code-explanation">Code Explanation</h3>
-<p>对于统计数字二进制表示中 <span class="math inline">\(1\)</span>
-的个数的 API：</p>
+<h3 id="code-explanation"><a class="markdownIt-Anchor" href="#code-explanation"></a> Code Explanation</h3>
+<p>对于统计数字二进制表示中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> 的个数的 API：</p>
 <p>C++ 采用 GCC 内建函数 <code>__builtin_popcount()</code></p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> x<span class="token punctuation">;</span>
 cnt <span class="token operator">=</span> <span class="token function">__builtin_popcount</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>Python 采用 <code>int</code> 对象方法
-<code>int.bit_count()</code></p>
+<p>Python 采用 <code>int</code> 对象方法 <code>int.bit_count()</code></p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token builtin">int</span> x<span class="token punctuation">;</span>
 cnt <span class="token operator">=</span> x<span class="token punctuation">.</span>bit_count<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>Java 采用包裹类型 <code>Integer</code> 的方法
-<code>Integer.bitCount()</code></p>
+<p>Java 采用包裹类型 <code>Integer</code> 的方法 <code>Integer.bitCount()</code></p>
 <pre class="language-Java" data-language="Java"><code class="language-Java">int x;
 cnt &#x3D; Integer.bitCount(x);</code></pre>
-<h3 id="reference">Reference</h3>
-<p>LeetCode 官方题解 <a
-target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-number-of-achievable-transfer-requests/solution/zui-duo-ke-da-cheng-de-huan-lou-qing-qiu-ae0e/">最多可达成的换楼请求数目
-- 最多可达成的换楼请求数目 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<h3 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h3>
+<p>LeetCode 官方题解 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-number-of-achievable-transfer-requests/solution/zui-duo-ke-da-cheng-de-huan-lou-qing-qiu-ae0e/">最多可达成的换楼请求数目 - 最多可达成的换楼请求数目 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
 
     </div>
 
@@ -675,9 +624,9 @@ target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-nu
 </div>
 
           <div class="post-tags">
-              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
               <a href="/tags/Algorithm/" rel="tag"><i class="fa fa-tag"></i> Algorithm</a>
               <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
               <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
               <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
               <a href="/tags/DFS/" rel="tag"><i class="fa fa-tag"></i> DFS</a>
@@ -728,14 +677,14 @@ target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-nu
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">296k</span>
+    <span title="站点总字数">314k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:29</span>
+    <span title="站点阅读时长">4:45</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -792,5 +741,5 @@ target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-nu
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvB8TI3f","appkey":"73c618e7e6297e7a69f0c1377f03ffc4"}</script>
 <script src="/js/third-party/comments/changyan.js"></script>
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModePath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"positon":"right","width":150,"height":300},"mobile":false,"log":false,"pluginModelPath":"assets/"});</script></body>
 </html>
