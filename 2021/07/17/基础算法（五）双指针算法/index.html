@@ -32,9 +32,9 @@
 <meta property="article:published_time" content="2021-07-16T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-08-10T04:10:46.000Z">
 <meta property="article:author" content="LeoLang">
+<meta property="article:tag" content="Python">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="Python">
 <meta property="article:tag" content="Template">
 <meta property="article:tag" content="Double pointer algorithm">
 <meta name="twitter:card" content="summary">
@@ -160,7 +160,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%BA%94%E5%8F%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%B3%95"><span class="nav-text"> 基础算法（五）双指针算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E6%A8%A1%E6%9D%BF"><span class="nav-text"> 通用模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%B3%95%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text"> 双指针算法的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-text"> 例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text"> 总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%A0%E9%A2%98"><span class="nav-text"> 习题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#acwing-799"><span class="nav-text"> AcWing 799</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#acwing-800"><span class="nav-text"> AcWing 800</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#acwing-2816"><span class="nav-text"> AcWing 2816</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E4%BA%94%E5%8F%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%B3%95"><span class="nav-text">基础算法（五）双指针算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E6%A8%A1%E6%9D%BF"><span class="nav-text">通用模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%B3%95%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">双指针算法的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-text">例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%A0%E9%A2%98"><span class="nav-text">习题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#acwing-799"><span class="nav-text">AcWing 799</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#acwing-800"><span class="nav-text">AcWing 800</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#acwing-2816"><span class="nav-text">AcWing 2816</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -351,25 +351,29 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+        <h1 id="前言">前言</h1>
 <p>本文将介绍双指针算法的有关内容。</p>
 <span id="more"></span>
-<h1 id="基础算法五双指针算法"><a class="markdownIt-Anchor" href="#基础算法五双指针算法"></a> 基础算法（五）双指针算法</h1>
+<h1 id="基础算法五双指针算法">基础算法（五）双指针算法</h1>
 <p>回忆归并排序的过程，那个实质上就是一类双指针算法。双指针算法有两类：指针指向两个不同序列、指针指向同一个序列。代码的通用的模板都是一样的。</p>
-<h2 id="通用模板"><a class="markdownIt-Anchor" href="#通用模板"></a> 通用模板</h2>
+<h2 id="通用模板">通用模板</h2>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">while</span> <span class="token punctuation">(</span>j <span class="token operator">&lt;</span> i <span class="token operator">&amp;&amp;</span> <span class="token function">check</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">)</span> j<span class="token operator">++</span><span class="token punctuation">;</span>
   <span class="token comment">/* 具体逻辑 */</span>
 <span class="token punctuation">&#125;</span></code></pre>
-<h2 id="双指针算法的作用"><a class="markdownIt-Anchor" href="#双指针算法的作用"></a> 双指针算法的作用</h2>
-<p>二维的朴素暴力遍历即用两个指针扫描一个序列的话复杂度是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span> 的，正常暴力的写法是这样的：</p>
+<h2 id="双指针算法的作用">双指针算法的作用</h2>
+<p>二维的朴素暴力遍历即用两个指针扫描一个序列的话复杂度是 <span
+class="math inline">\(O(n^2)\)</span> 的，正常暴力的写法是这样的：</p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> m<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">/* something else */</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
-<p>可以看到，两个指针在序列中游走最多也就是游动 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>n</mi></mrow><annotation encoding="application/x-tex">2n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span><span class="mord mathit">n</span></span></span></span> 次。双指针算法就是为了优化这种复杂度极高的遍历操作，能够通过==某些性质==将其降到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span> 复杂度。</p>
-<h2 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h2>
+<p>可以看到，两个指针在序列中游走最多也就是游动 <span
+class="math inline">\(2n\)</span>
+次。双指针算法就是为了优化这种复杂度极高的遍历操作，能够通过==某些性质==将其降到
+<span class="math inline">\(O(n)\)</span> 复杂度。</p>
+<h2 id="例子">例子</h2>
 <p>输入一个字符串，换行分别输出字符串中每个单词</p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
@@ -388,11 +392,13 @@
   <span class="token punctuation">&#125;</span>
   <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
-<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
-<p>双指针算法都是要先有一个双遍历的暴力的双遍历，之后再去观察是否对于两个指针是否有某种性质，有某种单调关系。如果有的话就可以想办法只遍历一次，即只用单一个指针进行遍历，而在遍历的过程中加入双指针进行操作和判断，将复杂度降至 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span></span></span></span> 。</p>
-<h1 id="习题"><a class="markdownIt-Anchor" href="#习题"></a> 习题</h1>
-<h2 id="acwing-799"><a class="markdownIt-Anchor" href="#acwing-799"></a> AcWing 799</h2>
-<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/801/">AcWing 799</a></p>
+<h2 id="总结">总结</h2>
+<p>双指针算法都是要先有一个双遍历的暴力的双遍历，之后再去观察是否对于两个指针是否有某种性质，有某种单调关系。如果有的话就可以想办法只遍历一次，即只用单一个指针进行遍历，而在遍历的过程中加入双指针进行操作和判断，将复杂度降至
+<span class="math inline">\(O(n)\)</span> 。</p>
+<h1 id="习题">习题</h1>
+<h2 id="acwing-799">AcWing 799</h2>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/801/">AcWing
+799</a></p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
@@ -428,8 +434,9 @@ res <span class="token operator">=</span> <span class="token number">0</span>
         j <span class="token operator">+=</span> <span class="token number">1</span>
     res <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> i <span class="token operator">-</span> j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span></code></pre>
-<h2 id="acwing-800"><a class="markdownIt-Anchor" href="#acwing-800"></a> AcWing 800</h2>
-<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/802">AcWing 800</a></p>
+<h2 id="acwing-800">AcWing 800</h2>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/802">AcWing
+800</a></p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
@@ -462,8 +469,9 @@ j <span class="token operator">=</span> m <span class="token operator">-</span> 
     <span class="token keyword">if</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> b<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> x<span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j<span class="token punctuation">)</span>
         <span class="token keyword">break</span></code></pre>
-<h2 id="acwing-2816"><a class="markdownIt-Anchor" href="#acwing-2816"></a> AcWing 2816</h2>
-<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/2818/">AcWing 2816</a></p>
+<h2 id="acwing-2816">AcWing 2816</h2>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/2818/">AcWing
+2816</a></p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
@@ -524,9 +532,9 @@ j <span class="token operator">=</span> <span class="token number">0</span>
 </div>
 
           <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
               <a href="/tags/Algorithm/" rel="tag"><i class="fa fa-tag"></i> Algorithm</a>
               <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
-              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
               <a href="/tags/Template/" rel="tag"><i class="fa fa-tag"></i> Template</a>
               <a href="/tags/Double-pointer-algorithm/" rel="tag"><i class="fa fa-tag"></i> Double pointer algorithm</a>
           </div>
@@ -576,14 +584,14 @@ j <span class="token operator">=</span> <span class="token number">0</span>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">323k</span>
+    <span title="站点总字数">305k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:53</span>
+    <span title="站点阅读时长">4:37</span>
   </span>
 </div>
 <div class="busuanzi-count">
