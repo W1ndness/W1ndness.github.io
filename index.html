@@ -95,7 +95,7 @@
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">67</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">18</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">45</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">46</span></a></li>
         <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
@@ -168,7 +168,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -370,6 +370,130 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://leolang.top/2022/04/01/Django%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="LeoLang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="W1ndness的技术栈">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/01/Django%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89/" class="post-title-link" itemprop="url">Django 教程（三）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-01 00:00:00 / 修改时间：21:35:27" itemprop="dateCreated datePublished" datetime="2022-04-01T00:00:00+08:00">2022-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E6%9D%82%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">学习杂文</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E6%9D%82%E6%96%87/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2022/04/01/Django%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="Django 教程（三）" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2022/04/01/Django%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::https://leolang.top/2022/04/01/Django%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89/" class="cy_cmt_count" data-xid="2022/04/01/Django教程（三）/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="前言">前言</h1>
+<p>本文将介绍 Django 与数据库做交互的组成部分之 —— Django 模型。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/04/01/Django%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://leolang.top/2022/03/31/Django%E6%95%99%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -525,7 +649,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-03-31 21:55:18" itemprop="dateModified" datetime="2022-03-31T21:55:18+08:00">2022-03-31</time>
+        <time title="修改时间：2022-04-01 21:37:08" itemprop="dateModified" datetime="2022-04-01T21:37:08+08:00">2022-04-01</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -571,7 +695,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
+      <span>1.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1394,136 +1518,6 @@ Django 的整体架构和环境搭建。</p>
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://leolang.top/2022/02/09/LeetCode%201984%20%E5%AD%A6%E7%94%9F%E5%88%86%E6%95%B0%E7%9A%84%E6%9C%80%E5%B0%8F%E5%B7%AE%E5%80%BC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="LeoLang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="W1ndness的技术栈">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/09/LeetCode%201984%20%E5%AD%A6%E7%94%9F%E5%88%86%E6%95%B0%E7%9A%84%E6%9C%80%E5%B0%8F%E5%B7%AE%E5%80%BC/" class="post-title-link" itemprop="url">LeetCode 1984</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-02-09 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-09T00:00:00+08:00">2022-02-09</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-02-13 20:15:56" itemprop="dateModified" datetime="2022-02-13T20:15:56+08:00">2022-02-13</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2022/02/09/LeetCode%201984%20%E5%AD%A6%E7%94%9F%E5%88%86%E6%95%B0%E7%9A%84%E6%9C%80%E5%B0%8F%E5%B7%AE%E5%80%BC/" class="post-meta-item leancloud_visitors" data-flag-title="LeetCode 1984" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2022/02/09/LeetCode%201984%20%E5%AD%A6%E7%94%9F%E5%88%86%E6%95%B0%E7%9A%84%E6%9C%80%E5%B0%8F%E5%B7%AE%E5%80%BC/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::https://leolang.top/2022/02/09/LeetCode%201984%20%E5%AD%A6%E7%94%9F%E5%88%86%E6%95%B0%E7%9A%84%E6%9C%80%E5%B0%8F%E5%B7%AE%E5%80%BC/" class="cy_cmt_count" data-xid="2022/02/09/LeetCode 1984 学生分数的最小差值/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.8k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="leetcode-1984-学生分数的最小差值">LeetCode 1984
-学生分数的最小差值</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/09/LeetCode%201984%20%E5%AD%A6%E7%94%9F%E5%88%86%E6%95%B0%E7%9A%84%E6%9C%80%E5%B0%8F%E5%B7%AE%E5%80%BC/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1549,14 +1543,14 @@ Django 的整体架构和环境搭建。</p>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">305k</span>
+    <span title="站点总字数">312k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:37</span>
+    <span title="站点阅读时长">4:43</span>
   </span>
 </div>
 <div class="busuanzi-count">
