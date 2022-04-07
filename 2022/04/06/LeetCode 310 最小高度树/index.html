@@ -33,11 +33,11 @@
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2020/09/01/e1.jpg">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2020/09/01/e2.jpg">
 <meta property="article:published_time" content="2022-04-05T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-04-06T14:01:11.843Z">
+<meta property="article:modified_time" content="2022-04-07T01:42:00.711Z">
 <meta property="article:author" content="LeoLang">
+<meta property="article:tag" content="Python">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="Python">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="DFS">
@@ -271,10 +271,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-04-06 00:00:00 / 修改时间：22:01:11" itemprop="dateCreated datePublished" datetime="2022-04-06T00:00:00+08:00">2022-04-06</time>
+      <time title="创建时间：2022-04-06 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-06T00:00:00+08:00">2022-04-06</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-04-07 09:42:00" itemprop="dateModified" datetime="2022-04-07T09:42:00+08:00">2022-04-07</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -326,7 +332,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>9.8k</span>
+      <span>9.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -420,7 +426,8 @@ class="math inline">\(O(n^3)\)</span>
 class="math inline">\(j\)</span> 的距离为 <span
 class="math inline">\(D_{ij}\)</span> ，所有距离构成集合 <span
 class="math inline">\(D=\{D_{ij}\}\)</span> ，其中 <span
-class="math inline">\(i\neq j\)</span> ，且 $ i,j, i,jZ$
+class="math inline">\(i\neq j\)</span> ，且 <span
+class="math inline">\(i,j\in[1,n],\ i,j\in\mathbb{Z}\)</span>
 。假设树上最长距离为点对 <span class="math inline">\((x, y)\)</span>
 间的距离，即 <span class="math inline">\(\max D=D_{xy}\)</span>
 。为下文简便，这里简记最大距离为 <span
@@ -495,19 +502,25 @@ x \iff z\to\cdots\to a\quad +\quad a\to\cdots\to x\\
 y \iff z\to\cdots\to a\quad +\quad a\to\cdots\to y\\
   \end{align}
   \]</span> 于是有 <span class="math display">\[
+  \begin{align}
   D_{zx}=D_{za}+D_{ax}\\
   D_{zy}=D_{za}+D_{ay}\\
+  \end{align}
   \]</span> 由树的高度的定义，有 <span class="math display">\[
+  \begin{align}
   D_{zx}=D_{za}+D_{ax}\le h&#39;\\
   D_{zy}=D_{za}+D_{ay}\le h&#39;\\
+  \end{align}
   \]</span> 仍然以 <span class="math inline">\(z\)</span>
 为根的视角观察树，一定有 <span class="math inline">\(D_{za}\ge
 1\)</span> 成立，因为 <span class="math inline">\(a\)</span> 一定是
 <span class="math inline">\(z\)</span> 的子节点。那么，将 <span
 class="math inline">\(D_{za}\ge 1\)</span> 代入上面的不等式，可以推得
 <span class="math display">\[
+  \begin{align}
   D_{ax}\le h&#39;-1\\
   D_{ay}\le h&#39;-1
+  \end{align}
   \]</span> 我们发现，由于引入了一路径公共点 <span
 class="math inline">\(a\)</span> ，点对 <span
 class="math inline">\((x,y)\)</span> 间的路径就可以拆分为 <span
@@ -551,15 +564,19 @@ class="math inline">\(y\)</span> 的路径上。</p>
 <span class="math inline">\(z\)</span> 是一个能够取得最小高度 <span
 class="math inline">\(h\)</span> 的节点，于是一定有如下不等式成立：
 <span class="math display">\[
+\begin{align}
 D_{zx}=D_{za}+D_{ax}\le h\\
 D_{zy}=D_{za}+D_{ay}\le h\\
+\end{align}
 \]</span> 同样的，由于 <span class="math inline">\(z\)</span>
 不在路径上，并且有一路径交叉点 <span class="math inline">\(a\)</span>
 ，以 <span class="math inline">\(z\)</span> 为根的视角观察树，一定有
 <span class="math inline">\(D_{za}\ge 1\)</span> 成立。那么推得 <span
 class="math display">\[
+\begin{align}
 D_{ax}\le h-1\\
 D_{ay}\le h-1
+\end{align}
 \]</span> 我们仍然计算 <span class="math inline">\(D_{xy}\)</span> 得
 <span class="math display">\[
 \begin{align}
@@ -610,8 +627,8 @@ class="math inline">\(y\)</span>
 <p>我们首先以比较通俗的方式粗略理解一下这个算法。假设我们就从能取得最小高度的节点作为根节点出发。由根节点向一个方向进行遍历找到距离它最远的叶节点。之后再从这一叶节点出发，找到的距离这个叶节点的最远的另一个叶节点。这一过程相当于是从根节点又反向的延长了原来找到的路径，从而找到了在当前树中的最长路径。</p>
 <p>这一问题其实出自著名难啃大黑书《算法导论》图论算法的一道图遍历算法的课后题。这里把这道题贴一下。</p>
 <blockquote>
-<p>Exercises 22.2-7 <em>, Page 539 in Second Edition, or Exercises
-22.2-8 </em>, in Third Edition.</p>
+<p>Exercises 22.2-7 *, Page 539 in Second Edition, or Exercises 22.2-8
+*, in Third Edition.</p>
 <p>The <strong>diameter</strong> of a tree <span
 class="math inline">\(T=(V,E)\)</span> is given by <span
 class="math display">\[
@@ -733,8 +750,10 @@ class="math inline">\(\delta(u,b)=\delta(a,b)\)</span> 。</p>
 class="math inline">\(\delta(a,b)=\delta(u,b)\)</span> 。由于 <span
 class="math inline">\(\delta(a,b),\delta(u,v)\)</span>
 都是最长的距离，就有一下不等式成立： <span class="math display">\[
+\begin{align}
 \delta(a,b)\ge\delta(u,v)\\
 \delta(u,v)\ge\delta(u,b)
+\end{align}
 \]</span> 那么综合以上式子，我们有以下推理： <span
 class="math display">\[
 \left.\begin{gather}
@@ -928,9 +947,9 @@ target="_blank" rel="noopener" href="http://courses.csail.mit.edu/6.046/fall01/h
 </div>
 
           <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
               <a href="/tags/Algorithm/" rel="tag"><i class="fa fa-tag"></i> Algorithm</a>
               <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
-              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
               <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
               <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
               <a href="/tags/DFS/" rel="tag"><i class="fa fa-tag"></i> DFS</a>
