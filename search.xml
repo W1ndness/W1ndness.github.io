@@ -2515,7 +2515,7 @@ href="https://www.djangoproject.com/download/">Download Django | Django
 (djangoproject.com)</a></p>
 <p>下载 <code>.tar.gz</code> 包，通过 Terminal <code>tar</code>
 命令解压：</p>
-<p><pre class="language-shell" data-language="shell"><code class="language-shell">$ <span class="token function">tar</span> zxvf Django-3.x.y.tar.gz</code></pre></p></li>
+<p><pre class="language-shell" data-language="shell"><code class="language-shell">$ tar zxvf Django-3.x.y.tar.gz</code></pre></p></li>
 <li><p>通过 Github 下载</p>
 <p>直接通过 Mac 的 Git 工具拉下来即可：</p>
 <p><pre class="language-sh" data-language="sh"><code class="language-sh">$ git clone https:&#x2F;&#x2F;github.com&#x2F;django&#x2F;django.git</code></pre></p></li>
