@@ -1167,7 +1167,7 @@ class="math inline">\(J^\mathrm{T}\)</span> 的变换相当于只对矩阵 <span
 class="math inline">\(A\)</span> 的第 <span
 class="math inline">\(p,q\)</span> 行产生了影响。继续看第二步变换 <span
 class="math display">\[
-B&amp;=UJ
+B=UJ
 =
 \begin{bmatrix}
 u_{11} &amp; \cdots &amp; u_{1p} &amp; \cdots &amp; u_{1q} &amp; \cdots
