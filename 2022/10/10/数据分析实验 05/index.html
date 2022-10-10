@@ -22,40 +22,26 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.leolang.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":false,"nav":null,"activeClass":"changyan"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="前言 本文将介绍数据分析第五次实验分析疫情数据的全过程。 本文在 Kaggle 平台上完成，对应的 Kaggle notebook 链接为  Data-Analysis-Exp05 | Kaggle 。">
+<meta name="description" content="前言 本文将介绍数据分析第五次实验分析疫情数据的全过程。 本文在 Kaggle 平台上完成，对应的 Kaggle notebook 链接为 Data-Analysis-Exp05 | Kaggle 。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据分析实验 05">
 <meta property="og:url" content="https://www.leolang.top/2022/10/10/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%AE%9E%E9%AA%8C%2005/index.html">
 <meta property="og:site_name" content="W1ndness的技术栈">
-<meta property="og:description" content="前言 本文将介绍数据分析第五次实验分析疫情数据的全过程。 本文在 Kaggle 平台上完成，对应的 Kaggle notebook 链接为  Data-Analysis-Exp05 | Kaggle 。">
+<meta property="og:description" content="前言 本文将介绍数据分析第五次实验分析疫情数据的全过程。 本文在 Kaggle 平台上完成，对应的 Kaggle notebook 链接为 Data-Analysis-Exp05 | Kaggle 。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-08%2023.48.17.png">
-<meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-08%2023.52.20.png">
-<meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-08%2023.56.25.png">
-<meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2008.52.37.png">
-<meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2008.56.00.png">
-<meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2015.20.23.png">
-<meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2015.09.20.png">
-<meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2015.31.14.png">
-<meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2015.37.03.png">
-<meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2023.05.10.png">
-<meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2023.16.19.png">
 <meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2016.19.26.png">
 <meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2016.47.31.png">
 <meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2016.49.57.png">
-<meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2016.59.36.png">
 <meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2017.07.12.png">
 <meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2017.15.27.png">
 <meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2017.17.32.png">
-<meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/Day-6-20221010191154852.png">
-<meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/Day-10.png">
 <meta property="article:published_time" content="2022-10-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-10T11:34:10.940Z">
+<meta property="article:modified_time" content="2022-10-10T11:50:33.140Z">
 <meta property="article:author" content="LeoLang">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Data Analysis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-08%2023.48.17.png">
+<meta name="twitter:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2016.19.26.png">
 
 
 <link rel="canonical" href="https://www.leolang.top/2022/10/10/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%AE%9E%E9%AA%8C%2005/">
@@ -178,7 +164,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%AE%9E%E9%AA%8C-05"><span class="nav-text"> 数据分析实验 05</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-text"> 0 写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83"><span class="nav-text"> 1 实验环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%97%AE%E9%A2%98%E9%87%8D%E8%BF%B0"><span class="nav-text"> 2 问题重述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-text"> 3 问题分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#31-%E4%BB%BB%E5%8A%A1%E4%B8%80"><span class="nav-text"> 3.1 任务一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#32-%E4%BB%BB%E5%8A%A1%E4%BA%8C"><span class="nav-text"> 3.2 任务二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#33-%E4%BB%BB%E5%8A%A1%E4%B8%89"><span class="nav-text"> 3.3 任务三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#34-%E9%99%84%E5%8A%A0%E9%A2%98%E4%BB%BB%E5%8A%A1%E5%9B%9B"><span class="nav-text"> 3.4 附加题：任务四</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%BB%BB%E5%8A%A1%E5%AE%9E%E7%8E%B0"><span class="nav-text"> 4 任务实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#40-%E5%AF%BC%E5%8C%85%E5%92%8C%E7%9C%8B%E6%95%B0%E6%8D%AE"><span class="nav-text"> 4.0 导包和看数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#41-%E4%BB%BB%E5%8A%A1%E4%B8%80"><span class="nav-text"> 4.1 任务一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#42-%E4%BB%BB%E5%8A%A1%E4%BA%8C"><span class="nav-text"> 4.2 任务二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#43-%E4%BB%BB%E5%8A%A1%E4%B8%89"><span class="nav-text"> 4.3 任务三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#44-%E9%99%84%E5%8A%A0%E9%A2%98%E4%BB%BB%E5%8A%A1%E5%9B%9B"><span class="nav-text"> 4.4 附加题：任务四</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%80%BB%E7%BB%93"><span class="nav-text"> 5 总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-references"><span class="nav-text"> 6 References</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%AE%9E%E9%AA%8C-05"><span class="nav-text">数据分析实验 05</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-text">0 写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83"><span class="nav-text">1 实验环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E9%87%8D%E8%BF%B0"><span class="nav-text">2 问题重述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-text">3 问题分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%80"><span class="nav-text">3.1 任务一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E4%BA%8C"><span class="nav-text">3.2 任务二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%89"><span class="nav-text">3.3 任务三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%84%E5%8A%A0%E9%A2%98%E4%BB%BB%E5%8A%A1%E5%9B%9B"><span class="nav-text">3.4 附加题：任务四</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E5%AE%9E%E7%8E%B0"><span class="nav-text">4 任务实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%8C%85%E5%92%8C%E7%9C%8B%E6%95%B0%E6%8D%AE"><span class="nav-text">4.0 导包和看数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%80-1"><span class="nav-text">4.1 任务一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E4%BA%8C-1"><span class="nav-text">4.2 任务二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%89-1"><span class="nav-text">4.3 任务三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%84%E5%8A%A0%E9%A2%98%E4%BB%BB%E5%8A%A1%E5%9B%9B-1"><span class="nav-text">4.4 附加题：任务四</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">5 总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#references"><span class="nav-text">6 References</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -284,7 +270,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-10-10 00:00:00 / 修改时间：19:34:10" itemprop="dateCreated datePublished" datetime="2022-10-10T00:00:00+08:00">2022-10-10</time>
+      <time title="创建时间：2022-10-10 00:00:00 / 修改时间：19:50:33" itemprop="dateCreated datePublished" datetime="2022-10-10T00:00:00+08:00">2022-10-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -344,7 +330,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>18 分钟</span>
+      <span>19 分钟</span>
     </span>
 </div>
 
@@ -355,50 +341,99 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+        <h1 id="前言">前言</h1>
 <p>本文将介绍数据分析第五次实验分析疫情数据的全过程。</p>
-<p>本文在 Kaggle 平台上完成，对应的 Kaggle notebook 链接为  <a target="_blank" rel="noopener" href="https://www.kaggle.com/code/w1ndness/data-analysis-exp05?scriptVersionId=107490273">Data-Analysis-Exp05 | Kaggle</a> 。</p>
-<span id="more"></span> 
-<h1 id="数据分析实验-05"><a class="markdownIt-Anchor" href="#数据分析实验-05"></a> 数据分析实验 05</h1>
-<h2 id="0-写在前面"><a class="markdownIt-Anchor" href="#0-写在前面"></a> 0 写在前面</h2>
+<p>本文在 Kaggle 平台上完成，对应的 Kaggle notebook 链接为 <a
+target="_blank" rel="noopener" href="https://www.kaggle.com/code/w1ndness/data-analysis-exp05?scriptVersionId=107490273">Data-Analysis-Exp05
+| Kaggle</a> 。</p>
+<span id="more"></span>
+<h1 id="数据分析实验-05">数据分析实验 05</h1>
+<h2 id="写在前面">0 写在前面</h2>
 <p>本次实验是一个完完全全的现实案例（虽然并不知晓数据的真实性），使用的是老师提供的疫情情况数据，进行了一系列的数据分析。</p>
 <p>整个实验做下来，最大的感觉其实并不是中间分析的过程有多难，而是如何对数据进行清洗和预处理。像这一次实验当中，当几个任务中的需求需要被满足时，数据当中存在着很多需要被预先处理的情况，比如时间的缺失、城市的不匹配、行政区划的不统一……等等一系列听起来简单，但处理起来十分棘手的问题。</p>
 <p>通过这次实验，也是对真实世界数据分析过程的一种体验。</p>
-<h2 id="1-实验环境"><a class="markdownIt-Anchor" href="#1-实验环境"></a> 1 实验环境</h2>
-<p>根据表格类型的数据进行的数据分析通常使用的是类似 Jupyter Notebook 的工具进行，考虑到保存中间结果和代码版本管理，本次实验没有在本地使用 Anaconda 自带的 Jupyter Notebook 进行，而是依托 Kaggle 平台进行。Kaggle 平台拥有很齐全的数据分析环境，预安装了许多数据分析常用的包。并且，Kaggle 平台还有很优秀的版本控制和云端控制台，可以较为容易地管理中间结果、输出结果，以及运行命令。</p>
-<p>本次实验的 Kaggle notebook 链接为 <a target="_blank" rel="noopener" href="https://www.kaggle.com/code/w1ndness/data-analysis-exp05?scriptVersionId=107490273">Data-Analysis-Exp05 | Kaggle</a> ，默认显示的是最后一版（全部任务1-任务4）的代码。在这里，你可以看到我的代码，也可以看到我本次实验的最终输出结果。当然了，你也可以查看之前版本的代码。Kaggle 上的路径可能与你本地进行的实验环境有所不同，当你参考我的博客时希望你能注意。</p>
-<p>作者的实验环境为 Python 3.7，包版本使用 Kaggle 预安装的所有包，没有修改。由于本次实验没有涉及大量的并行计算，所以本次实验仅使用 CPU 进行。</p>
+<p>由于本文较长，并且不是一次写成的，出现了一些图片分辨率不同的情况，还请谅解。博客中如有错误还请指正。</p>
+<h2 id="实验环境">1 实验环境</h2>
+<p>根据表格类型的数据进行的数据分析通常使用的是类似 Jupyter Notebook
+的工具进行，考虑到保存中间结果和代码版本管理，本次实验没有在本地使用
+Anaconda 自带的 Jupyter Notebook 进行，而是依托 Kaggle 平台进行。Kaggle
+平台拥有很齐全的数据分析环境，预安装了许多数据分析常用的包。并且，Kaggle
+平台还有很优秀的版本控制和云端控制台，可以较为容易地管理中间结果、输出结果，以及运行命令。</p>
+<p>本次实验的 Kaggle notebook 链接为 <a
+target="_blank" rel="noopener" href="https://www.kaggle.com/code/w1ndness/data-analysis-exp05?scriptVersionId=107490273">Data-Analysis-Exp05
+| Kaggle</a>
+，默认显示的是最后一版（全部任务1-任务4）的代码。在这里，你可以看到我的代码，也可以看到我本次实验的最终输出结果。当然了，你也可以查看之前版本的代码。Kaggle
+上的路径可能与你本地进行的实验环境有所不同，当你参考我的博客时希望你能注意。</p>
+<p>作者的实验环境为 Python 3.7，包版本使用 Kaggle
+预安装的所有包，没有修改。由于本次实验没有涉及大量的并行计算，所以本次实验仅使用
+CPU 进行。</p>
 <p>由于本次实验数据是由老师提供，不是公开数据集，同时也考虑到可能看到这篇博客的都是我的同学，这里不给出下载数据集的链接。</p>
 <p>你可以通过如下命令下载我的输出结果：</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">$ kaggle kernels output w1ndness/data-analysis-exp05 -p <span class="token operator">&lt;</span>path<span class="token operator">></span></code></pre>
-<p>其中，<code>&lt;path&gt;</code> 应当代表了你本地的路径。当然，这需要你的主机里安装好和 Kaggle 命令行有关的环境。</p>
-<h2 id="2-问题重述"><a class="markdownIt-Anchor" href="#2-问题重述"></a> 2 问题重述</h2>
+<p>其中，<code>&lt;path&gt;</code>
+应当代表了你本地的路径。当然，这需要你的主机里安装好和 Kaggle
+命令行有关的环境。</p>
+<h2 id="问题重述">2 问题重述</h2>
 <p>本次实验的几个任务如下（完全的复制粘贴）：</p>
-<ol>
-<li>根据附件 1“城市疫情”中的数据统计各城市自首次通报确诊病例后至 6 月 30 日的每日累计确诊人数、累计治愈人数和累计死亡人数，将结果保存为“task1_1.csv”，第一行为字段名，按城市、日期、累计确诊人数、累计治愈人数、累计死亡人数的次序分别放在 A 列~E 列。在实验报告中给出实现方法的相关描述，并列表给出武汉、深圳、保定每月 10、25 日的统计结果。</li>
-<li>根据任务 1.1 的结果，并结合附件 1“城市省份对照表”统计各省级行政单位按日新增和累计数据，将结果保存为“task1_2.csv”，第一行为字段名，按省份、日期、新增确诊人数、新增治愈人数、新增死亡人数、累计确诊人数、累计治愈人数、累计死亡人数的次序分别放在 A 列~H 列。在实验报告中给出实现方法的相关描述，并列表给出湖北、广东、河北每月 15 日的统计结果。</li>
-<li>根据任务1.2的结果，统计各省级行政单位每天新冠病人的住院人数，将结果保存为“task1_3.csv”，第一行为字段名，按省份、日期、住院人数的次序分别放在 A 列~C 列。在实验报告中给出实现方法的相关描述，并列表给出湖北、广东、上海每月 20 日的统计结果。</li>
-<li>假设新冠病人的传播半径为 1 km，根据附件 1“A 市涉疫场所”在平面图中分别绘制该市第 6 天和第 10 天的疫情传播风险区域，并在实验报告中给出分析和实现过程。</li>
+<ol type="1">
+<li>根据附件 1“城市疫情”中的数据统计各城市自首次通报确诊病例后至 6 月 30
+日的每日累计确诊人数、累计治愈人数和累计死亡人数，将结果保存为“task1_1.csv”，第一行为字段名，按城市、日期、累计确诊人数、累计治愈人数、累计死亡人数的次序分别放在
+A 列~E
+列。在实验报告中给出实现方法的相关描述，并列表给出武汉、深圳、保定每月
+10、25 日的统计结果。</li>
+<li>根据任务 1.1 的结果，并结合附件
+1“城市省份对照表”统计各省级行政单位按日新增和累计数据，将结果保存为“task1_2.csv”，第一行为字段名，按省份、日期、新增确诊人数、新增治愈人数、新增死亡人数、累计确诊人数、累计治愈人数、累计死亡人数的次序分别放在
+A 列~H
+列。在实验报告中给出实现方法的相关描述，并列表给出湖北、广东、河北每月
+15 日的统计结果。</li>
+<li>根据任务1.2的结果，统计各省级行政单位每天新冠病人的住院人数，将结果保存为“task1_3.csv”，第一行为字段名，按省份、日期、住院人数的次序分别放在
+A 列~C
+列。在实验报告中给出实现方法的相关描述，并列表给出湖北、广东、上海每月
+20 日的统计结果。</li>
+<li>假设新冠病人的传播半径为 1 km，根据附件 1“A
+市涉疫场所”在平面图中分别绘制该市第 6 天和第 10
+天的疫情传播风险区域，并在实验报告中给出分析和实现过程。</li>
 </ol>
-<h2 id="3-问题分析"><a class="markdownIt-Anchor" href="#3-问题分析"></a> 3 问题分析</h2>
+<h2 id="问题分析">3 问题分析</h2>
 <p>这一部分按照上述任务顺序分别叙述，关于具体实现细节和一些过程中才会遇到的问题将在下一部分进行叙述。</p>
-<h3 id="31-任务一"><a class="markdownIt-Anchor" href="#31-任务一"></a> 3.1 任务一</h3>
-<p>任务一要求按城市分析每日累计确诊人数、累计治愈人数和累计死亡人数。首先观察所给的原始数据，不难发现这个数据还是很 “raw” ，表 1 当中的城市看起来 “参差不齐” 。那这里一定就需要很大的功夫对数据进行清洗和预处理。再看到任务要求分析的特征，这几个特征当中都有<strong>累计</strong>字样，不难想到这里需要通过累加的方式去进行。那么这一问的思路就大致得到了。</p>
-<h3 id="32-任务二"><a class="markdownIt-Anchor" href="#32-任务二"></a> 3.2 任务二</h3>
-<p>任务二所要求分析的东西也大致和问题一样，分析的粒度放大到了省份，分析的内容上只不过多出了分析 “新增xx” 这一要求。实际上，新增和累计不过是一个是否经过累加过程的区别。表 2 中明确给出了城市和省份的对应关系，那么，只需要将表 1 中城市数据根据表 2 映射成为省份，即可得到省份视角下的疫情数据。</p>
+<h3 id="任务一">3.1 任务一</h3>
+<p>任务一要求按城市分析每日累计确诊人数、累计治愈人数和累计死亡人数。首先观察所给的原始数据，不难发现这个数据还是很
+“raw” ，表 1 当中的城市看起来 “参差不齐”
+。那这里一定就需要很大的功夫对数据进行清洗和预处理。再看到任务要求分析的特征，这几个特征当中都有<strong>累计</strong>字样，不难想到这里需要通过累加的方式去进行。那么这一问的思路就大致得到了。</p>
+<h3 id="任务二">3.2 任务二</h3>
+<p>任务二所要求分析的东西也大致和问题一样，分析的粒度放大到了省份，分析的内容上只不过多出了分析
+“新增xx”
+这一要求。实际上，新增和累计不过是一个是否经过累加过程的区别。表 2
+中明确给出了城市和省份的对应关系，那么，只需要将表 1 中城市数据根据表 2
+映射成为省份，即可得到省份视角下的疫情数据。</p>
 <p>那么，这一问的思路就是，首先要将城市都映射成省份，容易想到同一省份一定会对应多种城市，那么这里就需要首先根据省份将同一省份同一日期的信息进行<strong>聚合</strong>，这样才能得到一个省份在一日内的准确疫情数据。之后，仿照任务一的思路，将数据进行累加，即可得到相应的统计结果。</p>
-<h3 id="33-任务三"><a class="markdownIt-Anchor" href="#33-任务三"></a> 3.3 任务三</h3>
-<p>任务三要求分析每天的住院人数。根据现实中的实际情况，定义某天当前住院人数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span></span></span></span> 如下：</p>
-<p>记当前累计确诊人数为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">D</span></span></span></span> ，累计治愈人数为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.08125em;">H</span></span></span></span> ，累计死亡为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.22222em;">V</span></span></span></span> ，则有</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>=</mo><mi>D</mi><mo>−</mo><mi>H</mi><mo>−</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">P=D-H-V
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.02778em;">D</span><span class="mbin">−</span><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="mbin">−</span><span class="mord mathit" style="margin-right:0.22222em;">V</span></span></span></span></span></p>
-<p>那么，第三问的结果可以通过上式的方式计算得到。</p>
-<h3 id="34-附加题任务四"><a class="markdownIt-Anchor" href="#34-附加题任务四"></a> 3.4 附加题：任务四</h3>
-<p>任务四要求通过表 4 中数据画出一个疫情传播风险区域图，观察表可以看到，这里给出了发生疫情的点坐标。由于要求传播半径为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> km，则传播风险区就是以疫情点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(x,y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">x</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span> 为半径，半径为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> 的圆。那么，体现在图当中，就是绘制一个以表中所有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(x,y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">x</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span> 为圆心，形成半径为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> 的圆后的散点图。</p>
-<h2 id="4-任务实现"><a class="markdownIt-Anchor" href="#4-任务实现"></a> 4 任务实现</h2>
-<p>这里提到的代码可能和 Kaggle notebook 上的不完全一致，原始代码还请你参考 Kaggle notebook 中的代码，这里的代码更多的是实现思路和实现细节的体现。</p>
-<p>注：以下当叙述 API 时，<code>df.func()</code> 代表 <code>pandas.DataFrame</code> 的某函数，对于其属性等同理。<code>pandas</code> 简写为 <code>pd</code> ，<code>numpy</code> 简写为 <code>np</code> 。</p>
-<h3 id="40-导包和看数据"><a class="markdownIt-Anchor" href="#40-导包和看数据"></a> 4.0 导包和看数据</h3>
+<h3 id="任务三">3.3 任务三</h3>
+<p>任务三要求分析每天的住院人数。根据现实中的实际情况，定义某天当前住院人数
+<span class="math inline">\(P\)</span> 如下：</p>
+<p>记当前累计确诊人数为 <span class="math inline">\(D\)</span>
+，累计治愈人数为 <span class="math inline">\(H\)</span> ，累计死亡为
+<span class="math inline">\(V\)</span> ，则有 <span
+class="math display">\[
+P=D-H-V
+\]</span> 那么，第三问的结果可以通过上式的方式计算得到。</p>
+<h3 id="附加题任务四">3.4 附加题：任务四</h3>
+<p>任务四要求通过表 4
+中数据画出一个疫情传播风险区域图，观察表可以看到，这里给出了发生疫情的点坐标。由于要求传播半径为
+<span class="math inline">\(1\)</span> km，则传播风险区就是以疫情点
+<span class="math inline">\((x,y)\)</span> 为半径，半径为 <span
+class="math inline">\(1\)</span>
+的圆。那么，体现在图当中，就是绘制一个以表中所有 <span
+class="math inline">\((x,y)\)</span> 为圆心，形成半径为 <span
+class="math inline">\(1\)</span> 的圆后的散点图。</p>
+<h2 id="任务实现">4 任务实现</h2>
+<p>这里提到的代码可能和 Kaggle notebook
+上的不完全一致，原始代码还请你参考 Kaggle notebook
+中的代码，这里的代码更多的是实现思路和实现细节的体现。</p>
+<p>注：以下当叙述 API 时，<code>df.func()</code> 代表
+<code>pandas.DataFrame</code>
+的某函数，对于其属性等同理。<code>pandas</code> 简写为 <code>pd</code>
+，<code>numpy</code> 简写为 <code>np</code> 。</p>
+<h3 id="导包和看数据">4.0 导包和看数据</h3>
 <p>将要使用的包都导入进来，这里都是基本的数据分析要用到的包：</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 <span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
@@ -408,57 +443,110 @@
 <span class="token operator">%</span>matplotlib inline
 <span class="token keyword">import</span> warnings
 warnings<span class="token punctuation">.</span>filterwarnings<span class="token punctuation">(</span><span class="token string">'ignore'</span><span class="token punctuation">)</span></code></pre>
-<p>之后观察一下数据。首先把数据读入进来，由于有好几张表，而且根据上面分析问题的过程，表之间还存在联系，这里为了方便，就把所有表的数据读入完毕后，把 DataFrame 都放到一个列表里。</p>
+<p>之后观察一下数据。首先把数据读入进来，由于有好几张表，而且根据上面分析问题的过程，表之间还存在联系，这里为了方便，就把所有表的数据读入完毕后，把
+DataFrame 都放到一个列表里。</p>
 <pre class="language-python" data-language="python"><code class="language-python">data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span><span class="token string">'/kaggle/input/data-anly-exp05/data.xlsx'</span><span class="token punctuation">,</span> sheet_name<span class="token operator">=</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>这样，<code>data</code> 里面就承载了四个表的 DataFrame。</p>
-<p>对于每个表，我们都使用 <code>df.head()</code> 方法查看一下前 5 行的数据大概的样子。</p>
+<p>对于每个表，我们都使用 <code>df.head()</code> 方法查看一下前 5
+行的数据大概的样子。</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> each <span class="token keyword">in</span> data<span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>each<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-08%2023.48.17.png" alt="截屏2022-10-08 23.48.17" /></p>
-<h3 id="41-任务一"><a class="markdownIt-Anchor" href="#41-任务一"></a> 4.1 任务一</h3>
-<p>我们首先对列进行重命名，以便之后更加方便的调取数据。将列重命名后，再次使用 <code>df.head()</code> ，查看修改后的结果。</p>
+<figure>
+<img
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-08%2023.48.17.png"
+alt="截屏2022-10-08 23.48.17" />
+<figcaption aria-hidden="true">截屏2022-10-08 23.48.17</figcaption>
+</figure>
+<h3 id="任务一-1">4.1 任务一</h3>
+<p>我们首先对列进行重命名，以便之后更加方便的调取数据。将列重命名后，再次使用
+<code>df.head()</code> ，查看修改后的结果。</p>
 <pre class="language-python" data-language="python"><code class="language-python">data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>columns <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">,</span> <span class="token string">'city'</span><span class="token punctuation">,</span> <span class="token string">'diag'</span><span class="token punctuation">,</span> <span class="token string">'heal'</span><span class="token punctuation">,</span> <span class="token string">'die'</span><span class="token punctuation">]</span>
 data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-08%2023.52.20.png" alt="截屏2022-10-08 23.52.20" /></p>
-<p>由于存在日期列，我们将日期列强制转化成日期类型，使用的 API 为 <code>df.astype()</code> 。同时，我们希望看一下表里日期的大致范围，通过 <code>pd.date_range()</code> 方法，生成以最小最大时间为区间，时间间隔为日的时间范围。这里生成的 <code>date_range</code> 本意是为之后空缺时间的填充做准备，但在后文中使用了更为简便且恰当的方法。</p>
+<figure>
+<img
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-08%2023.52.20.png"
+alt="截屏2022-10-08 23.52.20" />
+<figcaption aria-hidden="true">截屏2022-10-08 23.52.20</figcaption>
+</figure>
+<p>由于存在日期列，我们将日期列强制转化成日期类型，使用的 API 为
+<code>df.astype()</code> 。同时，我们希望看一下表里日期的大致范围，通过
+<code>pd.date_range()</code>
+方法，生成以最小最大时间为区间，时间间隔为日的时间范围。这里生成的
+<code>date_range</code>
+本意是为之后空缺时间的填充做准备，但在后文中使用了更为简便且恰当的方法。</p>
 <pre class="language-python" data-language="python"><code class="language-python">data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">"datetime64"</span><span class="token punctuation">)</span>
 date_range <span class="token operator">=</span> pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span>start<span class="token operator">=</span>data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">min</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> end<span class="token operator">=</span>data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> freq<span class="token operator">=</span><span class="token string">'D'</span><span class="token punctuation">)</span>
 date_range</code></pre>
-<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-08%2023.56.25.png" alt="截屏2022-10-08 23.56.25" /></p>
+<figure>
+<img
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-08%2023.56.25.png"
+alt="截屏2022-10-08 23.56.25" />
+<figcaption aria-hidden="true">截屏2022-10-08 23.56.25</figcaption>
+</figure>
 <p>之后，我们希望观察一下城市列的情况。考虑到城市列可能存在重复的条目，我们这里使用集合来对城市列进行处理。</p>
 <pre class="language-python" data-language="python"><code class="language-python">cities <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 cities<span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>cities<span class="token punctuation">)</span></code></pre>
 <p>这里由于输出过长，只截取几个有问题的片段。</p>
 <p>城市列的问题首先是一些直辖市的区：</p>
-<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2008.52.37.png" alt="截屏2022-10-09 08.52.37" /></p>
-<p>由于直辖市的行政区划较为特殊，直辖市本身是一个 “城市” ，但直辖市在行政区划上是属于<strong>省级</strong>，所以这里表格中是按照行政区划的等级进行的划分。于是，我们就需要将这样的区都映射成其对应的直辖市。</p>
-<p>其次，还有一些 “带尾” 数据和一些不规范数据，比如如下图片中的几条数据：</p>
-<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2008.56.00.png" alt="截屏2022-10-09 08.56.00" /></p>
-<p>数据中存在着 “xx-境外输入” 这样的 “带尾” 数据和 “外地来x” 这样的不规范数据。在任务一的背景下，对于这样的数据，当其指向性为省份时，由于无法确定其对应的城市，则这样的数据需要被删除；当其指向性为直辖市时，则应通过一定处理将其归入直辖市当日的疫情数据中。</p>
+<figure>
+<img
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2008.52.37.png"
+alt="截屏2022-10-09 08.52.37" />
+<figcaption aria-hidden="true">截屏2022-10-09 08.52.37</figcaption>
+</figure>
+<p>由于直辖市的行政区划较为特殊，直辖市本身是一个 “城市”
+，但直辖市在行政区划上是属于<strong>省级</strong>，所以这里表格中是按照行政区划的等级进行的划分。于是，我们就需要将这样的区都映射成其对应的直辖市。</p>
+<p>其次，还有一些 “带尾”
+数据和一些不规范数据，比如如下图片中的几条数据：</p>
+<figure>
+<img
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2008.56.00.png"
+alt="截屏2022-10-09 08.56.00" />
+<figcaption aria-hidden="true">截屏2022-10-09 08.56.00</figcaption>
+</figure>
+<p>数据中存在着 “xx-境外输入” 这样的 “带尾” 数据和 “外地来x”
+这样的不规范数据。在任务一的背景下，对于这样的数据，当其指向性为省份时，由于无法确定其对应的城市，则这样的数据需要被删除；当其指向性为直辖市时，则应通过一定处理将其归入直辖市当日的疫情数据中。</p>
 <p>再有，还存在着这样一条数据：</p>
-<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2015.20.23.png" alt="截屏2022-10-09 15.20.23" /></p>
+<figure>
+<img
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2015.20.23.png"
+alt="截屏2022-10-09 15.20.23" />
+<figcaption aria-hidden="true">截屏2022-10-09 15.20.23</figcaption>
+</figure>
 <p>上网查找得知，这一监狱是属于衢州市，这一条数据也需要被单独转化。</p>
-<p>由于涉及到了城市和省份的转化，那么不可避免的要使用到表 2 的数据。首先，也是为了简便起见，将表 2 的列进行重命名。</p>
+<p>由于涉及到了城市和省份的转化，那么不可避免的要使用到表 2
+的数据。首先，也是为了简便起见，将表 2 的列进行重命名。</p>
 <pre class="language-python" data-language="python"><code class="language-python">data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>columns <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">,</span> <span class="token string">'prov'</span><span class="token punctuation">]</span></code></pre>
-<p>根据上面的分析，我们这里首先希望拿到所有直辖市的区和直辖市的映射关系，已处理上面提到的第一个问题（即存在直辖市的区应对应到其直辖市的问题）。我们在表 2 中筛选出所有省份列是直辖市的所有数据，而不是按照表 1 中可能出现的所有带有 “区” 的城市值区筛选，这样就很简单的能够找到所有直辖市所对应的区。</p>
+<p>根据上面的分析，我们这里首先希望拿到所有直辖市的区和直辖市的映射关系，已处理上面提到的第一个问题（即存在直辖市的区应对应到其直辖市的问题）。我们在表
+2 中筛选出所有省份列是直辖市的所有数据，而不是按照表 1
+中可能出现的所有带有 “区”
+的城市值区筛选，这样就很简单的能够找到所有直辖市所对应的区。</p>
 <pre class="language-python" data-language="python"><code class="language-python">has_region_inname_idx <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'prov'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'北京'</span><span class="token punctuation">)</span> <span class="token operator">|</span>
                                 <span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'prov'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'上海'</span><span class="token punctuation">)</span> <span class="token operator">|</span>
                                 <span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'prov'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'重庆'</span><span class="token punctuation">)</span> <span class="token operator">|</span>
                                 <span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'prov'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'天津'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">.</span>index
 muni_region_to_city <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>iloc<span class="token punctuation">[</span>has_region_inname_idx<span class="token punctuation">]</span>
 region_to_city <span class="token operator">=</span> <span class="token punctuation">&#123;</span>k<span class="token punctuation">:</span> v <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>muni_region_to_city<span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> muni_region_to_city<span class="token punctuation">[</span><span class="token string">'prov'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></code></pre>
-<p>解释一下上面代码的含义。从 DataFrame 中筛选满足某些条件的行，在综合之前数据分析的经验并查阅一些资料后，得到的比较清晰的步骤是：</p>
-<ol>
+<p>解释一下上面代码的含义。从 DataFrame
+中筛选满足某些条件的行，在综合之前数据分析的经验并查阅一些资料后，得到的比较清晰的步骤是：</p>
+<ol type="1">
 <li>筛选表中符合规则的所有行的下标，其中规则可以是布尔表达式，也可能是函数。</li>
 <li>通过 <code>df.iloc[indices]</code> 将这些行索引出来</li>
 </ol>
-<p>那么，得到的子表 <code>muni_region_to_city</code> 就是所有省份列值为直辖市的所有行。 由于 DataFrame 结构的特殊性，我们想要得到一个映射关系的字典，就使用 <code>zip()</code> 函数将两列按元素绑定为元组，之后再由字典推导式生成字典。</p>
-<p>由于考虑到数据 “省十里丰监狱” ，可能会在映射过程中被转换成 “浙江” ，这就出现了错误。那么，我们就先将这个数据问题先解决。</p>
+<p>那么，得到的子表 <code>muni_region_to_city</code>
+就是所有省份列值为直辖市的所有行。 由于 DataFrame
+结构的特殊性，我们想要得到一个映射关系的字典，就使用 <code>zip()</code>
+函数将两列按元素绑定为元组，之后再由字典推导式生成字典。</p>
+<p>由于考虑到数据 “省十里丰监狱” ，可能会在映射过程中被转换成 “浙江”
+，这就出现了错误。那么，我们就先将这个数据问题先解决。</p>
 <pre class="language-python" data-language="python"><code class="language-python">data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'浙江-省十里丰监狱'</span><span class="token punctuation">,</span> <span class="token string">'衢州'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<p>通过 <code>df.apply()</code> 加 lambda 函数的方法就将这一问题给解决了。</p>
-<p>之后，我们通过自定义替换函数，并通过 <code>df.apply()</code> 方法，将该函数用于表 1 的城市列，将值为直辖市区名的数据转换为其对应的直辖市。</p>
+<p>通过 <code>df.apply()</code> 加 lambda
+函数的方法就将这一问题给解决了。</p>
+<p>之后，我们通过自定义替换函数，并通过 <code>df.apply()</code>
+方法，将该函数用于表 1
+的城市列，将值为直辖市区名的数据转换为其对应的直辖市。</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">rep</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> dct<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">if</span> x <span class="token keyword">in</span> dct<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">return</span> dct<span class="token punctuation">[</span>x<span class="token punctuation">]</span>
@@ -466,14 +554,28 @@ region_to_city <span class="token operator">=</span> <span class="token punctuat
 data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> rep<span class="token punctuation">(</span>x<span class="token punctuation">,</span> region_to_city<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>现在，再次观察城市列目前的状态：</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token builtin">set</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<p>发现已经没有了上述的问题。接下来处理 “带尾” 数据问题。这里采用的方式是，在表中筛选出所有城市值 “带尾” 的行，由于 “带尾” 直辖市是不需要被删除的，只需要并入其对应的直辖市，那这里只需要得到所有 “带尾” 行和直辖市 “带尾” 行的差集即可。转化成数学的表达是，记城市值 “带尾” 的所有行索引构成的集合为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">U</span></span></span></span> ，直辖市 “带尾” 对应的行索引构成的集合为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span> ，则需要被删除的行索引的集合 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span></span></span></span> 应当为</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>=</mo><mi>U</mi><mo>−</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">A=U-M
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">A</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.10903em;">U</span><span class="mbin">−</span><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span></span></p>
-<p>下面按以上过程实现代码。首先筛选出所有 “带尾” 行，其城市列取值的特点为，字符串均包含有 <code>-</code> 符号。则筛选的逻辑为</p>
+<p>发现已经没有了上述的问题。接下来处理 “带尾”
+数据问题。这里采用的方式是，在表中筛选出所有城市值 “带尾” 的行，由于
+“带尾”
+直辖市是不需要被删除的，只需要并入其对应的直辖市，那这里只需要得到所有
+“带尾” 行和直辖市 “带尾” 行的差集即可。转化成数学的表达是，记城市值
+“带尾” 的所有行索引构成的集合为 <span class="math inline">\(U\)</span>
+，直辖市 “带尾” 对应的行索引构成的集合为 <span
+class="math inline">\(M\)</span> ，则需要被删除的行索引的集合 <span
+class="math inline">\(A\)</span> 应当为 <span class="math display">\[
+A=U-M
+\]</span> 下面按以上过程实现代码。首先筛选出所有 “带尾”
+行，其城市列取值的特点为，字符串均包含有 <code>-</code>
+符号。则筛选的逻辑为</p>
 <pre class="language-python" data-language="python"><code class="language-python">has_tail_idx <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">str</span><span class="token punctuation">.</span>contains<span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">.</span>index
 data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>iloc<span class="token punctuation">[</span>has_tail_idx<span class="token punctuation">]</span></code></pre>
 <p>得到输出：</p>
-<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2015.09.20.png" alt="截屏2022-10-09 15.09.20" /></p>
+<figure>
+<img
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2015.09.20.png"
+alt="截屏2022-10-09 15.09.20" />
+<figcaption aria-hidden="true">截屏2022-10-09 15.09.20</figcaption>
+</figure>
 <p>之后筛选直辖市 “带尾” 行。</p>
 <pre class="language-python" data-language="python"><code class="language-python">is_muni_idx <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">str</span><span class="token punctuation">.</span>contains<span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>
                      <span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">str</span><span class="token punctuation">.</span>contains<span class="token punctuation">(</span><span class="token string">'北京'</span><span class="token punctuation">)</span> <span class="token operator">|</span>
@@ -481,33 +583,71 @@ data<span class="token punctuation">[</span><span class="token number">0</span><
                       data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">str</span><span class="token punctuation">.</span>contains<span class="token punctuation">(</span><span class="token string">'重庆'</span><span class="token punctuation">)</span> <span class="token operator">|</span>
                       data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">str</span><span class="token punctuation">.</span>contains<span class="token punctuation">(</span><span class="token string">'天津'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">.</span>index
 data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>iloc<span class="token punctuation">[</span>is_muni_idx<span class="token punctuation">]</span></code></pre>
-<p>这里需要说明的是，由于前文我们已经通过表 2 将所有和直辖市有关的城市值都进行了转化，由于表 2 中也包含了对于 “带尾” 数据的映射关系，经过了以上的处理后，实际上在现在的表中是没有直辖市的 “带尾” 数据的。这里只是把数据处理的思路展示给读者。</p>
+<p>这里需要说明的是，由于前文我们已经通过表 2
+将所有和直辖市有关的城市值都进行了转化，由于表 2 中也包含了对于 “带尾”
+数据的映射关系，经过了以上的处理后，实际上在现在的表中是没有直辖市的
+“带尾” 数据的。这里只是把数据处理的思路展示给读者。</p>
 <p>之后，通过差集运算，将应当被删除的行全部删除。</p>
 <pre class="language-python" data-language="python"><code class="language-python">drop_idx <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">(</span>has_tail_idx<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token builtin">set</span><span class="token punctuation">(</span>is_muni_idx<span class="token punctuation">)</span><span class="token punctuation">)</span>
 data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>drop<span class="token punctuation">(</span>drop_idx<span class="token punctuation">,</span> inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>head</code></pre>
-<p>对于上文提到过的城市列中如 “外地来x” 一类值，也在通过表 2 实现映射的过程中被处理掉了，这里也就不再处理了。</p>
+<p>对于上文提到过的城市列中如 “外地来x” 一类值，也在通过表 2
+实现映射的过程中被处理掉了，这里也就不再处理了。</p>
 <p>至此，对于任务一的数据清洗和数据预处理过程实现完毕。下面按照任务要求，对数据进行分析。</p>
-<p>我们首先要去想一下，在经历了以上的预处理过程后，现在数据发生了哪些变化。由于在城市列中的部分非城市值被转化成了其应当对应的城市，那么现在表中就存在这一系列<strong>同样日期、同样城市</strong>的数据。毫无疑问，这种数据是需要被规约的，我们对于一个城市的一个日期应当只有一条疫情数据，才便于我们之后对 “累计” 问题进行统计。所以，我们首先要做的，应当是将同一日期、同一城市的数据进行规约，已达到一个城市、一个日期只唯一对应一条数据的目的。这一要求类似于数据库的主键，即以**（日期，城市）**作为主键。</p>
+<p>我们首先要去想一下，在经历了以上的预处理过程后，现在数据发生了哪些变化。由于在城市列中的部分非城市值被转化成了其应当对应的城市，那么现在表中就存在这一系列<strong>同样日期、同样城市</strong>的数据。毫无疑问，这种数据是需要被规约的，我们对于一个城市的一个日期应当只有一条疫情数据，才便于我们之后对
+“累计”
+问题进行统计。所以，我们首先要做的，应当是将同一日期、同一城市的数据进行规约，已达到一个城市、一个日期只唯一对应一条数据的目的。这一要求类似于数据库的主键，即以<strong>（日期，城市）</strong>作为主键。</p>
 <p>我们将之前处理好的数据重新读入，以进行下面的分析，并且重新设定行索引。</p>
 <pre class="language-python" data-language="python"><code class="language-python">data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>to_csv<span class="token punctuation">(</span><span class="token string">'temp.csv'</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
 cities_data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'./temp.csv'</span><span class="token punctuation">)</span>
 cities_data<span class="token punctuation">.</span>head</code></pre>
 <p>输出结果为：</p>
-<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2015.31.14.png" alt="截屏2022-10-09 15.31.14" /></p>
-<p>这里的方法其实稍有笨拙，如果只是重新设定索引，其实可以通过 <code>df.reset_index()</code> 函数实现，后文中也有通过这种方式实现重新设定索引的过程。可以看到，经过数据清洗和数据预处理的过程，目前表中共有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9</mn><mn>6</mn><mn>6</mn><mn>3</mn></mrow><annotation encoding="application/x-tex">9663</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">9</span><span class="mord mathrm">6</span><span class="mord mathrm">6</span><span class="mord mathrm">3</span></span></span></span> 行。</p>
-<p>pandas 库实际上是一个能够实现类似数据库查找逻辑的功能十分强大的库。参考网上博客，可以通过 pandas 实现数据库的分组和聚合操作。根据上面的分析，我们这里首先应当根据日期和城市首先进行一步聚合，以实现一个城市、一个日期只唯一对应一条数据。</p>
+<figure>
+<img
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2015.31.14.png"
+alt="截屏2022-10-09 15.31.14" />
+<figcaption aria-hidden="true">截屏2022-10-09 15.31.14</figcaption>
+</figure>
+<p>这里的方法其实稍有笨拙，如果只是重新设定索引，其实可以通过
+<code>df.reset_index()</code>
+函数实现，后文中也有通过这种方式实现重新设定索引的过程。可以看到，经过数据清洗和数据预处理的过程，目前表中共有
+<span class="math inline">\(9663\)</span> 行。</p>
+<p>pandas
+库实际上是一个能够实现类似数据库查找逻辑的功能十分强大的库。参考网上博客，可以通过
+pandas
+实现数据库的分组和聚合操作。根据上面的分析，我们这里首先应当根据日期和城市首先进行一步聚合，以实现一个城市、一个日期只唯一对应一条数据。</p>
 <pre class="language-python" data-language="python"><code class="language-python">groups <span class="token operator">=</span> cities_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">,</span> <span class="token string">'date'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> as_index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 groups</code></pre>
-<p>通过 <code>df.groupby()</code> 方法，配合上聚合函数 <code>sum()</code> ，就可以实现以上目的。pandas 官方对于 <code>df.groupby()</code> 方法的文档在 <a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html">pandas.DataFrame.groupby — pandas 1.5.0 documentation (pydata.org)</a> ，这里就不解释各参数的含义了。</p>
+<p>通过 <code>df.groupby()</code> 方法，配合上聚合函数
+<code>sum()</code> ，就可以实现以上目的。pandas 官方对于
+<code>df.groupby()</code> 方法的文档在 <a
+target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html">pandas.DataFrame.groupby
+— pandas 1.5.0 documentation (pydata.org)</a>
+，这里就不解释各参数的含义了。</p>
 <p>以上语句的输出为：</p>
-<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2015.37.03.png" alt="截屏2022-10-09 15.37.03" /></p>
-<p>可以很明显的看到，数据行数明显的缩小了，经过聚合后的表共有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>8</mn><mn>4</mn><mn>2</mn><mn>2</mn></mrow><annotation encoding="application/x-tex">8422</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">8</span><span class="mord mathrm">4</span><span class="mord mathrm">2</span><span class="mord mathrm">2</span></span></span></span> 行。</p>
-<p>下面就进行对于 “累计” 过程的分析。由于我们要求的是对每个城市进行分析，那么我们应当对每个城市进行分组，之后将分析结果拼接成一张大表。再次阅读任务要求，任务要求统计各城市<strong>自首次通报确诊病例后</strong>至 <strong>6 月 30 日</strong>的<strong>每日</strong>数据。如果读者在以上基础上直接按城市分组后进行累加后，会发现在查找武汉、深圳以及保定三个城市的每月数据时，会存在日期缺失的情况。这就要求我们对于日期序列进行填充，并且要求填充最后的日期范围应当为每个城市数据按日期排列后第一条数据的日期到 2020 年 6 月 30 日。</p>
-<p>这一问题的实现在这一次实验中是非常有挑战的，并且是十分难以发现的。我们需要填充的时间有两大部分，首先，在每个城市已有数据的日期范围中，就存在着中间日期的缺失；其次，每个城市的最后一条数据（默认已经按照日期进行排序，实际上在分组聚合后的结果就是如此）的日期并不一定是 2020 年的 6 月 30 日，这时就需要填充从最后一条日期的时间到 6 月 30 日的数据。</p>
-<p>下面对任务要求的 “累计” 过程的实现进行阐述。首先创建一张空表，用于最后表的拼接。</p>
+<figure>
+<img
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2015.37.03.png"
+alt="截屏2022-10-09 15.37.03" />
+<figcaption aria-hidden="true">截屏2022-10-09 15.37.03</figcaption>
+</figure>
+<p>可以很明显的看到，数据行数明显的缩小了，经过聚合后的表共有 <span
+class="math inline">\(8422\)</span> 行。</p>
+<p>下面就进行对于 “累计”
+过程的分析。由于我们要求的是对每个城市进行分析，那么我们应当对每个城市进行分组，之后将分析结果拼接成一张大表。再次阅读任务要求，任务要求统计各城市<strong>自首次通报确诊病例后</strong>至
+<strong>6 月 30
+日</strong>的<strong>每日</strong>数据。如果读者在以上基础上直接按城市分组后进行累加后，会发现在查找武汉、深圳以及保定三个城市的每月数据时，会存在日期缺失的情况。这就要求我们对于日期序列进行填充，并且要求填充最后的日期范围应当为每个城市数据按日期排列后第一条数据的日期到
+2020 年 6 月 30 日。</p>
+<p>这一问题的实现在这一次实验中是非常有挑战的，并且是十分难以发现的。我们需要填充的时间有两大部分，首先，在每个城市已有数据的日期范围中，就存在着中间日期的缺失；其次，每个城市的最后一条数据（默认已经按照日期进行排序，实际上在分组聚合后的结果就是如此）的日期并不一定是
+2020 年的 6 月 30 日，这时就需要填充从最后一条日期的时间到 6 月 30
+日的数据。</p>
+<p>下面对任务要求的 “累计”
+过程的实现进行阐述。首先创建一张空表，用于最后表的拼接。</p>
 <pre class="language-python" data-language="python"><code class="language-python">task_1 <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">,</span> <span class="token string">'city'</span><span class="token punctuation">,</span> <span class="token string">'diag'</span><span class="token punctuation">,</span> <span class="token string">'heal'</span><span class="token punctuation">,</span> <span class="token string">'die'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<p>由于我们应当按照城市分别进行聚合，于是我们使用 <code>df.groupby()</code> 方法，根据城市值进行分组，之后分别对每组进行处理。首先给出实现 “累计” 过程的完整代码，之后逐语句进行叙述。</p>
+<p>由于我们应当按照城市分别进行聚合，于是我们使用
+<code>df.groupby()</code>
+方法，根据城市值进行分组，之后分别对每组进行处理。首先给出实现 “累计”
+过程的完整代码，之后逐语句进行叙述。</p>
 <pre class="language-python" data-language="python"><code class="language-python">groups <span class="token operator">=</span> groups<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token keyword">for</span> group <span class="token keyword">in</span> groups<span class="token punctuation">:</span>
     name<span class="token punctuation">,</span> df <span class="token operator">=</span> group
@@ -523,45 +663,121 @@ groups</code></pre>
     res<span class="token punctuation">[</span><span class="token string">'heal'</span><span class="token punctuation">]</span> <span class="token operator">=</span> res<span class="token punctuation">[</span><span class="token string">'heal'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span><span class="token punctuation">)</span>
     res<span class="token punctuation">[</span><span class="token string">'die'</span><span class="token punctuation">]</span> <span class="token operator">=</span> res<span class="token punctuation">[</span><span class="token string">'die'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span><span class="token punctuation">)</span>
     task_1 <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>task_1<span class="token punctuation">,</span> res<span class="token punctuation">]</span><span class="token punctuation">,</span> ignore_index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></code></pre>
-<p>首先是对于分组后每组结果的拆解。如果读者尝试输出过分组后的结果的话，会发现其实每一组的构成是一个元组，其最后一项是分组后的子表，类型为 <code>pd.DataFrame</code> ，而前几项都是其分组列的值。所以，在循环处理每一组时，首先将这一组的元组裂解成能处理的 DataFrame。</p>
+<p>首先是对于分组后每组结果的拆解。如果读者尝试输出过分组后的结果的话，会发现其实每一组的构成是一个元组，其最后一项是分组后的子表，类型为
+<code>pd.DataFrame</code>
+，而前几项都是其分组列的值。所以，在循环处理每一组时，首先将这一组的元组裂解成能处理的
+DataFrame。</p>
 <pre class="language-python" data-language="python"><code class="language-python">name<span class="token punctuation">,</span> df <span class="token operator">=</span> group</code></pre>
-<p>之后，仍然是将日期列转化为日期类型，和前文不一样的是，我们这里使用了 <code>pd.to_datetime()</code> 方法进行转换。</p>
+<p>之后，仍然是将日期列转化为日期类型，和前文不一样的是，我们这里使用了
+<code>pd.to_datetime()</code> 方法进行转换。</p>
 <pre class="language-python" data-language="python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span> <span class="token operator">=</span> pd<span class="token punctuation">.</span>to_datetime<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<p>之后，进行的是已给定数据的日期范围内中间日期的缺失处理工作。这里查阅了很多博客，都不是很有效的方法。最终，参考了 <a target="_blank" rel="noopener" href="https://hesma2.hatenablog.com/entry/2021/01/22/003526">【Python】pandas.Grouperで時系列データを楽々groupby！ - hesma2’s blog (hatenablog.com)</a> 和 <a target="_blank" rel="noopener" href="https://dankremer.github.io/DanKremer/posts/timeseries-analyis-with-pandas-pdgrouper/">Timeseries analyis with Pandas pd.Grouper | Dan J Kremer (dankremer.github.io)</a> 等博客，找到了pandas 库中提供的一个类 <code>Grouper</code> ，这一类经常用于处理时间序列的填充和缺失问题。首先创建一个 grouper ，令其是根据日期列进行分组，并且频度为 <code>‘D’</code> 即表示频度为天。</p>
+<p>之后，进行的是已给定数据的日期范围内中间日期的缺失处理工作。这里查阅了很多博客，都不是很有效的方法。最终，参考了
+<a
+target="_blank" rel="noopener" href="https://hesma2.hatenablog.com/entry/2021/01/22/003526">【Python】pandas.Grouperで時系列データを楽々groupby！
+- hesma2’s blog (hatenablog.com)</a> 和 <a
+target="_blank" rel="noopener" href="https://dankremer.github.io/DanKremer/posts/timeseries-analyis-with-pandas-pdgrouper/">Timeseries
+analyis with Pandas pd.Grouper | Dan J Kremer (dankremer.github.io)</a>
+等博客，找到了pandas 库中提供的一个类 <code>Grouper</code>
+，这一类经常用于处理时间序列的填充和缺失问题。首先创建一个 grouper
+，令其是根据日期列进行分组，并且频度为 <code>‘D’</code>
+即表示频度为天。</p>
 <pre class="language-python" data-language="python"><code class="language-python">grouper <span class="token operator">=</span> pd<span class="token punctuation">.</span>Grouper<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token string">'date'</span><span class="token punctuation">,</span> freq<span class="token operator">=</span><span class="token string">'D'</span><span class="token punctuation">)</span></code></pre>
-<p>pandas 对于 <code>Grouper</code> 的官方文档链接在 <a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Grouper.html">pandas.Grouper — pandas 1.5.0 documentation (pydata.org)</a> ，这里对该类的一些参数进行了很详细的解释。</p>
-<p>之后，根据生成的这一 <code>grouper</code> 实例进行分组，使用的仍然是 <code>df.groupby()</code> 方法，只不过这次方法接收的参数是一个分类器。</p>
+<p>pandas 对于 <code>Grouper</code> 的官方文档链接在 <a
+target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Grouper.html">pandas.Grouper
+— pandas 1.5.0 documentation (pydata.org)</a>
+，这里对该类的一些参数进行了很详细的解释。</p>
+<p>之后，根据生成的这一 <code>grouper</code> 实例进行分组，使用的仍然是
+<code>df.groupby()</code>
+方法，只不过这次方法接收的参数是一个分类器。</p>
 <pre class="language-python" data-language="python"><code class="language-python">res <span class="token operator">=</span> df<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>grouper<span class="token punctuation">)</span><span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p>我们先不解释 <code>df.first()</code> 的作用。为了读者能够更清楚的理解为什么通过以上使用 <code>pd.Grouper</code> 方法能够填充缺失的时间序列，我在这里对经历过分组的中间结果进行了输出，这里截取了一部分输出结果：</p>
-<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2023.05.10.png" alt="截屏2022-10-09 23.05.10" /></p>
+<p>我们先不解释 <code>df.first()</code>
+的作用。为了读者能够更清楚的理解为什么通过以上使用
+<code>pd.Grouper</code>
+方法能够填充缺失的时间序列，我在这里对经历过分组的中间结果进行了输出，这里截取了一部分输出结果：</p>
+<figure>
+<img
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2023.05.10.png"
+alt="截屏2022-10-09 23.05.10" />
+<figcaption aria-hidden="true">截屏2022-10-09 23.05.10</figcaption>
+</figure>
 <p>可以看到，由于我们设定了频度为每天，这里就将整张表的时间序列按照以一天为单位进行划分，中间出现了许多的空值，这是由于我们只是按照时间划分完毕了每一条数据，而没有对新产生的空缺时间做处理。</p>
-<p>这时我们可以解释 <code>df.first()</code> 方法了，pandas 官方文档中对于这个解释链接在 <a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.first.html">pandas.DataFrame.first — pandas 1.5.0 documentation (pydata.org)</a> 。这一方法的作用是，根据日期偏移选择时间序列数据的初始时间段。当具有以日期作为索引的数据帧时，此函数可以根据日期偏移量选择前几行。前文我们也提过，分组完毕后的数据其实是一个个元组构成的 <code>DataFrame</code> 。经过这一方法的调用过后，我们能够将这个表还原回正常的二维 <code>DataFrame</code> 结构（指只有行列关系的二维表，而非一系列元组的 <code>Series</code> ）。但应当注意，此时我们的表是以日期作为索引的二维表，在拼接表之前，我们必须要将索引转回正常的自增索引，才能将每个城市的表拼接到一起。</p>
-<p>这里我依然截取了经过 <code>df.first()</code> 方法后得到的表结构，时间长度和上面的图片相同。可以看到，现在已经不是一系列元组的表结构了，而是一张以日期为索引的二维表。</p>
-<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2023.16.19.png" alt="截屏2022-10-09 23.16.19" /></p>
-<p>通过上述过程，我们已经成功填充了从确诊第一例病例的日期（第一条数据的日期）开始，到已有的最后一条数据日期范围内中间所有缺失日期的填充。接下来，我们希望完成从已有最后一条数据到 2020 年 6 月 30 日范围内日期的填充。我们使用前文获取时间范围的方法，这里设定的起点是第一例通报确诊的日期，结束日期就是 2020 年 6 月 30 日，频度按天处理。</p>
+<p>这时我们可以解释 <code>df.first()</code> 方法了，pandas
+官方文档中对于这个解释链接在 <a
+target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.first.html">pandas.DataFrame.first
+— pandas 1.5.0 documentation (pydata.org)</a>
+。这一方法的作用是，根据日期偏移选择时间序列数据的初始时间段。当具有以日期作为索引的数据帧时，此函数可以根据日期偏移量选择前几行。前文我们也提过，分组完毕后的数据其实是一个个元组构成的
+<code>DataFrame</code>
+。经过这一方法的调用过后，我们能够将这个表还原回正常的二维
+<code>DataFrame</code> 结构（指只有行列关系的二维表，而非一系列元组的
+<code>Series</code>
+）。但应当注意，此时我们的表是以日期作为索引的二维表，在拼接表之前，我们必须要将索引转回正常的自增索引，才能将每个城市的表拼接到一起。</p>
+<p>这里我依然截取了经过 <code>df.first()</code>
+方法后得到的表结构，时间长度和上面的图片相同。可以看到，现在已经不是一系列元组的表结构了，而是一张以日期为索引的二维表。</p>
+<figure>
+<img
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-09%2023.16.19.png"
+alt="截屏2022-10-09 23.16.19" />
+<figcaption aria-hidden="true">截屏2022-10-09 23.16.19</figcaption>
+</figure>
+<p>通过上述过程，我们已经成功填充了从确诊第一例病例的日期（第一条数据的日期）开始，到已有的最后一条数据日期范围内中间所有缺失日期的填充。接下来，我们希望完成从已有最后一条数据到
+2020 年 6 月 30
+日范围内日期的填充。我们使用前文获取时间范围的方法，这里设定的起点是第一例通报确诊的日期，结束日期就是
+2020 年 6 月 30 日，频度按天处理。</p>
 <pre class="language-python" data-language="python"><code class="language-python">date_range <span class="token operator">=</span> pd<span class="token punctuation">.</span>date_range<span class="token punctuation">(</span>start<span class="token operator">=</span>df<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">min</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">'2020-06-30'</span><span class="token punctuation">,</span> freq<span class="token operator">=</span><span class="token string">'D'</span><span class="token punctuation">)</span></code></pre>
-<p>由于我们前文的表就直接是以日期作为索引的，那么这里我们就无须重新设定索引，直接将表按照 <code>date_range</code> 重新编制索引即可。最后，我们将处理好的表的索引重新恢复成自增索引。</p>
+<p>由于我们前文的表就直接是以日期作为索引的，那么这里我们就无须重新设定索引，直接将表按照
+<code>date_range</code>
+重新编制索引即可。最后，我们将处理好的表的索引重新恢复成自增索引。</p>
 <pre class="language-python" data-language="python"><code class="language-python">res <span class="token operator">=</span> res<span class="token punctuation">.</span>reindex<span class="token punctuation">(</span>date_range<span class="token punctuation">)</span><span class="token punctuation">.</span>reset_index<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p>如果读者将此时的变量 <code>res</code> 进行输出的话，会发现此时的日期列的列名为 <code>index</code> 。那么，我们需要进行一步操作，将该列的列名重新转化为 <code>date</code> ，以标明列的含义，方便继续处理。</p>
+<p>如果读者将此时的变量 <code>res</code>
+进行输出的话，会发现此时的日期列的列名为 <code>index</code>
+。那么，我们需要进行一步操作，将该列的列名重新转化为 <code>date</code>
+，以标明列的含义，方便继续处理。</p>
 <pre class="language-python" data-language="python"><code class="language-python">res <span class="token operator">=</span> res<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>columns<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token string">'index'</span><span class="token punctuation">:</span> <span class="token string">'date'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></code></pre>
-<p>至此，我们对于日期序列的填充都已经结束了。总结上面我们进行的工作，我们首先填充了已有数据中日期的中间缺失值，之后，我们又将已有数据的截止日期到 2020 年 6 月 30 日的日期进行了填充。但是，现在刚刚新增的日期行上还都是空值。从上面的图中就能看到，城市列上显示目前的值是 <code>None</code> ，而其余三列上显示的是 <code>NaN</code> ，这些均代表目前取值为空。下面，我们就对现在表中的空值进行填充。</p>
-<p>首先是城市列。对于这一列数据采用的填充方式是 “就近填充” ，即根据其最近的有值行确定对应的城市名。显然这种方法是正确的，由于我们前面是根据城市对数据进行的分组，那么，每轮循环中得到的表 <code>df</code> 都是只包含一个城市，所以就近填充在这种情况下是一种完全正确的填充方式。</p>
-<p>我们这里使用的 API 是 <code>df.ffill()</code> 方法，pandas 官方文档对于该方法的解释在链接 <a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.ffill.html">pandas.DataFrame.ffill — pandas 1.5.0 documentation (pydata.org)</a> 。<code>df.ffill()</code> 方法的填充处理是，当遇到空值时，将上一个有效的值进行前向传播填充，即当出现空值时，向前查找第一个非空值，并将其赋给当前待填充的空值。于是，我们对于城市列按这样的方式处理。</p>
+<p>至此，我们对于日期序列的填充都已经结束了。总结上面我们进行的工作，我们首先填充了已有数据中日期的中间缺失值，之后，我们又将已有数据的截止日期到
+2020 年 6 月 30
+日的日期进行了填充。但是，现在刚刚新增的日期行上还都是空值。从上面的图中就能看到，城市列上显示目前的值是
+<code>None</code> ，而其余三列上显示的是 <code>NaN</code>
+，这些均代表目前取值为空。下面，我们就对现在表中的空值进行填充。</p>
+<p>首先是城市列。对于这一列数据采用的填充方式是 “就近填充”
+，即根据其最近的有值行确定对应的城市名。显然这种方法是正确的，由于我们前面是根据城市对数据进行的分组，那么，每轮循环中得到的表
+<code>df</code>
+都是只包含一个城市，所以就近填充在这种情况下是一种完全正确的填充方式。</p>
+<p>我们这里使用的 API 是 <code>df.ffill()</code> 方法，pandas
+官方文档对于该方法的解释在链接 <a
+target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.ffill.html">pandas.DataFrame.ffill
+— pandas 1.5.0 documentation (pydata.org)</a> 。<code>df.ffill()</code>
+方法的填充处理是，当遇到空值时，将上一个有效的值进行前向传播填充，即当出现空值时，向前查找第一个非空值，并将其赋给当前待填充的空值。于是，我们对于城市列按这样的方式处理。</p>
 <pre class="language-python" data-language="python"><code class="language-python">res<span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span> <span class="token operator">=</span> res<span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>ffill<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p>那么现在，其余的所有空值就全都是数值属性了。我们基于这样的假设进行填充，如果某一日期在原数据中（所给附件表中）没有出现，那么默认当日的所有数据均为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span></span></span></span> ，即当日新增确诊、当日新增治愈和当日新增死亡全都为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span></span></span></span> 。那么，我们就可以对现在的整张表使用 <code>df.fillna()</code> 方法，并取填充值为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span></span></span></span> 。</p>
+<p>那么现在，其余的所有空值就全都是数值属性了。我们基于这样的假设进行填充，如果某一日期在原数据中（所给附件表中）没有出现，那么默认当日的所有数据均为
+<span class="math inline">\(0\)</span>
+，即当日新增确诊、当日新增治愈和当日新增死亡全都为 <span
+class="math inline">\(0\)</span> 。那么，我们就可以对现在的整张表使用
+<code>df.fillna()</code> 方法，并取填充值为 <span
+class="math inline">\(0\)</span> 。</p>
 <pre class="language-python" data-language="python"><code class="language-python">res <span class="token operator">=</span> res<span class="token punctuation">.</span>fillna<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span></code></pre>
-<p>至此，我们对于一个城市数据的整体预处理就全部结束了。我们填充了缺失日期，之后我们又对空值数据进行了处理。那么现在，我们就可以开始实现 “累计” 这一要求了。</p>
-<p>实现累计的方式其实很简单，pandas 中提供了很多的统计函数，其中对于 “累计” 的函数就是 <code>df.cumsum()</code> 方法。pandas 对于该方法的解释在链接 <a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.cumsum.html">pandas.DataFrame.cumsum — pandas 1.5.0 documentation (pydata.org)</a> 。由于这一问没有要求统计每日的新增特征，我们这里就直接在当前列进行累加即可。于是，就有了下面的实现。</p>
+<p>至此，我们对于一个城市数据的整体预处理就全部结束了。我们填充了缺失日期，之后我们又对空值数据进行了处理。那么现在，我们就可以开始实现
+“累计” 这一要求了。</p>
+<p>实现累计的方式其实很简单，pandas 中提供了很多的统计函数，其中对于
+“累计” 的函数就是 <code>df.cumsum()</code> 方法。pandas
+对于该方法的解释在链接 <a
+target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.cumsum.html">pandas.DataFrame.cumsum
+— pandas 1.5.0 documentation (pydata.org)</a>
+。由于这一问没有要求统计每日的新增特征，我们这里就直接在当前列进行累加即可。于是，就有了下面的实现。</p>
 <pre class="language-python" data-language="python"><code class="language-python">res<span class="token punctuation">[</span><span class="token string">'diag'</span><span class="token punctuation">]</span> <span class="token operator">=</span> res<span class="token punctuation">[</span><span class="token string">'diag'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span><span class="token punctuation">)</span>
 res<span class="token punctuation">[</span><span class="token string">'heal'</span><span class="token punctuation">]</span> <span class="token operator">=</span> res<span class="token punctuation">[</span><span class="token string">'heal'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span><span class="token punctuation">)</span>
 res<span class="token punctuation">[</span><span class="token string">'die'</span><span class="token punctuation">]</span> <span class="token operator">=</span> res<span class="token punctuation">[</span><span class="token string">'die'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p>至此，我们对于一个城市，就得到了该城市自首次通报确诊病例后至 6 月 30 日的每日累计确诊人数、累计治愈人数和累计死亡人数。下面我们需要做的就是将每个城市的分析结果拼接成一整张大表，这一过程就非常简单了。这里使用了 pandas 对于纵向拼接表的方法 <code>pd.concat([df1, df2])</code> ，我们这里设置参数 <code>ignore_index</code> 为 <code>True</code> ，使得最后的表索引不会乱序。</p>
+<p>至此，我们对于一个城市，就得到了该城市自首次通报确诊病例后至 6 月 30
+日的每日累计确诊人数、累计治愈人数和累计死亡人数。下面我们需要做的就是将每个城市的分析结果拼接成一整张大表，这一过程就非常简单了。这里使用了
+pandas 对于纵向拼接表的方法 <code>pd.concat([df1, df2])</code>
+，我们这里设置参数 <code>ignore_index</code> 为 <code>True</code>
+，使得最后的表索引不会乱序。</p>
 <pre class="language-python" data-language="python"><code class="language-python">task_1 <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>task_1<span class="token punctuation">,</span> res<span class="token punctuation">]</span><span class="token punctuation">,</span> ignore_index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></code></pre>
 <p>那么到现在为止，我们对于任务一就已经基本完成了。接下来就是对表的小修小改，使它在输出的时候满足题目中的要求。首先我们先查看一下当前表的状态。</p>
 <pre class="language-python" data-language="python"><code class="language-python">task_1<span class="token punctuation">.</span>head<span class="token punctuation">,</span> task_1<span class="token punctuation">.</span>columns</code></pre>
-<img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2016.19.26.png" alt="截屏2022-10-10 16.19.26" style="zoom: 50%;" />
+<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2016.19.26.png" alt="截屏2022-10-10 16.19.26" style="zoom: 50%;" /></p>
 <p>我们需要小修的点有三点，一是要将里面的所有数值数据全都转换为整型，因为没有个数为小数的人；二是要将列名修改维题目要求的列名；三是要将列顺序修改为题目要求的顺序。</p>
-<p>修改数据类型我们使用的仍然是前面提到的 <code>df.astype()</code> 方法。于是，我们有如下的实现，将三个数值列分别修改为整型。</p>
+<p>修改数据类型我们使用的仍然是前面提到的 <code>df.astype()</code>
+方法。于是，我们有如下的实现，将三个数值列分别修改为整型。</p>
 <pre class="language-python" data-language="python"><code class="language-python">task_1<span class="token punctuation">[</span><span class="token string">'diag'</span><span class="token punctuation">]</span> <span class="token operator">=</span> task_1<span class="token punctuation">[</span><span class="token string">'diag'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'int32'</span><span class="token punctuation">)</span>
 task_1<span class="token punctuation">[</span><span class="token string">'heal'</span><span class="token punctuation">]</span> <span class="token operator">=</span> task_1<span class="token punctuation">[</span><span class="token string">'heal'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'int32'</span><span class="token punctuation">)</span>
 task_1<span class="token punctuation">[</span><span class="token string">'die'</span><span class="token punctuation">]</span> <span class="token operator">=</span> task_1<span class="token punctuation">[</span><span class="token string">'die'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'int32'</span><span class="token punctuation">)</span></code></pre>
@@ -571,30 +787,40 @@ task_1 <span class="token operator">=</span> task_1<span class="token punctuatio
 <p>二是：</p>
 <pre class="language-python" data-language="python"><code class="language-python">task_1 <span class="token operator">=</span> task_1<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">,</span> <span class="token string">'date'</span><span class="token punctuation">,</span> <span class="token string">'diag'</span><span class="token punctuation">,</span> <span class="token string">'heal'</span><span class="token punctuation">,</span> <span class="token string">'die'</span><span class="token punctuation">]</span><span class="token punctuation">]</span></code></pre>
 <p>需要注意的是，第二种写法中必须是双中括号，因为是根据多维列名构成的列表在表中进行索引。</p>
-<p>修改列名的方式前面已经提过了，这里就不在赘述了。这里修改表的全部列名，并将结果存储到 <code>task1_1.csv</code> 文件中。</p>
+<p>修改列名的方式前面已经提过了，这里就不在赘述了。这里修改表的全部列名，并将结果存储到
+<code>task1_1.csv</code> 文件中。</p>
 <pre class="language-python" data-language="python"><code class="language-python">task_1<span class="token punctuation">.</span>columns <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'城市'</span><span class="token punctuation">,</span> <span class="token string">'日期'</span><span class="token punctuation">,</span> <span class="token string">'累计确诊人数'</span><span class="token punctuation">,</span> <span class="token string">'累计治愈人数'</span><span class="token punctuation">,</span> <span class="token string">'累计死亡人数'</span><span class="token punctuation">]</span>
 task_1<span class="token punctuation">.</span>to_csv<span class="token punctuation">(</span><span class="token string">'task1_1.csv'</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></code></pre>
-<p>下面，我们实现对于武汉、深圳和保定三个城市的每月 10 日、25 日数据的查询。这里的思路其实非常简单，就是前面提到的按条件在表中筛选行的过程。对于如何查询指定日期的问题，由于我们前面已经将日期列转化成了 pandas 中的日期类型，那么对于该类型而言，存在这样的方式去获取当前值对应的年、月、日等时间。假设变量 <code>var</code> 目前是表中的一个日期值：</p>
+<p>下面，我们实现对于武汉、深圳和保定三个城市的每月 10 日、25
+日数据的查询。这里的思路其实非常简单，就是前面提到的按条件在表中筛选行的过程。对于如何查询指定日期的问题，由于我们前面已经将日期列转化成了
+pandas
+中的日期类型，那么对于该类型而言，存在这样的方式去获取当前值对应的年、月、日等时间。假设变量
+<code>var</code> 目前是表中的一个日期值：</p>
 <pre class="language-python" data-language="python"><code class="language-python">year <span class="token operator">=</span> var<span class="token punctuation">.</span>dt<span class="token punctuation">.</span>year     <span class="token comment"># 年</span>
 month <span class="token operator">=</span> var<span class="token punctuation">.</span>dt<span class="token punctuation">.</span>month   <span class="token comment"># 月</span>
 day <span class="token operator">=</span> var<span class="token punctuation">.</span>dt<span class="token punctuation">.</span>day       <span class="token comment"># 日</span></code></pre>
-<p>于是，我们就可以通过这样的方式实现题目要求的查询，并将结果存储到 <code>task1_1-&#123;城市名&#125;.csv</code> 中：</p>
+<p>于是，我们就可以通过这样的方式实现题目要求的查询，并将结果存储到
+<code>task1_1-&#123;城市名&#125;.csv</code> 中：</p>
 <pre class="language-python" data-language="python"><code class="language-python">queries <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'武汉'</span><span class="token punctuation">,</span> <span class="token string">'深圳'</span><span class="token punctuation">,</span> <span class="token string">'保定'</span><span class="token punctuation">]</span>
 <span class="token keyword">for</span> query <span class="token keyword">in</span> queries<span class="token punctuation">:</span>
     city_data <span class="token operator">=</span> task_1<span class="token punctuation">[</span>task_1<span class="token punctuation">[</span><span class="token string">'城市'</span><span class="token punctuation">]</span> <span class="token operator">==</span> query<span class="token punctuation">]</span>
     res <span class="token operator">=</span> city_data<span class="token punctuation">[</span><span class="token punctuation">(</span>city_data<span class="token punctuation">[</span><span class="token string">'日期'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dt<span class="token punctuation">.</span>day <span class="token operator">==</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span>city_data<span class="token punctuation">[</span><span class="token string">'日期'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dt<span class="token punctuation">.</span>day <span class="token operator">==</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
     res<span class="token punctuation">.</span>to_csv<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'task1_1-</span><span class="token interpolation"><span class="token punctuation">&#123;</span>query<span class="token punctuation">&#125;</span></span><span class="token string">.csv'</span></span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></code></pre>
-<p>当然，也有一种更加简单粗暴的方法去获取当前日期的日是多少。我们可以看到，现在表中数据的格式都是 <code>yyyy-mm-dd</code> 的格式，那么，将其转换为字符串后，其后两位就是当前的日期值。所以我们也可以通过这样的方式筛选日期：</p>
+<p>当然，也有一种更加简单粗暴的方法去获取当前日期的日是多少。我们可以看到，现在表中数据的格式都是
+<code>yyyy-mm-dd</code>
+的格式，那么，将其转换为字符串后，其后两位就是当前的日期值。所以我们也可以通过这样的方式筛选日期：</p>
 <pre class="language-python" data-language="python"><code class="language-python">res <span class="token operator">=</span> city_data<span class="token punctuation">[</span><span class="token punctuation">(</span>city_data<span class="token punctuation">[</span><span class="token string">'日期'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">str</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span>city_data<span class="token punctuation">[</span><span class="token string">'日期'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">str</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">]</span></code></pre>
 <p>上面的这种方式很简单粗暴，但是适用范围还是较为局限，对于日期相关属性的查询还是使用第一种实现方式为好。</p>
 <p>以上，我们就完成了任务一的所有要求。</p>
-<h3 id="42-任务二"><a class="markdownIt-Anchor" href="#42-任务二"></a> 4.2 任务二</h3>
+<h3 id="任务二-1">4.2 任务二</h3>
 <p>当做完任务一的所有过程后，再去阅读任务二，你会发现任务二其实和任务一的处理方式几乎一致，只是要求的行政区划变成了省级，并且要求新增和累计要分列统计。所以以下过程中，就不在对任务一中提到过为什么要这样处理的原因重新进行解释了。下面开始解决任务二当中的问题。</p>
-<p>由于前面我们在任务一中已经将数据 “蹂躏” 的差不多了，这里选择重新从原表中读入数据进行处理。</p>
+<p>由于前面我们在任务一中已经将数据 “蹂躏”
+的差不多了，这里选择重新从原表中读入数据进行处理。</p>
 <pre class="language-python" data-language="python"><code class="language-python">prov_data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span><span class="token string">'/kaggle/input/data-anly-exp05/data.xlsx'</span><span class="token punctuation">,</span> sheet_name<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span></code></pre>
 <p>依然是对所有列进行重命名：</p>
 <pre class="language-python" data-language="python"><code class="language-python">prov_data<span class="token punctuation">.</span>columns <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">,</span> <span class="token string">'prov'</span><span class="token punctuation">,</span> <span class="token string">'diag'</span><span class="token punctuation">,</span> <span class="token string">'heal'</span><span class="token punctuation">,</span> <span class="token string">'die'</span><span class="token punctuation">]</span></code></pre>
-<p>之后，由于任务中要求我们分析省级的疫情数据，我们这里使用由表 2 构建的城市和省份的映射字典来进行转换。首先构建映射字典：</p>
+<p>之后，由于任务中要求我们分析省级的疫情数据，我们这里使用由表 2
+构建的城市和省份的映射字典来进行转换。首先构建映射字典：</p>
 <pre class="language-python" data-language="python"><code class="language-python">city_to_prov <span class="token operator">=</span> <span class="token punctuation">&#123;</span>k<span class="token punctuation">:</span> v <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'prov'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></code></pre>
 <p>由于字典过长，这里就不展示字典里的内容了。之后，我们进行替换：</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">rep</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> dct<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -602,16 +828,18 @@ day <span class="token operator">=</span> var<span class="token punctuation">.</
         <span class="token keyword">return</span> dct<span class="token punctuation">[</span>x<span class="token punctuation">]</span>
     <span class="token keyword">return</span> x
 prov_data<span class="token punctuation">[</span><span class="token string">'prov'</span><span class="token punctuation">]</span> <span class="token operator">=</span> prov_data<span class="token punctuation">[</span><span class="token string">'prov'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">apply</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> rep<span class="token punctuation">(</span>x<span class="token punctuation">,</span> city_to_prov<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<p>仍然是和前面一样的替换函数，仍然是使用 <code>df.apply()</code> 方法将函数应用到表的列上。</p>
+<p>仍然是和前面一样的替换函数，仍然是使用 <code>df.apply()</code>
+方法将函数应用到表的列上。</p>
 <p>现在，我们来看一下经过以上处理后表的现状。</p>
 <pre class="language-python" data-language="python"><code class="language-python">prov_data<span class="token punctuation">.</span>head</code></pre>
-<img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2016.47.31.png" alt="截屏2022-10-10 16.47.31" style="zoom:50%;" />
+<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2016.47.31.png" alt="截屏2022-10-10 16.47.31" style="zoom:50%;" /></p>
 <p>可以看到，前面进行的一系列处理都成功修改了。接下来，我们开始对任务二要求的问题进行分析，分析过程和任务一完全一致。首先是根据省份和日期先进行一步聚合，合并同一省份、同一日期的数据。</p>
 <pre class="language-python" data-language="python"><code class="language-python">groups <span class="token operator">=</span> prov_data<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'prov'</span><span class="token punctuation">,</span> <span class="token string">'date'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> as_index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 groups</code></pre>
 <p>得到输出：</p>
-<img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2016.49.57.png" alt="截屏2022-10-10 16.49.57" style="zoom:50%;" />
-<p>之后，就是和任务一当中一样的过程了，包括分组、两步空缺日期的填充、空值填充、累加计算、拼接表几个步骤。唯一不同的是，我们这里启用了新列作为 “累计……” 的记录。实现代码如下：</p>
+<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2016.49.57.png" alt="截屏2022-10-10 16.49.57" style="zoom:50%;" /></p>
+<p>之后，就是和任务一当中一样的过程了，包括分组、两步空缺日期的填充、空值填充、累加计算、拼接表几个步骤。唯一不同的是，我们这里启用了新列作为
+“累计……” 的记录。实现代码如下：</p>
 <pre class="language-python" data-language="python"><code class="language-python">task_2 <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span>columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">,</span> <span class="token string">'prov'</span><span class="token punctuation">,</span> <span class="token string">'diag'</span><span class="token punctuation">,</span> <span class="token string">'heal'</span><span class="token punctuation">,</span> <span class="token string">'die'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 groups <span class="token operator">=</span> groups<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'prov'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token keyword">for</span> group <span class="token keyword">in</span> groups<span class="token punctuation">:</span>
@@ -628,25 +856,28 @@ groups <span class="token operator">=</span> groups<span class="token punctuatio
     res<span class="token punctuation">[</span><span class="token string">'sum_heal'</span><span class="token punctuation">]</span> <span class="token operator">=</span> res<span class="token punctuation">[</span><span class="token string">'heal'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span><span class="token punctuation">)</span>
     res<span class="token punctuation">[</span><span class="token string">'sum_die'</span><span class="token punctuation">]</span> <span class="token operator">=</span> res<span class="token punctuation">[</span><span class="token string">'die'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span><span class="token punctuation">)</span>
     task_2 <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">[</span>task_2<span class="token punctuation">,</span> res<span class="token punctuation">]</span><span class="token punctuation">,</span> ignore_index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></code></pre>
-<p>之后依然是对于结果的小修，包括修改列类型、修改列名、修改列顺序三步。最后，将结果存储到 <code>task1_2.csv</code> 中。</p>
+<p>之后依然是对于结果的小修，包括修改列类型、修改列名、修改列顺序三步。最后，将结果存储到
+<code>task1_2.csv</code> 中。</p>
 <pre class="language-python" data-language="python"><code class="language-python">task_2<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'diag'</span><span class="token punctuation">,</span> <span class="token string">'heal'</span><span class="token punctuation">,</span> <span class="token string">'die'</span><span class="token punctuation">,</span> <span class="token string">'sum_diag'</span><span class="token punctuation">,</span> <span class="token string">'sum_heal'</span><span class="token punctuation">,</span> <span class="token string">'sum_die'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> task_2<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'diag'</span><span class="token punctuation">,</span> <span class="token string">'heal'</span><span class="token punctuation">,</span> <span class="token string">'die'</span><span class="token punctuation">,</span> <span class="token string">'sum_diag'</span><span class="token punctuation">,</span> <span class="token string">'sum_heal'</span><span class="token punctuation">,</span> <span class="token string">'sum_die'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'int32'</span><span class="token punctuation">)</span>
 task_2 <span class="token operator">=</span> task_2<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'prov'</span><span class="token punctuation">,</span> <span class="token string">'date'</span><span class="token punctuation">,</span> <span class="token string">'diag'</span><span class="token punctuation">,</span> <span class="token string">'heal'</span><span class="token punctuation">,</span> <span class="token string">'die'</span><span class="token punctuation">,</span> <span class="token string">'sum_diag'</span><span class="token punctuation">,</span> <span class="token string">'sum_heal'</span><span class="token punctuation">,</span> <span class="token string">'sum_die'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
 task_2<span class="token punctuation">.</span>columns <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'省份'</span><span class="token punctuation">,</span> <span class="token string">'日期'</span><span class="token punctuation">,</span> 
                   <span class="token string">'新增确诊人数'</span><span class="token punctuation">,</span> <span class="token string">'新增治愈人数'</span><span class="token punctuation">,</span> <span class="token string">'新增死亡人数'</span><span class="token punctuation">,</span> 
                   <span class="token string">'累计确诊人数'</span><span class="token punctuation">,</span> <span class="token string">'累计治愈人数'</span><span class="token punctuation">,</span> <span class="token string">'累计死亡人数'</span><span class="token punctuation">]</span>
 task_2<span class="token punctuation">.</span>to_csv<span class="token punctuation">(</span><span class="token string">'task1_2.csv'</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></code></pre>
-<p>对于任务二中的查询要求，实现方式也和任务一中完全一致，这里直接给出实现代码。结果仍然是存储在 <code>task1_2-&#123;城市名&#125;.csv</code> 中。</p>
+<p>对于任务二中的查询要求，实现方式也和任务一中完全一致，这里直接给出实现代码。结果仍然是存储在
+<code>task1_2-&#123;城市名&#125;.csv</code> 中。</p>
 <pre class="language-python" data-language="python"><code class="language-python">queries <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'湖北'</span><span class="token punctuation">,</span> <span class="token string">'广东'</span><span class="token punctuation">,</span> <span class="token string">'河北'</span><span class="token punctuation">]</span>
 <span class="token keyword">for</span> query <span class="token keyword">in</span> queries<span class="token punctuation">:</span>
     data <span class="token operator">=</span> task_2<span class="token punctuation">[</span>task_2<span class="token punctuation">[</span><span class="token string">'省份'</span><span class="token punctuation">]</span> <span class="token operator">==</span> query<span class="token punctuation">]</span>
     res <span class="token operator">=</span> data<span class="token punctuation">[</span>data<span class="token punctuation">[</span><span class="token string">'日期'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dt<span class="token punctuation">.</span>day <span class="token operator">==</span> <span class="token number">15</span><span class="token punctuation">]</span>
     res<span class="token punctuation">.</span>to_csv<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'task1_2-</span><span class="token interpolation"><span class="token punctuation">&#123;</span>query<span class="token punctuation">&#125;</span></span><span class="token string">.csv'</span></span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></code></pre>
 <p>以上，我们完成了任务二的所有要求。</p>
-<h3 id="43-任务三"><a class="markdownIt-Anchor" href="#43-任务三"></a> 4.3 任务三</h3>
-<p>任务三要求我们统计当前日期的住院人数。在第三部分任务分析中，我们已经提到，我们可以通过这样的公式去计算当天的住院人数：</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>=</mo><mi>D</mi><mo>−</mo><mi>H</mi><mo>−</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">P=D-H-V
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.02778em;">D</span><span class="mbin">−</span><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="mbin">−</span><span class="mord mathit" style="margin-right:0.22222em;">V</span></span></span></span></span></p>
-<p>那么，这一问的实现也就很简单了，只需要在第二问的结果基础上对列之间进行运算即可。</p>
+<h3 id="任务三-1">4.3 任务三</h3>
+<p>任务三要求我们统计当前日期的住院人数。在第三部分任务分析中，我们已经提到，我们可以通过这样的公式去计算当天的住院人数：
+<span class="math display">\[
+P=D-H-V
+\]</span>
+那么，这一问的实现也就很简单了，只需要在第二问的结果基础上对列之间进行运算即可。</p>
 <p>首先，读入第二问的结果到变量中。</p>
 <pre class="language-python" data-language="python"><code class="language-python">task_3 <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'./task1_2.csv'</span><span class="token punctuation">)</span></code></pre>
 <p>之后，根据公式进行计算，得到每日的住院人数。在重新读入时，日期列现在是字符串类型，为满足后面的查询要求，这里将日期列转换成日期类型。</p>
@@ -654,11 +885,17 @@ task_2<span class="token punctuation">.</span>to_csv<span class="token punctuati
 task_3<span class="token punctuation">[</span><span class="token string">'日期'</span><span class="token punctuation">]</span> <span class="token operator">=</span> pd<span class="token punctuation">.</span>to_datetime<span class="token punctuation">(</span>task_3<span class="token punctuation">[</span><span class="token string">'日期'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 task_3<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p>得到现在表状态的输出：</p>
-<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2016.59.36.png" alt="截屏2022-10-10 16.59.36" /></p>
+<figure>
+<img
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2016.59.36.png"
+alt="截屏2022-10-10 16.59.36" />
+<figcaption aria-hidden="true">截屏2022-10-10 16.59.36</figcaption>
+</figure>
 <p>由于任务中的要求，我们只要省份、日期和住院人数几列。所以这里将没有用的列剔除掉。</p>
 <pre class="language-python" data-language="python"><code class="language-python">task_3 <span class="token operator">=</span> task_3<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'省份'</span><span class="token punctuation">,</span> <span class="token string">'日期'</span><span class="token punctuation">,</span> <span class="token string">'住院人数'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
 task_3<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p>得到处理后的输出为： <img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2017.07.12.png" alt="截屏2022-10-10 17.07.12" style="zoom:50%;" /></p>
+<p>得到处理后的输出为：
+<img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2017.07.12.png" alt="截屏2022-10-10 17.07.12" style="zoom:50%;" /></p>
 <p>最后，将任务三的结果存储到 <code>task1_3.csv</code> 中。</p>
 <pre class="language-python" data-language="python"><code class="language-python">task_3<span class="token punctuation">.</span>to_csv<span class="token punctuation">(</span><span class="token string">'task1_3.csv'</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></code></pre>
 <p>任务三的查询和任务一、二的实现方式也是完全一致的，这里就直接给出代码，不进行阐述了。</p>
@@ -668,37 +905,56 @@ task_3<span class="token punctuation">.</span>head<span class="token punctuation
     res <span class="token operator">=</span> data<span class="token punctuation">[</span>data<span class="token punctuation">[</span><span class="token string">'日期'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dt<span class="token punctuation">.</span>day <span class="token operator">==</span> <span class="token number">20</span><span class="token punctuation">]</span>
     res<span class="token punctuation">.</span>to_csv<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'task1_3-</span><span class="token interpolation"><span class="token punctuation">&#123;</span>query<span class="token punctuation">&#125;</span></span><span class="token string">.csv'</span></span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></code></pre>
 <p>以上，我们完成了任务三的全部要求。</p>
-<h3 id="44-附加题任务四"><a class="markdownIt-Anchor" href="#44-附加题任务四"></a> 4.4 附加题：任务四</h3>
-<p>任务四其实是一个相对简单的任务，因为题目的要求很宽泛，所以实现起来就比较容易。在问题分析中就已经提到，传播风险区就是以疫情点 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(x,y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">x</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span> 为半径，半径为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> 的圆。那任务四的要求就是绘制一个以表中所有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(x,y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">x</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span> 为圆心，形成半径为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> 的圆后的散点图。</p>
+<h3 id="附加题任务四-1">4.4 附加题：任务四</h3>
+<p>任务四其实是一个相对简单的任务，因为题目的要求很宽泛，所以实现起来就比较容易。在问题分析中就已经提到，传播风险区就是以疫情点
+<span class="math inline">\((x,y)\)</span> 为半径，半径为 <span
+class="math inline">\(1\)</span>
+的圆。那任务四的要求就是绘制一个以表中所有 <span
+class="math inline">\((x,y)\)</span> 为圆心，形成半径为 <span
+class="math inline">\(1\)</span> 的圆后的散点图。</p>
 <p>我们首先读入表 3 数据。</p>
 <pre class="language-python" data-language="python"><code class="language-python">data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span><span class="token string">'/kaggle/input/data-anly-exp05/data.xlsx'</span><span class="token punctuation">,</span> sheet_name<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
 data<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>columns</code></pre>
 <p>得到输出：</p>
-<img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2017.15.27.png" alt="截屏2022-10-10 17.15.27" style="zoom: 50%;" />
+<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2017.15.27.png" alt="截屏2022-10-10 17.15.27" style="zoom: 50%;" /></p>
 <p>仍然是将列进行重命名：</p>
 <pre class="language-python" data-language="python"><code class="language-python">data<span class="token punctuation">.</span>columns <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'placeID'</span><span class="token punctuation">,</span> <span class="token string">'date'</span><span class="token punctuation">,</span> <span class="token string">'x'</span><span class="token punctuation">,</span> <span class="token string">'y'</span><span class="token punctuation">]</span>
 data<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p>得到修改后的表的前几行：</p>
-<img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2017.17.32.png" alt="截屏2022-10-10 17.17.32" style="zoom:50%;" />
-<p>由于任务要求中并没有对传播风险区域的时效性等条件进行限定，那么，这里假设传播风险区域一旦产生便一直有效，即第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 天的疫情传播风险区域是第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> 天一直到第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span> 天所有区域的并集。根据以上假设，这里设计一个过滤函数，给出截止日期，该函数返回截止到当天的所有疫情场所坐标。</p>
+<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2017.17.32.png" alt="截屏2022-10-10 17.17.32" style="zoom:50%;" /></p>
+<p>由于任务要求中并没有对传播风险区域的时效性等条件进行限定，那么，这里假设传播风险区域一旦产生便一直有效，即第
+<span class="math inline">\(k\)</span> 天的疫情传播风险区域是第 <span
+class="math inline">\(1\)</span> 天一直到第 <span
+class="math inline">\(k-1\)</span>
+天所有区域的并集。根据以上假设，这里设计一个过滤函数，给出截止日期，该函数返回截止到当天的所有疫情场所坐标。</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">date_filter</span><span class="token punctuation">(</span>df<span class="token punctuation">,</span> end_date<span class="token punctuation">)</span><span class="token punctuation">:</span>
     indices <span class="token operator">=</span> df<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> end_date<span class="token punctuation">]</span><span class="token punctuation">.</span>index
     <span class="token keyword">return</span> df<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span>indices<span class="token punctuation">]</span></code></pre>
-<p>虽然题目只要求了第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>6</mn></mrow><annotation encoding="application/x-tex">6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">6</span></span></span></span> 天和第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span></span></span></span> 天的结果，但我们这里准备将每天的疫情风险区域都绘制出来。</p>
+<p>虽然题目只要求了第 <span class="math inline">\(6\)</span> 天和第
+<span class="math inline">\(10\)</span>
+天的结果，但我们这里准备将每天的疫情风险区域都绘制出来。</p>
 <p>首先生成一个日期的列表（其实是连续的日期，作用不大）：</p>
 <pre class="language-python" data-language="python"><code class="language-python">dates <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<p>之后，我们计算 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span> 轴和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span> 轴的坐标限，并生成坐标刻度列表。首先计算两坐标轴坐标限，记表中给定坐标数据集合分别为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.22222em;">Y</span></span></span></span> ，则两坐标轴坐标限 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mrow><mi>l</mi><mi>i</mi><mi>m</mi></mrow></msub></mrow><annotation encoding="application/x-tex">x_{lim}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">i</span><span class="mord mathit">m</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 及 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>y</mi><mrow><mi>l</mi><mi>i</mi><mi>m</mi></mrow></msub></mrow><annotation encoding="application/x-tex">y_{lim}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">i</span><span class="mord mathit">m</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 分别定义为</p>
-x_{lim}:=\big[\sigma(1.5 \times\min X),\sigma(1.5\times\max X)\big]\\
-y_{lim}:=\big[\sigma(1.5 \times \min Y),\sigma(1.5\times \max Y)\big]
-
-<p>其中，函数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>σ</mi><mo>(</mo><mo>⋅</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">\sigma(\cdot)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">σ</span><span class="mopen">(</span><span class="mord">⋅</span><span class="mclose">)</span></span></span></span> 代表对变量按整数进行四舍五入。</p>
+<p>之后，我们计算 <span class="math inline">\(x\)</span> 轴和 <span
+class="math inline">\(y\)</span>
+轴的坐标限，并生成坐标刻度列表。首先计算两坐标轴坐标限，记表中给定坐标数据集合分别为
+<span class="math inline">\(X\)</span> 与 <span
+class="math inline">\(Y\)</span> ，则两坐标轴坐标限 <span
+class="math inline">\(x_{lim}\)</span> 及 <span
+class="math inline">\(y_{lim}\)</span> 分别定义为 <span
+class="math display">\[
+x_{lim}:=[\sigma(1.5 \times\min X),\sigma(1.5\times\max X)]\\
+y_{lim}:=[\sigma(1.5 \times \min Y),\sigma(1.5\times \max Y)]
+\]</span> 其中，函数 <span class="math inline">\(\sigma(\cdot)\)</span>
+代表对变量按整数进行四舍五入。</p>
 <p>按照以上定义，计算两坐标轴的坐标限：</p>
 <pre class="language-python" data-language="python"><code class="language-python">xlim <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token builtin">round</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">min</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1.5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">round</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1.5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 ylim <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token builtin">round</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">min</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1.5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">round</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1.5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 xlim<span class="token punctuation">,</span> ylim</code></pre>
 <p>得到的结果是：</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">43.0</span><span class="token punctuation">,</span> <span class="token number">43.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">30.0</span><span class="token punctuation">,</span> <span class="token number">30.0</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<p>由于我们要绘制的是一个类似地图的二维表格，那么我们应该在散点图的坐标轴上有一个适当的刻度用于绘制网格。我们根据坐标限，以步长为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">5</span></span></span></span> 取刻度：</p>
+<p>由于我们要绘制的是一个类似地图的二维表格，那么我们应该在散点图的坐标轴上有一个适当的刻度用于绘制网格。我们根据坐标限，以步长为
+<span class="math inline">\(5\)</span> 取刻度：</p>
 <pre class="language-python" data-language="python"><code class="language-python">xticks <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span>xlim<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> xlim<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
 yticks <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span>ylim<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ylim<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
 xticks<span class="token punctuation">,</span> yticks</code></pre>
@@ -727,14 +983,24 @@ xticks<span class="token punctuation">,</span> yticks</code></pre>
 <p>下面，分块对以上绘图代码进行解读。首先，创建存储所有结果图像的文件夹：</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token string">'task1_4/'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     os<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span><span class="token string">'task1_4/'</span><span class="token punctuation">)</span></code></pre>
-<p>循环日期范围内的每一天，首先通过前面设计的函数获取截止第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> 天的所有坐标数据，并转化成能被 matplotlib 函数接收的列表。</p>
+<p>循环日期范围内的每一天，首先通过前面设计的函数获取截止第 <span
+class="math inline">\(k\)</span> 天的所有坐标数据，并转化成能被
+matplotlib 函数接收的列表。</p>
 <pre class="language-python" data-language="python"><code class="language-python">up_to_date <span class="token operator">=</span> date_filter<span class="token punctuation">(</span>data<span class="token punctuation">,</span> date<span class="token punctuation">)</span>
 x <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>up_to_date<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 y <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>up_to_date<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<p>之后开始绘图。首先是根据上文得到的 <code>x</code> 和 <code>y</code> 绘制散点图：</p>
+<p>之后开始绘图。首先是根据上文得到的 <code>x</code> 和 <code>y</code>
+绘制散点图：</p>
 <pre class="language-python" data-language="python"><code class="language-python">plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> s<span class="token operator">=</span>np<span class="token punctuation">.</span>pi<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span></code></pre>
-<p>由于任务中假设了传播半径为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> km，而附件表 3 中所给的数据也是以 km 作为单位，所以计算得到对于每一个疫情场所，传播风险区域的面积为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>=</mo><mi>π</mi><mo>×</mo><msup><mn>1</mn><mn>2</mn></msup><mo>=</mo><mi>π</mi></mrow><annotation encoding="application/x-tex">S=\pi \times 1^2=\pi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.03588em;">π</span><span class="mbin">×</span><span class="mord"><span class="mord mathrm">1</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.03588em;">π</span></span></span></span> 。这里直接设置了散点图中点的面积为 <code>np.pi</code> ，即设定参数 <code>s=np.pi</code> ，这是 numpy 中提供的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>π</mi></mrow><annotation encoding="application/x-tex">\pi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">π</span></span></span></span> 的表示。</p>
-<p>接下来就是一系列图的参数设定，分别是设定标题、设定坐标限、设定坐标刻度、设置显示网格线。这些内容在之前的关于 matplotlib 的实验中都有所涉及，这里就不再重复阐述各函数的用途了。</p>
+<p>由于任务中假设了传播半径为 <span class="math inline">\(1\)</span>
+km，而附件表 3 中所给的数据也是以 km
+作为单位，所以计算得到对于每一个疫情场所，传播风险区域的面积为 <span
+class="math inline">\(S=\pi \times 1^2=\pi\)</span>
+。这里直接设置了散点图中点的面积为 <code>np.pi</code> ，即设定参数
+<code>s=np.pi</code> ，这是 numpy 中提供的 <span
+class="math inline">\(\pi\)</span> 的表示。</p>
+<p>接下来就是一系列图的参数设定，分别是设定标题、设定坐标限、设定坐标刻度、设置显示网格线。这些内容在之前的关于
+matplotlib 的实验中都有所涉及，这里就不再重复阐述各函数的用途了。</p>
 <pre class="language-python" data-language="python"><code class="language-python">plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Day </span><span class="token interpolation"><span class="token punctuation">&#123;</span>date<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
 plt<span class="token punctuation">.</span>xlim<span class="token punctuation">(</span><span class="token operator">*</span>xlim<span class="token punctuation">)</span>
 plt<span class="token punctuation">.</span>ylim<span class="token punctuation">(</span><span class="token operator">*</span>ylim<span class="token punctuation">)</span>
@@ -744,48 +1010,124 @@ plt<span class="token punctuation">.</span>grid<span class="token punctuation">(
 <p>最后，将得到的散点图保存，并在 notebook 中展示出来。</p>
 <pre class="language-python" data-language="python"><code class="language-python">plt<span class="token punctuation">.</span>savefig<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'task1_4/Day-</span><span class="token interpolation"><span class="token punctuation">&#123;</span>date<span class="token punctuation">&#125;</span></span><span class="token string">.png'</span></span><span class="token punctuation">,</span> dpi<span class="token operator">=</span><span class="token number">500</span><span class="token punctuation">)</span>
 plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p>这里按照题目要求，展示第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>6</mn></mrow><annotation encoding="application/x-tex">6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">6</span></span></span></span> 天和第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span></span></span></span> 天的结果图，其他结果你可以在一开始给出的链接中查看或下载。</p>
-<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/Day-6-20221010191154852.png" alt="img" /></p>
-<p><img src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/Day-10.png" alt="img" /></p>
+<p>这里按照题目要求，展示第 <span class="math inline">\(6\)</span>
+天和第 <span class="math inline">\(10\)</span>
+天的结果图，其他结果你可以在一开始给出的链接中查看或下载。</p>
+<figure>
+<img
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/Day-6-20221010191154852.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<figure>
+<img
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/Day-10.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>以上，任务四的要求全部完成。至此，本次实验全部完成。</p>
-<h2 id="5-总结"><a class="markdownIt-Anchor" href="#5-总结"></a> 5 总结</h2>
+<h2 id="总结">5 总结</h2>
 <p>这次实验的任务其实是一些很简单的数据统计的任务，但这次实验的难点和重点应当是在数据的清洗和预处理上。从整篇博客的篇幅占比可以看到，我使用了很大的篇幅去讲述如何进行数据的清洗和处理，使之能够合适恰当的满足任务的需求，在任务的分析任务进行过程中也能够顺利进行。</p>
-<p>实际上，这次实验的数据当中的 “坑” 是非常多的，并且可能也无法在预先的观察中就全部发现。很多问题的发现还是依赖于在按照错误的方式解决了问题后，发现了明显错误的结果，这时才会回去寻找错误的点在哪里。</p>
-<p>可以说，对现实中得来的，而且可能是很 “raw” 的数据进行分析，发现当中会出现这样或那样的问题并解决，之后去满足任务的需求，这无疑是一种经验的积累和技能的长进。</p>
-<h2 id="6-references"><a class="markdownIt-Anchor" href="#6-references"></a> 6 References</h2>
+<p>实际上，这次实验的数据当中的 “坑”
+是非常多的，并且可能也无法在预先的观察中就全部发现。很多问题的发现还是依赖于在按照错误的方式解决了问题后，发现了明显错误的结果，这时才会回去寻找错误的点在哪里。</p>
+<p>可以说，对现实中得来的，而且可能是很 “raw”
+的数据进行分析，发现当中会出现这样或那样的问题并解决，之后去满足任务的需求，这无疑是一种经验的积累和技能的长进。</p>
+<h2 id="references">6 References</h2>
 <p>此处将本文参考的一些文档和博客进行梳理。</p>
 <p>本文参考的文档主要是 pandas 的官方文档和 matplotlib 的官方文档：</p>
 <ul>
-<li>pandas 官方文档：<a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/index.html">API reference — pandas 1.5.0 documentation (pydata.org)</a></li>
-<li>matplotlib 官方文档：<a target="_blank" rel="noopener" href="https://matplotlib.org/stable/index.html">Matplotlib documentation — Matplotlib 3.6.0 documentation</a></li>
+<li>pandas 官方文档：<a
+target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/index.html">API
+reference — pandas 1.5.0 documentation (pydata.org)</a></li>
+<li>matplotlib 官方文档：<a
+target="_blank" rel="noopener" href="https://matplotlib.org/stable/index.html">Matplotlib documentation
+— Matplotlib 3.6.0 documentation</a></li>
 </ul>
-<p>本文参考了一系列国内外的博客，目的包括查找一些 API 的用法、查找某些问题应当如何正确实现、修复一些莫名其妙的 bug 等。这里列出了本文参考的部分博客，由于本文编写在实验整体完成以后，所以有一些博客就无法找到了。</p>
+<p>本文参考了一系列国内外的博客，目的包括查找一些 API
+的用法、查找某些问题应当如何正确实现、修复一些莫名其妙的 bug
+等。这里列出了本文参考的部分博客，由于本文编写在实验整体完成以后，所以有一些博客就无法找到了。</p>
 <p>本文参考过的部分博客有：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://hesma2.hatenablog.com/entry/2021/01/22/003526">【Python】pandas.Grouperで時系列データを楽々groupby！ - hesma2’s blog (hatenablog.com)</a></li>
-<li><a target="_blank" rel="noopener" href="https://dankremer.github.io/DanKremer/posts/timeseries-analyis-with-pandas-pdgrouper/">Timeseries analyis with Pandas pd.Grouper | Dan J Kremer (dankremer.github.io)</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46713695/article/details/125416343">(20条消息) 详解pd.Grouper()以及时间分组groupby()_赵孝正的博客-CSDN博客_groupby 时间</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42098295/article/details/117409917">(20条消息) Python Pandas pandas.Grouper函数方法的使用_weixin_42098295的博客-CSDN博客_grouper python</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149126583">Pandas-分组：df.groupby() - 知乎 (zhihu.com)</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/FGH333xwy/article/details/110672407">(20条消息) pandas数据分组聚合——groupby()、aggregate()、apply()、transform()和filter()方法详解_范菜的博客-CSDN博客_pandas分组聚合函数有哪些</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41550480/article/details/89390579">(20条消息) np.arange()用法_恰个小茶茶的博客-CSDN博客_np.arange</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/article/54960412.html">numpy之linspace()函数使用详解 | w3c笔记 (w3cschool.cn)</a></li>
-<li><a target="_blank" rel="noopener" href="https://deepinout.com/matplotlib/matplotlib-tutorials/matplotlib-color-and-scale-of-grid-lines.html">Matplotlib 网格线的颜色和刻度|极客笔记 (deepinout.com)</a></li>
-<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/matplotlib/grid.html">Matplotlib grid()设置网格格式 (biancheng.net)</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.delftstack.com/zh/howto/matplotlib/set-matplotlib-grid-interval/">设置 Matplotlib 网格间隔 | D栈 - Delft Stack</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_54423921/article/details/127136886">(20条消息) matplotlib绘制直方图，饼图，散点图，气泡图，箱型图，雷达图_hence…的博客-CSDN博客</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43790276/article/details/109459297">(20条消息) Python matplotlib绘制散点图_小斌哥ge的博客-CSDN博客_matplotlib 散点图</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/111331057">Matplotlib入门-5-plt.scatter( )绘制散点图 - 知乎 (zhihu.com)</a></li>
-<li>[(20条消息) 在 Pandas 中更改列的数据类型_zsd_31的博客-CSDN博客_pandas 改变列数据类型](<a target="_blank" rel="noopener" href="https://blog.csdn.net/zsd_31/article/details/116480953#:~:text=%E5%9C%A8">https://blog.csdn.net/zsd_31/article/details/116480953#:~:text=在</a> Pandas 中更改列的数据类型 1 1 创建 DataFrame 时指定类型,2 2 对于 Series 3 3 对于多列或者整个 DataFrame)</li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/lhys666/article/details/120734444">(20条消息) Pandas 报错 Unalignable boolean Series provided as indexer 的解决方法_白御空的博客-CSDN博客</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42797457/article/details/103346067">(20条消息) Pandas获取时间列的年、月、日_qq_42797457的博客-CSDN博客</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/130875312">python入门 | pandas的datetime - 知乎 (zhihu.com)</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37477175/article/details/106405656">(20条消息) pandas 调整列的顺序_chestnut–的博客-CSDN博客_pandas 列顺序</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43685844/article/details/87913303">(20条消息) pandas多表拼接（merge, join, concat)_Jennie_J的博客-CSDN博客_pandas拼接两个表</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Fwuyi/article/details/123638181">(20条消息) df.reset_index( )函数（Pandas库）_方如一的博客-CSDN博客_df.reset_index</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46589710/article/details/105383299">(20条消息) pandas时间序列之 pd.to_datetime()_红泥小火炉儿的博客-CSDN博客_pd.to_datetime用法</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/17cb2733a6d7">pandas.DataFrame.fillna() - 简书 (jianshu.com)</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/lisnyuan/article/details/107051836">(20条消息) pandas学习之df.fillna_非昨的博客-CSDN博客_df fillna</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://hesma2.hatenablog.com/entry/2021/01/22/003526">【Python】pandas.Grouperで時系列データを楽々groupby！
+- hesma2’s blog (hatenablog.com)</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://dankremer.github.io/DanKremer/posts/timeseries-analyis-with-pandas-pdgrouper/">Timeseries
+analyis with Pandas pd.Grouper | Dan J Kremer
+(dankremer.github.io)</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46713695/article/details/125416343">(20条消息)
+详解pd.Grouper()以及时间分组groupby()_赵孝正的博客-CSDN博客_groupby
+时间</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42098295/article/details/117409917">(20条消息)
+Python Pandas
+pandas.Grouper函数方法的使用_weixin_42098295的博客-CSDN博客_grouper
+python</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149126583">Pandas-分组：df.groupby()
+- 知乎 (zhihu.com)</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/FGH333xwy/article/details/110672407">(20条消息)
+pandas数据分组聚合——groupby()、aggregate()、apply()、transform()和filter()方法详解_范菜的博客-CSDN博客_pandas分组聚合函数有哪些</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41550480/article/details/89390579">(20条消息)
+np.arange()用法_恰个小茶茶的博客-CSDN博客_np.arange</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.w3cschool.cn/article/54960412.html">numpy之linspace()函数使用详解
+| w3c笔记 (w3cschool.cn)</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://deepinout.com/matplotlib/matplotlib-tutorials/matplotlib-color-and-scale-of-grid-lines.html">Matplotlib
+网格线的颜色和刻度|极客笔记 (deepinout.com)</a></li>
+<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/matplotlib/grid.html">Matplotlib
+grid()设置网格格式 (biancheng.net)</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.delftstack.com/zh/howto/matplotlib/set-matplotlib-grid-interval/">设置
+Matplotlib 网格间隔 | D栈 - Delft Stack</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_54423921/article/details/127136886">(20条消息)
+matplotlib绘制直方图，饼图，散点图，气泡图，箱型图，雷达图_hence..的博客-CSDN博客</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43790276/article/details/109459297">(20条消息)
+Python matplotlib绘制散点图_小斌哥ge的博客-CSDN博客_matplotlib
+散点图</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/111331057">Matplotlib入门-5-plt.scatter(
+)绘制散点图 - 知乎 (zhihu.com)</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/zsd_31/article/details/116480953#:~:text=在%20Pandas%20中更改列的数据类型%201%201%20创建%20DataFrame%20时指定类型,2%202%20对于%20Series%203%203%20对于多列或者整个%20DataFrame">(20条消息)
+在 Pandas 中更改列的数据类型_zsd_31的博客-CSDN博客_pandas
+改变列数据类型</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/lhys666/article/details/120734444">(20条消息)
+Pandas 报错 Unalignable boolean Series provided as indexer
+的解决方法_白御空的博客-CSDN博客</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42797457/article/details/103346067">(20条消息)
+Pandas获取时间列的年、月、日_qq_42797457的博客-CSDN博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/130875312">python入门 |
+pandas的datetime - 知乎 (zhihu.com)</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37477175/article/details/106405656">(20条消息)
+pandas 调整列的顺序_chestnut--的博客-CSDN博客_pandas 列顺序</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43685844/article/details/87913303">(20条消息)
+pandas多表拼接（merge, join,
+concat)_Jennie_J的博客-CSDN博客_pandas拼接两个表</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/Fwuyi/article/details/123638181">(20条消息)
+df.reset_index(
+)函数（Pandas库）_方如一的博客-CSDN博客_df.reset_index</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46589710/article/details/105383299">(20条消息)
+pandas时间序列之
+pd.to_datetime()_红泥小火炉儿的博客-CSDN博客_pd.to_datetime用法</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.jianshu.com/p/17cb2733a6d7">pandas.DataFrame.fillna()
+- 简书 (jianshu.com)</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/lisnyuan/article/details/107051836">(20条消息)
+pandas学习之df.fillna_非昨的博客-CSDN博客_df fillna</a></li>
 </ul>
 
     </div>
@@ -859,14 +1201,14 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">387k</span>
+    <span title="站点总字数">369k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:52</span>
+    <span title="站点阅读时长">5:36</span>
   </span>
 </div>
 <div class="busuanzi-count">
