@@ -22,12 +22,12 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.leolang.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":false,"nav":null,"activeClass":"changyan"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="前言 本文将介绍数据分析第五次实验分析疫情数据的全过程。 本文在 Kaggle 平台上完成，对应的 Kaggle notebook 链接为 Data-Analysis-Exp05 | Kaggle 。">
+<meta name="description" content="前言 本文将介绍数据分析第五次实验分析疫情数据的全过程。 本文在 Kaggle 平台上完成，对应的 Kaggle notebook 链接为 Data-Analysis-Exp05 | Kaggle。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据分析实验 05">
 <meta property="og:url" content="https://www.leolang.top/2022/10/10/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%AE%9E%E9%AA%8C%2005/index.html">
 <meta property="og:site_name" content="W1ndness的技术栈">
-<meta property="og:description" content="前言 本文将介绍数据分析第五次实验分析疫情数据的全过程。 本文在 Kaggle 平台上完成，对应的 Kaggle notebook 链接为 Data-Analysis-Exp05 | Kaggle 。">
+<meta property="og:description" content="前言 本文将介绍数据分析第五次实验分析疫情数据的全过程。 本文在 Kaggle 平台上完成，对应的 Kaggle notebook 链接为 Data-Analysis-Exp05 | Kaggle。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2016.19.26.png">
 <meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2016.47.31.png">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2017.15.27.png">
 <meta property="og:image" content="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-10-10%2017.17.32.png">
 <meta property="article:published_time" content="2022-10-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-10T11:50:33.140Z">
+<meta property="article:modified_time" content="2022-10-10T15:48:55.455Z">
 <meta property="article:author" content="LeoLang">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Data Analysis">
@@ -270,7 +270,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-10-10 00:00:00 / 修改时间：19:50:33" itemprop="dateCreated datePublished" datetime="2022-10-10T00:00:00+08:00">2022-10-10</time>
+      <time title="创建时间：2022-10-10 00:00:00 / 修改时间：23:48:55" itemprop="dateCreated datePublished" datetime="2022-10-10T00:00:00+08:00">2022-10-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -344,8 +344,8 @@
         <h1 id="前言">前言</h1>
 <p>本文将介绍数据分析第五次实验分析疫情数据的全过程。</p>
 <p>本文在 Kaggle 平台上完成，对应的 Kaggle notebook 链接为 <a
-target="_blank" rel="noopener" href="https://www.kaggle.com/code/w1ndness/data-analysis-exp05?scriptVersionId=107490273">Data-Analysis-Exp05
-| Kaggle</a> 。</p>
+target="_blank" rel="noopener" href="https://www.kaggle.com/code/w1ndness/data-analysis-exp05/notebook?scriptVersionId=107666601">Data-Analysis-Exp05
+| Kaggle</a>。</p>
 <span id="more"></span>
 <h1 id="数据分析实验-05">数据分析实验 05</h1>
 <h2 id="写在前面">0 写在前面</h2>
@@ -360,9 +360,9 @@ Anaconda 自带的 Jupyter Notebook 进行，而是依托 Kaggle 平台进行。
 平台拥有很齐全的数据分析环境，预安装了许多数据分析常用的包。并且，Kaggle
 平台还有很优秀的版本控制和云端控制台，可以较为容易地管理中间结果、输出结果，以及运行命令。</p>
 <p>本次实验的 Kaggle notebook 链接为 <a
-target="_blank" rel="noopener" href="https://www.kaggle.com/code/w1ndness/data-analysis-exp05?scriptVersionId=107490273">Data-Analysis-Exp05
-| Kaggle</a>
-，默认显示的是最后一版（全部任务1-任务4）的代码。在这里，你可以看到我的代码，也可以看到我本次实验的最终输出结果。当然了，你也可以查看之前版本的代码。Kaggle
+target="_blank" rel="noopener" href="https://www.kaggle.com/code/w1ndness/data-analysis-exp05/notebook?scriptVersionId=107666601">Data-Analysis-Exp05
+|
+Kaggle</a>，默认显示的是最后一版（全部任务1-任务4）的代码。在这里，你可以看到我的代码，也可以看到我本次实验的最终输出结果。当然了，你也可以查看之前版本的代码。Kaggle
 上的路径可能与你本地进行的实验环境有所不同，当你参考我的博客时希望你能注意。</p>
 <p>作者的实验环境为 Python 3.7，包版本使用 Kaggle
 预安装的所有包，没有修改。由于本次实验没有涉及大量的并行计算，所以本次实验仅使用
@@ -424,7 +424,7 @@ P=D-H-V
 class="math inline">\(1\)</span>
 的圆。那么，体现在图当中，就是绘制一个以表中所有 <span
 class="math inline">\((x,y)\)</span> 为圆心，形成半径为 <span
-class="math inline">\(1\)</span> 的圆后的散点图。</p>
+class="math inline">\(1\)</span> 的圆聚合形成的图。</p>
 <h2 id="任务实现">4 任务实现</h2>
 <p>这里提到的代码可能和 Kaggle notebook
 上的不完全一致，原始代码还请你参考 Kaggle notebook
@@ -911,7 +911,7 @@ task_3<span class="token punctuation">.</span>head<span class="token punctuation
 class="math inline">\(1\)</span>
 的圆。那任务四的要求就是绘制一个以表中所有 <span
 class="math inline">\((x,y)\)</span> 为圆心，形成半径为 <span
-class="math inline">\(1\)</span> 的圆后的散点图。</p>
+class="math inline">\(1\)</span> 的圆集合成的图。</p>
 <p>我们首先读入表 3 数据。</p>
 <pre class="language-python" data-language="python"><code class="language-python">data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span><span class="token string">'/kaggle/input/data-anly-exp05/data.xlsx'</span><span class="token punctuation">,</span> sheet_name<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
 data<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>columns</code></pre>
@@ -963,7 +963,7 @@ xticks<span class="token punctuation">,</span> yticks</code></pre>
          <span class="token number">12</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">17</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">22</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">27</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">32</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">37</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">42</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
  array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">30</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">25</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">20</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">15</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">.</span><span class="token punctuation">,</span>   <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span>   <span class="token number">5</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">10</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">15</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">20</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
          <span class="token number">25</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<p>进行完以上的准备工作以后，我们开始绘制散点图。绘制图像的总代码如下：</p>
+<p>进行完以上的准备工作以后，我们开始绘图。绘制图像的总代码如下：</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token string">'task1_4/'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     os<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span><span class="token string">'task1_4/'</span><span class="token punctuation">)</span>
 
@@ -971,8 +971,10 @@ xticks<span class="token punctuation">,</span> yticks</code></pre>
     up_to_date <span class="token operator">=</span> date_filter<span class="token punctuation">(</span>data<span class="token punctuation">,</span> date<span class="token punctuation">)</span>
     x <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>up_to_date<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
     y <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>up_to_date<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    fig<span class="token punctuation">,</span> ax <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> pt <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        ax<span class="token punctuation">.</span>add_patch<span class="token punctuation">(</span>plt<span class="token punctuation">.</span>Circle<span class="token punctuation">(</span>pt<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">,</span> fill<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Day </span><span class="token interpolation"><span class="token punctuation">&#123;</span>date<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
-    plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> s<span class="token operator">=</span>np<span class="token punctuation">.</span>pi<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span>
     plt<span class="token punctuation">.</span>xlim<span class="token punctuation">(</span><span class="token operator">*</span>xlim<span class="token punctuation">)</span>
     plt<span class="token punctuation">.</span>ylim<span class="token punctuation">(</span><span class="token operator">*</span>ylim<span class="token punctuation">)</span>
     plt<span class="token punctuation">.</span>xticks<span class="token punctuation">(</span>xticks<span class="token punctuation">)</span>
@@ -989,16 +991,17 @@ matplotlib 函数接收的列表。</p>
 <pre class="language-python" data-language="python"><code class="language-python">up_to_date <span class="token operator">=</span> date_filter<span class="token punctuation">(</span>data<span class="token punctuation">,</span> date<span class="token punctuation">)</span>
 x <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>up_to_date<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 y <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>up_to_date<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<p>之后开始绘图。首先是根据上文得到的 <code>x</code> 和 <code>y</code>
-绘制散点图：</p>
-<pre class="language-python" data-language="python"><code class="language-python">plt<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> s<span class="token operator">=</span>np<span class="token punctuation">.</span>pi<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span></code></pre>
-<p>由于任务中假设了传播半径为 <span class="math inline">\(1\)</span>
-km，而附件表 3 中所给的数据也是以 km
-作为单位，所以计算得到对于每一个疫情场所，传播风险区域的面积为 <span
-class="math inline">\(S=\pi \times 1^2=\pi\)</span>
-。这里直接设置了散点图中点的面积为 <code>np.pi</code> ，即设定参数
-<code>s=np.pi</code> ，这是 numpy 中提供的 <span
-class="math inline">\(\pi\)</span> 的表示。</p>
+<p>之后开始绘图。这里要对每一个点绘制一个半径为 <span
+class="math inline">\(1\)</span>
+的圆，这里容易踩的坑是，兵不应该绘制一个散点图，因为散点图设置面积参数为
+<code>s=1</code> 时，并不代表点的实际面积就为 <span
+class="math inline">\(\pi\)</span>
+，点的面积是和像素有关的。那么，我们这里采用这样的实现方式。</p>
+<pre class="language-python" data-language="python"><code class="language-python">fig<span class="token punctuation">,</span> ax <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> pt <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ax<span class="token punctuation">.</span>add_patch<span class="token punctuation">(</span>plt<span class="token punctuation">.</span>Circle<span class="token punctuation">(</span>pt<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">,</span> fill<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>采用 <code>plt.Circle</code> 类，并通过 <code>ax.add_patch()</code>
+方向图中添加设定好的圆。</p>
 <p>接下来就是一系列图的参数设定，分别是设定标题、设定坐标限、设定坐标刻度、设置显示网格线。这些内容在之前的关于
 matplotlib 的实验中都有所涉及，这里就不再重复阐述各函数的用途了。</p>
 <pre class="language-python" data-language="python"><code class="language-python">plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Day </span><span class="token interpolation"><span class="token punctuation">&#123;</span>date<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
@@ -1015,13 +1018,13 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 天的结果图，其他结果你可以在一开始给出的链接中查看或下载。</p>
 <figure>
 <img
-src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/Day-6-20221010191154852.png"
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/Day-6-20221010234248750.png"
 alt="img" />
 <figcaption aria-hidden="true">img</figcaption>
 </figure>
 <figure>
 <img
-src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/Day-10.png"
+src="https://leolang-blog-pictures.oss-cn-beijing.aliyuncs.com/img/Day-10-20221010234625600.png"
 alt="img" />
 <figcaption aria-hidden="true">img</figcaption>
 </figure>
