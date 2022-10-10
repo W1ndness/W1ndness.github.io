@@ -30,6 +30,8 @@
 <meta property="og:description" content="LeetCode 1447 最简分数">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.shields.io/badge/Difficulty-Medium-yellow">
+<meta property="og:image" content="https://img.shields.io/badge/Date-2%2F10%2F2022-blueviolet">
+<meta property="og:image" content="https://img.shields.io/badge/Check-Accepted-brightgreen">
 <meta property="article:published_time" content="2022-02-09T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-02-13T12:17:00.000Z">
 <meta property="article:author" content="LeoLang">
@@ -102,9 +104,9 @@
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">71</span></a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">23</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">51</span></a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">72</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">24</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">52</span></a></li>
         <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
@@ -162,7 +164,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-1447-%E6%9C%80%E7%AE%80%E5%88%86%E6%95%B0"><span class="nav-text">LeetCode 1447 最简分数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-link"><span class="nav-text">Problem Link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-description"><span class="nav-text">Problem Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#submit-code"><span class="nav-text">Submit Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code-explanation"><span class="nav-text">Code Explanation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reference"><span class="nav-text">Reference</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-1447-%E6%9C%80%E7%AE%80%E5%88%86%E6%95%B0"><span class="nav-text"> LeetCode 1447 最简分数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-link"><span class="nav-text"> Problem Link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-description"><span class="nav-text"> Problem Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text"> Solution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#submit-code"><span class="nav-text"> Submit Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code-explanation"><span class="nav-text"> Code Explanation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reference"><span class="nav-text"> Reference</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -178,18 +180,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-count">72</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -327,7 +329,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.2k</span>
+      <span>2.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -345,22 +347,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="leetcode-1447-最简分数">LeetCode 1447 最简分数</h1>
+        <h1 id="leetcode-1447-最简分数"><a class="markdownIt-Anchor" href="#leetcode-1447-最简分数"></a> LeetCode 1447 最简分数</h1>
 <span id="more"></span>
-<h3 id="problem-link">Problem Link</h3>
-<p><a
-target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/simplified-fractions/">1447.
-最简分数 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
-<p><img src="https://img.shields.io/badge/Difficulty-Medium-yellow"
-alt="Difficulty: Medium (shields.io)" /><img
-src="https://img.shields.io/badge/Date-2%2F10%2F2022-blueviolet"
-alt="Date: 2/9/2022 (shields.io)" /> <img
-src="https://img.shields.io/badge/Check-Accepted-brightgreen"
-alt="Check: Accepted (shields.io)" /></p>
-<h3 id="problem-description">Problem Description</h3>
-<p>给你一个整数 <code>n</code> ，请你返回所有 0 到 1 之间（不包括 0 和
-1）满足分母小于等于 <code>n</code> 的 <strong>最简</strong> 分数
-。分数可以以 <strong>任意</strong> 顺序返回。</p>
+<h3 id="problem-link"><a class="markdownIt-Anchor" href="#problem-link"></a> Problem Link</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/simplified-fractions/">1447. 最简分数 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<p><img src="https://img.shields.io/badge/Difficulty-Medium-yellow" alt="Difficulty: Medium (shields.io)" /><img src="https://img.shields.io/badge/Date-2%2F10%2F2022-blueviolet" alt="Date: 2/9/2022 (shields.io)" /> <img src="https://img.shields.io/badge/Check-Accepted-brightgreen" alt="Check: Accepted (shields.io)" /></p>
+<h3 id="problem-description"><a class="markdownIt-Anchor" href="#problem-description"></a> Problem Description</h3>
+<p>给你一个整数 <code>n</code> ，请你返回所有 0 到 1 之间（不包括 0 和 1）满足分母小于等于 <code>n</code> 的 <strong>最简</strong> 分数 。分数可以以 <strong>任意</strong> 顺序返回。</p>
 <p><strong>示例 1：</strong></p>
 <pre class="language-none"><code class="language-none">输入：n &#x3D; 2
 输出：[&quot;1&#x2F;2&quot;]
@@ -379,30 +372,26 @@ alt="Check: Accepted (shields.io)" /></p>
 <ul>
 <li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
-<h3 id="solution">Solution</h3>
+<h3 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h3>
 <p>首先，需要弄清楚<strong>最简分数</strong>的定义。</p>
 <p>最简分数定义如下：</p>
-<p>设一分数形式为 <span class="math inline">\(a/b\)</span> ，如果 <span
-class="math inline">\(a,b\)</span> 两数互质，即满足两数的最大公倍数
-<span class="math inline">\((a,b)=1\)</span>
-，那么该分数为最简分数。</p>
-<p>那么，按照题意，我们要寻找的就是形式为 <span class="math display">\[
-0&lt;a/b&lt;1
-\]</span> 的分数，并有约束 <span class="math display">\[
-\left\{
+<p>设一分数形式为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi mathvariant="normal">/</mi><mi>b</mi></mrow><annotation encoding="application/x-tex">a/b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span><span class="mord mathrm">/</span><span class="mord mathit">b</span></span></span></span> ，如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo separator="true">,</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a,b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span><span class="mpunct">,</span><span class="mord mathit">b</span></span></span></span> 两数互质，即满足两数的最大公倍数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo>)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">(a,b)=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit">a</span><span class="mpunct">,</span><span class="mord mathit">b</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span> ，那么该分数为最简分数。</p>
+<p>那么，按照题意，我们要寻找的就是形式为</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>a</mi><mi mathvariant="normal">/</mi><mi>b</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0&lt;a/b&lt;1
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathrm">0</span><span class="mrel">&lt;</span><span class="mord mathit">a</span><span class="mord mathrm">/</span><span class="mord mathit">b</span><span class="mrel">&lt;</span><span class="mord mathrm">1</span></span></span></span></span></p>
+<p>的分数，并有约束</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mo fence="true">{</mo><mtable><mtr><mtd><mrow><mi>b</mi><mo>∈</mo><mo>[</mo><mn>2</mn><mo separator="true">,</mo><mi>n</mi><mo>]</mo></mrow></mtd></mtr><mtr><mtd><mrow><mi>a</mi><mo>∈</mo><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mi>b</mi><mo>]</mo></mrow></mtd></mtr><mtr><mtd><mrow><mi>a</mi><mo>&lt;</mo><mi>b</mi></mrow></mtd></mtr><mtr><mtd><mrow><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo>∈</mo><mi mathvariant="double-struck">Z</mi></mrow></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">\left\{
 \begin{array}{l}
 b\in[2,n]\\
 a\in[1,b]\\
 a&lt;b\\
 a,b\in\mathbb Z
 \end{array}\right.
-\]</span> 那么，使用两重循环以 <span
-class="math inline">\(O(n^2)\)</span> 的复杂度即可完成。</p>
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:2.65002em;"></span><span class="strut bottom" style="height:4.80004em;vertical-align:-2.15002em;"></span><span class="base displaystyle textstyle uncramped"><span class="minner displaystyle textstyle uncramped"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing mult"><span class="vlist"><span style="top:1.25001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="delimsizinginner delim-size4"><span>⎩</span></span></span><span style="top:1.25001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:0.95001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-0.000010000000000065512em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="delimsizinginner delim-size4"><span>⎨</span></span></span><span style="top:-1.15001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-1.45001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-1.7500200000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="delimsizinginner delim-size4"><span>⎧</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span><span class="mord"><span class="mtable"><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-l"><span class="vlist"><span style="top:-1.8100000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord mathit">b</span><span class="mrel">∈</span><span class="mopen">[</span><span class="mord mathrm">2</span><span class="mpunct">,</span><span class="mord mathit">n</span><span class="mclose">]</span></span></span><span style="top:-0.6100000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord mathit">a</span><span class="mrel">∈</span><span class="mopen">[</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit">b</span><span class="mclose">]</span></span></span><span style="top:0.5900000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord mathit">a</span><span class="mrel">&lt;</span><span class="mord mathit">b</span></span></span><span style="top:1.7900000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord mathit">a</span><span class="mpunct">,</span><span class="mord mathit">b</span><span class="mrel">∈</span><span class="mord mathbb">Z</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="arraycolsep" style="width:0.5em;"></span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></p>
+<p>那么，使用两重循环以 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span> 的复杂度即可完成。</p>
 <p><strong>最大公因数的求法</strong></p>
-<p><a
-target="_blank" rel="noopener" href="http://leolang.top/2021/08/02/数学知识（一）数论/#最大公因数欧几里得算法">AcWing
-数学知识（一） | W1ndness的技术栈 (leolang.top)</a></p>
-<h3 id="submit-code">Submit Code</h3>
+<p><a target="_blank" rel="noopener" href="http://leolang.top/2021/08/02/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89%E6%95%B0%E8%AE%BA/#%E6%9C%80%E5%A4%A7%E5%85%AC%E5%9B%A0%E6%95%B0%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95">AcWing 数学知识（一） | W1ndness的技术栈 (leolang.top)</a></p>
+<h3 id="submit-code"><a class="markdownIt-Anchor" href="#submit-code"></a> Submit Code</h3>
 <p><strong>lang = C++</strong></p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
@@ -451,12 +440,10 @@ target="_blank" rel="noopener" href="http://leolang.top/2021/08/02/数学知识�
         <span class="token keyword">return</span> b <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token function">gcd</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> a <span class="token operator">%</span> b<span class="token punctuation">)</span> <span class="token operator">:</span> a<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
-<h3 id="code-explanation">Code Explanation</h3>
+<h3 id="code-explanation"><a class="markdownIt-Anchor" href="#code-explanation"></a> Code Explanation</h3>
 <p><strong>lang = C++</strong></p>
 <p><code>__gcd()</code> 函数</p>
-<p><a
-target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/stdgcd-c-inbuilt-function-finding-gcd/">std::gcd
-| C++ inbuilt function for finding GCD - GeeksforGeeks</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/stdgcd-c-inbuilt-function-finding-gcd/">std::gcd | C++ inbuilt function for finding GCD - GeeksforGeeks</a></p>
 <p>C++14 的语法：</p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
@@ -479,10 +466,8 @@ target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/stdgcd-c-inbu
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     cout <span class="token operator">&lt;&lt;</span> <span class="token function">gcd</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
-<h3 id="reference">Reference</h3>
-<p>LeetCode 官方题解 <a
-target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/simplified-fractions/solution/zui-jian-fen-shu-by-leetcode-solution-98zy/">最简分数
-- 最简分数 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<h3 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h3>
+<p>LeetCode 官方题解 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/simplified-fractions/solution/zui-jian-fen-shu-by-leetcode-solution-98zy/">最简分数 - 最简分数 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
 
     </div>
 
@@ -561,14 +546,14 @@ target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/simplified
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">349k</span>
+    <span title="站点总字数">387k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:17</span>
+    <span title="站点阅读时长">5:52</span>
   </span>
 </div>
 <div class="busuanzi-count">

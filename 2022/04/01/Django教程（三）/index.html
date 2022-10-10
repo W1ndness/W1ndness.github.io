@@ -29,6 +29,8 @@
 <meta property="og:site_name" content="W1ndness的技术栈">
 <meta property="og:description" content="前言 本文将介绍 Django 与数据库做交互的组成部分之 —— Django 模型。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2020/05/django-orm1.png">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2020/05/orm-object.png">
 <meta property="article:published_time" content="2022-03-31T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-04-01T13:35:27.739Z">
 <meta property="article:author" content="LeoLang">
@@ -36,6 +38,7 @@
 <meta property="article:tag" content="Django">
 <meta property="article:tag" content="Front End">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.runoob.com/wp-content/uploads/2020/05/django-orm1.png">
 
 
 <link rel="canonical" href="https://www.leolang.top/2022/04/01/Django%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89/">
@@ -98,9 +101,9 @@
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">71</span></a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">23</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">51</span></a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">72</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">24</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">52</span></a></li>
         <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
@@ -158,7 +161,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#django-%E6%95%99%E7%A8%8B%E4%B8%89-django-%E6%A8%A1%E5%9E%8B"><span class="nav-text">Django 教程（三） Django 模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#django-orm"><span class="nav-text">1 Django ORM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#django-to-mysql"><span class="nav-text">2 Django to MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93-%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">2.1 创建数据库 连接数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.2 定义模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-text">2.3 数据库操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE"><span class="nav-text">2.3.1 添加数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="nav-text">2.3.2 获取数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE"><span class="nav-text">2.3.3 更新数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="nav-text">2.3.4 删除数据</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#django-%E6%95%99%E7%A8%8B%E4%B8%89-django-%E6%A8%A1%E5%9E%8B"><span class="nav-text"> Django 教程（三） Django 模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-django-orm"><span class="nav-text"> 1 Django ORM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-django-to-mysql"><span class="nav-text"> 2 Django to MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93-%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text"> 2.1 创建数据库 连接数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="nav-text"> 2.2 定义模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-text"> 2.3 数据库操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#231-%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE"><span class="nav-text"> 2.3.1 添加数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#232-%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="nav-text"> 2.3.2 获取数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#233-%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE"><span class="nav-text"> 2.3.3 更新数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#234-%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="nav-text"> 2.3.4 删除数据</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -174,18 +177,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-count">72</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -335,64 +338,35 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="前言">前言</h1>
+        <h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
 <p>本文将介绍 Django 与数据库做交互的组成部分之 —— Django 模型。</p>
 <span id="more"></span>
-<h1 id="django-教程三-django-模型">Django 教程（三） Django 模型</h1>
+<h1 id="django-教程三-django-模型"><a class="markdownIt-Anchor" href="#django-教程三-django-模型"></a> Django 教程（三） Django 模型</h1>
 <p>所谓 Django 模型，是 Django 框架用于与数据库进行交互的部分。</p>
-<p>Django
-对各种数据库提供了很好的支持，包括：PostgreSQL、MySQL、SQLite、Oracle。</p>
-<p>Django 为这些数据库提供了统一的调用API。
-我们可以根据自己业务需求选择不同的数据库。</p>
-<p>MySQL 是 Web 应用中最常用的数据库。本章节我们将以 Mysql
-作为实例进行介绍。</p>
-<p>首先，你的环境中应有 Python 的 MySQL
-驱动，如果没有安装的话可以通过如下方式安装：</p>
+<p>Django 对各种数据库提供了很好的支持，包括：PostgreSQL、MySQL、SQLite、Oracle。</p>
+<p>Django 为这些数据库提供了统一的调用API。 我们可以根据自己业务需求选择不同的数据库。</p>
+<p>MySQL 是 Web 应用中最常用的数据库。本章节我们将以 Mysql 作为实例进行介绍。</p>
+<p>首先，你的环境中应有 Python 的 MySQL 驱动，如果没有安装的话可以通过如下方式安装：</p>
 <p>（以第一讲中创建的 conda 环境 <code>django</code> 为例）</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">$ conda activate django <span class="token comment"># 激活 conda 环境</span>
 $ conda <span class="token function">install</span> pymysql <span class="token comment"># 下载 MySQL 驱动</span></code></pre>
-<h2 id="django-orm">1 Django ORM</h2>
-<p>Django 模型使用了自带的 ORM。所谓 ORM
-，即<strong>对象关系映射</strong>（Object Relational Mapping, ORM for
-short）。ORM 用于实现面向对象编程语言中不同系统数据之间的转换。</p>
+<h2 id="1-django-orm"><a class="markdownIt-Anchor" href="#1-django-orm"></a> 1 Django ORM</h2>
+<p>Django 模型使用了自带的 ORM。所谓 ORM ，即<strong>对象关系映射</strong>（Object Relational Mapping, ORM for short）。ORM 用于实现面向对象编程语言中不同系统数据之间的转换。</p>
 <p><strong>什么是 ORM？</strong></p>
 <blockquote>
-<p><strong>对象关系映射</strong>（英语：<strong>Object Relational
-Mapping</strong>，简称<strong>ORM</strong>，或<strong>O/RM</strong>，或<strong>O/R
-mapping</strong>），是一种程序设计技术，用于实现<a
-target="_blank" rel="noopener" href="https://baike.baidu.com/item/面向对象">面向对象</a>编程语言里不同<a
-target="_blank" rel="noopener" href="https://baike.baidu.com/item/类型系统/4273825">类型系统</a>的<a
-target="_blank" rel="noopener" href="https://baike.baidu.com/item/数据/5947370">数据</a>之间的转换。从效果上说，它其实是创建了一个可在<a
-target="_blank" rel="noopener" href="https://baike.baidu.com/item/编程语言/9845131">编程语言</a>里使用的“虚拟对象数据库”。如今已有很多免费和付费的ORM产品，而有些程序员更倾向于创建自己的ORM工具。</p>
+<p><strong>对象关系映射</strong>（英语：<strong>Object Relational Mapping</strong>，简称<strong>ORM</strong>，或<strong>O/RM</strong>，或<strong>O/R mapping</strong>），是一种程序设计技术，用于实现<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">面向对象</a>编程语言里不同<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F/4273825">类型系统</a>的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE/5947370">数据</a>之间的转换。从效果上说，它其实是创建了一个可在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/9845131">编程语言</a>里使用的“虚拟对象数据库”。如今已有很多免费和付费的ORM产品，而有些程序员更倾向于创建自己的ORM工具。</p>
 </blockquote>
-<p>摘自【百度百科】。传送门：<a
-target="_blank" rel="noopener" href="https://baike.baidu.com/item/对象关系映射/311152">对象关系映射_百度百科
-(baidu.com)</a></p>
+<p>摘自【百度百科】。传送门：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AF%B9%E8%B1%A1%E5%85%B3%E7%B3%BB%E6%98%A0%E5%B0%84/311152">对象关系映射_百度百科 (baidu.com)</a></p>
 <blockquote>
-<p><strong>对象关系映射</strong>（英语：<strong>Object Relational
-Mapping</strong>，简称<strong>ORM</strong>，或<strong>O/RM</strong>，或<strong>O/R
-mapping</strong>），是一种<a
-target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/程式設計">程序设计</a>技术，用于实现<a
-target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/物件導向">面向对象</a>编程语言里不同<a
-target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/類型系統">类型系统</a>的资料之间的转换。从效果上说，它其实是创建了一个可在编程语言里使用的“虚拟<a
-target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/物件資料庫">对象数据库</a>”。</p>
-<p>面向对象是从<a
-target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/軟體工程">软件工程</a>基本原则（如耦合、聚合、封装）的基础上发展起来的，而<a
-target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/關聯式資料庫">关系数据库</a>则是从<a
-target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/數學">数学</a>理论发展而来的，两套理论存在显著的区别。为了解决这个不匹配的现象，对象关系映射技术应运而生。</p>
-<p>简单的说：ORM相当于<a
-target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=中繼資料&amp;action=edit&amp;redlink=1">中继资料</a>。</p>
+<p><strong>对象关系映射</strong>（英语：<strong>Object Relational Mapping</strong>，简称<strong>ORM</strong>，或<strong>O/RM</strong>，或<strong>O/R mapping</strong>），是一种<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88">程序设计</a>技术，用于实现<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91">面向对象</a>编程语言里不同<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%A1%9E%E5%9E%8B%E7%B3%BB%E7%B5%B1">类型系统</a>的资料之间的转换。从效果上说，它其实是创建了一个可在编程语言里使用的“虚拟<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%89%A9%E4%BB%B6%E8%B3%87%E6%96%99%E5%BA%AB">对象数据库</a>”。</p>
+<p>面向对象是从<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B">软件工程</a>基本原则（如耦合、聚合、封装）的基础上发展起来的，而<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%97%9C%E8%81%AF%E5%BC%8F%E8%B3%87%E6%96%99%E5%BA%AB">关系数据库</a>则是从<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%95%B8%E5%AD%B8">数学</a>理论发展而来的，两套理论存在显著的区别。为了解决这个不匹配的现象，对象关系映射技术应运而生。</p>
+<p>简单的说：ORM相当于<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E4%B8%AD%E7%B9%BC%E8%B3%87%E6%96%99&amp;action=edit&amp;redlink=1">中继资料</a>。</p>
 </blockquote>
-<p>摘自【维基百科】。传送门：<a
-target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AF%B9%E8%B1%A1%E5%85%B3%E7%B3%BB%E6%98%A0%E5%B0%84">对象关系映射_维基百科</a></p>
-<p>【知乎】结合 Django 对 ORM 的解释。传送门：<a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27188788">科普文-什么是ORM? - 知乎
-(zhihu.com)</a></p>
+<p>摘自【维基百科】。传送门：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AF%B9%E8%B1%A1%E5%85%B3%E7%B3%BB%E6%98%A0%E5%B0%84">对象关系映射_维基百科</a></p>
+<p>【知乎】结合 Django 对 ORM 的解释。传送门：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27188788">科普文-什么是ORM? - 知乎 (zhihu.com)</a></p>
 <p>ORM 在业务逻辑层和数据库层间起到了桥梁的作用。</p>
-<p>ORM
-是通过使用描述对象和数据库之间的映射的元数据，将程序中的对象自动持久化到数据库中。</p>
-<p><img
-src="https://www.runoob.com/wp-content/uploads/2020/05/django-orm1.png" /></p>
+<p>ORM 是通过使用描述对象和数据库之间的映射的元数据，将程序中的对象自动持久化到数据库中。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2020/05/django-orm1.png" alt="" /></p>
 <p>ORM 解析过程:</p>
 <ul>
 <li>1、ORM 会将 Python 代码转成为 SQL 语句。</li>
@@ -400,18 +374,16 @@ src="https://www.runoob.com/wp-content/uploads/2020/05/django-orm1.png" /></p>
 <li>3、在数据库中执行 SQL 语句并将结果返回。</li>
 </ul>
 <p>ORM 对应关系表：</p>
-<p><img
-src="https://www.runoob.com/wp-content/uploads/2020/05/orm-object.png" /></p>
-<h2 id="django-to-mysql">2 Django to MySQL</h2>
-<h3 id="创建数据库-连接数据库">2.1 创建数据库 连接数据库</h3>
+<p><img src="https://www.runoob.com/wp-content/uploads/2020/05/orm-object.png" alt="" /></p>
+<h2 id="2-django-to-mysql"><a class="markdownIt-Anchor" href="#2-django-to-mysql"></a> 2 Django to MySQL</h2>
+<h3 id="21-创建数据库-连接数据库"><a class="markdownIt-Anchor" href="#21-创建数据库-连接数据库"></a> 2.1 创建数据库 连接数据库</h3>
 <p>应注意的是，ORM 只能操作数据表级别，无法操作数据库级别。</p>
 <p>首先，通过 Terminal 创建一个这个项目专用的数据库。登录 MySQL。</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">$ mysql -u root -p <span class="token comment"># login MySQL</span>
 <span class="token punctuation">..</span>. <span class="token comment"># password</span></code></pre>
 <p>在 MySQL 命令行中创建数据库</p>
 <pre class="language-mysql" data-language="mysql"><code class="language-mysql">&gt; create database djangoTest default charset&#x3D;utf8;</code></pre>
-<p>在之前的 <code>settings.py</code> 文件中找到 <code>DATABASE</code>
-配置项，将信息修改为：</p>
+<p>在之前的 <code>settings.py</code> 文件中找到 <code>DATABASE</code> 配置项，将信息修改为：</p>
 <pre class="language-python" data-language="python"><code class="language-python">DATABASES <span class="token operator">=</span> <span class="token punctuation">&#123;</span> 
     <span class="token string">'default'</span><span class="token punctuation">:</span> 
     <span class="token punctuation">&#123;</span> 
@@ -423,19 +395,14 @@ src="https://www.runoob.com/wp-content/uploads/2020/05/orm-object.png" /></p>
         <span class="token string">'PASSWORD'</span><span class="token punctuation">:</span> <span class="token operator">**</span><span class="token operator">**</span><span class="token operator">**</span><span class="token operator">*</span><span class="token punctuation">,</span> 					<span class="token comment"># 数据库密码，可自行修改</span>
     <span class="token punctuation">&#125;</span>  
 <span class="token punctuation">&#125;</span></code></pre>
-<p>之后，告知 Django 使用 <code>pymysql</code> 连接刚刚创建好的 MySQL
-数据库。修改和 <code>settings.py</code> 同级的包初始化目录
-<code>__init__.py</code> 如下：</p>
+<p>之后，告知 Django 使用 <code>pymysql</code> 连接刚刚创建好的 MySQL 数据库。修改和 <code>settings.py</code> 同级的包初始化目录 <code>__init__.py</code> 如下：</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pymysql
 
 pymysql<span class="token punctuation">.</span>install_as_MySQLdb<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<h3 id="定义模型">2.2 定义模型</h3>
-<p>首先应创建一个 APP。Django 规定，如果要使用模型，必须要先创建一个
-APP。使用如下命令在 Terminal 中创建一个 TestModel 的
-APP：（当前在项目主目录下）</p>
+<h3 id="22-定义模型"><a class="markdownIt-Anchor" href="#22-定义模型"></a> 2.2 定义模型</h3>
+<p>首先应创建一个 APP。Django 规定，如果要使用模型，必须要先创建一个 APP。使用如下命令在 Terminal 中创建一个 TestModel 的 APP：（当前在项目主目录下）</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">$ django-admin startapp TestModel</code></pre>
-<p>于是，便得到了一个名为 <code>TestModel</code> 的 Python
-包。创建后的目录结构如下：</p>
+<p>于是，便得到了一个名为 <code>TestModel</code> 的 Python 包。创建后的目录结构如下：</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">HelloWorld
 <span class="token operator">|</span>-- HelloWorld
 <span class="token operator">|</span>-- manage.py
@@ -446,31 +413,15 @@ APP：（当前在项目主目录下）</p>
 <span class="token operator">|</span>   <span class="token operator">|</span>-- models.py
 <span class="token operator">|</span>   <span class="token operator">|</span>-- tests.py
 <span class="token operator">|</span>   `-- views.py</code></pre>
-<p>之后，我们修改 <code>TestModel/models.py</code> 文件，目的是通过 ORM
-的方式创建数据库表。</p>
+<p>之后，我们修改 <code>TestModel/models.py</code> 文件，目的是通过 ORM 的方式创建数据库表。</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>db <span class="token keyword">import</span> models <span class="token comment"># 如果使用 Pycharm，本语句应该已经生成</span>
 
 <span class="token comment"># create your model here</span>
 <span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
     name <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span></code></pre>
-<p>以上，我们创建了一个数据库表，类名并不完全对应数据库表名，我们后文还会再提，这里先搁置。这个类继承了
-<code>models.Model</code> ，定义了类里面的类成员 <code>name</code>
-（注意是类成员而不是定义在
-<code>def __init__(self, *args, **kwargs)</code>
-中的成员变量），代表了我们在数据库中创建了一个字段 <code>name</code>
-。赋值号后面的函数限制了这一字段的数据类型，这里面的
-<code>CharField()</code> 函数相当于数据库中的 <code>varchar</code>
-类型，还有很多的 “xxxField”
-，他们都用来限制某一字段的数据类型，详细的可以参考以下官方文档：<a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/models/fields/#model-field-types">Model
-field reference | Django documentation | Django (djangoproject.com)</a>
-当中的介绍。之后，函数的参数 <code>max_length</code>
-顾名思义，是变量长度的限定。</p>
-<p>如果你觉得上面的的文字介绍过于的繁杂，那么下面用一个 Django 和 SQL
-的对比来看一下更加直观的对应关系。</p>
-<p>以下例子摘自官方文档。传送门 <a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/topics/db/models/">Models |
-Django documentation | Django (djangoproject.com)</a></p>
+<p>以上，我们创建了一个数据库表，类名并不完全对应数据库表名，我们后文还会再提，这里先搁置。这个类继承了 <code>models.Model</code> ，定义了类里面的类成员 <code>name</code> （注意是类成员而不是定义在 <code>def __init__(self, *args, **kwargs)</code> 中的成员变量），代表了我们在数据库中创建了一个字段 <code>name</code> 。赋值号后面的函数限制了这一字段的数据类型，这里面的 <code>CharField()</code> 函数相当于数据库中的 <code>varchar</code> 类型，还有很多的 “xxxField” ，他们都用来限制某一字段的数据类型，详细的可以参考以下官方文档：<a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/models/fields/#model-field-types">Model field reference | Django documentation | Django (djangoproject.com)</a> 当中的介绍。之后，函数的参数 <code>max_length</code> 顾名思义，是变量长度的限定。</p>
+<p>如果你觉得上面的的文字介绍过于的繁杂，那么下面用一个 Django 和 SQL 的对比来看一下更加直观的对应关系。</p>
+<p>以下例子摘自官方文档。传送门 <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/topics/db/models/">Models | Django documentation | Django (djangoproject.com)</a></p>
 <p>我们创建一个模型，定义了一个人，这个人有姓和名。</p>
 <p>首先是 Django 语法：</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>db <span class="token keyword">import</span> models
@@ -478,23 +429,15 @@ Django documentation | Django (djangoproject.com)</a></p>
 <span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
     first_name <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
     last_name <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span></code></pre>
-<p>我们创建了一个 Person 模型，这个模型有两个字段，分别是
-<code>first_name</code> 和 <code>last_name</code>
-。每个字段都指定为一个类属性，并且每个属性都映射到一个数据库列。</p>
-<p>接下来将上面的 Django 语句（其实就是 Python 语句）用 SQL
-语言的方式进行翻译：</p>
+<p>我们创建了一个 Person 模型，这个模型有两个字段，分别是 <code>first_name</code> 和 <code>last_name</code> 。每个字段都指定为一个类属性，并且每个属性都映射到一个数据库列。</p>
+<p>接下来将上面的 Django 语句（其实就是 Python 语句）用 SQL 语言的方式进行翻译：</p>
 <pre class="language-mysql" data-language="mysql"><code class="language-mysql">create table myapp_person (
 	id serial 	not null primary key,
     first_name 	varchar(30) not null,
     last_name 	varchar(30) not null
 );</code></pre>
-<p>可以看到，我们在 Python
-类中声明的两个字段都对应到了数据库表的一个列上，另外，Django
-还会默认为每一张数据库表生成一个 id 作为自动主键字段（Automatic primary
-key fields）。</p>
-<p>之后要告知 Django 这一 APP 的存在，修改 <code>settings.py</code>
-文件中的 <code>INSTALLED_APPS</code> ，将我们刚才创建的这一个 APP
-添加进去：</p>
+<p>可以看到，我们在 Python 类中声明的两个字段都对应到了数据库表的一个列上，另外，Django 还会默认为每一张数据库表生成一个 id 作为自动主键字段（Automatic primary key fields）。</p>
+<p>之后要告知 Django 这一 APP 的存在，修改 <code>settings.py</code> 文件中的 <code>INSTALLED_APPS</code> ，将我们刚才创建的这一个 APP 添加进去：</p>
 <pre class="language-python" data-language="python"><code class="language-python">INSTALLED_APPS <span class="token operator">=</span> <span class="token punctuation">(</span>
     <span class="token string">'django.contrib.admin'</span><span class="token punctuation">,</span>
     <span class="token string">'django.contrib.auth'</span><span class="token punctuation">,</span>
@@ -504,39 +447,20 @@ key fields）。</p>
     <span class="token string">'django.contrib.staticfiles'</span><span class="token punctuation">,</span>
     <span class="token string">'TestModel'</span><span class="token punctuation">,</span>               <span class="token comment"># 添加此项</span>
 <span class="token punctuation">)</span></code></pre>
-<p>当我们更新了一个新的 APP 到工程中是，我们要执行几个命令来告知 Django
-我们的模型产生了变更，即在数据库中按照我们使用 ORM
-所定义的格式去创建一些数据表。</p>
+<p>当我们更新了一个新的 APP 到工程中是，我们要执行几个命令来告知 Django 我们的模型产生了变更，即在数据库中按照我们使用 ORM 所定义的格式去创建一些数据表。</p>
 <p>官方的说明是：</p>
 <blockquote>
-<p>When you add new apps to <a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/settings/#std:setting-INSTALLED_APPS"><code>INSTALLED_APPS</code></a>,
-be sure to run <a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/django-admin/#django-admin-migrate"><code>manage.py migrate</code></a>,
-optionally making migrations for them first with <a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/django-admin/#django-admin-makemigrations"><code>manage.py makemigrations</code></a>.</p>
+<p>When you add new apps to <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/settings/#std:setting-INSTALLED_APPS"><code>INSTALLED_APPS</code></a>, be sure to run <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/django-admin/#django-admin-migrate"><code>manage.py migrate</code></a>, optionally making migrations for them first with <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/django-admin/#django-admin-makemigrations"><code>manage.py makemigrations</code></a>.</p>
 </blockquote>
 <p>在 Terminal 中运行如下命令：（以下命令应在当前工程目录下运行）</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">$ python3 manage.py migrate</code></pre>
 <p>或</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">$ python3 manage.py makemigrations TestModel
 $ python3 manage.py migrate TestModel</code></pre>
-<p>第一种方式是全局性更新，第二种方式是只针对我们刚刚添加的这一个模型进行更新。所谓更新，其实这里就是指创建表结构。两种方式使用一种即可，都可以做到对模型进行更新。运行过该命令之后，不同环境下
-Django 可能会有不同的提示。我们可以去数据库中使用 SQL
-语言或可视化工具进行查看，如果创建成功，当前数据库中应该有一个
-<code>TestModel_test</code> 的数据表。</p>
-<p>关于 <code>django-admin migrate</code> 命令的官方文档 <a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/django-admin/#django-admin-migrate">django-admin
-and manage.py | Django documentation | Django
-(djangoproject.com)</a></p>
-<h3 id="数据库操作">2.3 数据库操作</h3>
-<p>接下来在 HelloWorld 包目录下添加 <code>testdb.py</code>
-文件（文件名任意），该文件定义了对于数据库的一系列操作。之后修改
-<code>urls.py</code>
-，目的是我们要创建一个新的次级页面用于显示提示信息，类似于之前教程中使用了
-<code>django.shorcuts.render()</code> 的函数 <code>hello()</code>
-最终产生的在页面 <strong>http://localhost:8000/hello</strong>
-上的效果。</p>
+<p>第一种方式是全局性更新，第二种方式是只针对我们刚刚添加的这一个模型进行更新。所谓更新，其实这里就是指创建表结构。两种方式使用一种即可，都可以做到对模型进行更新。运行过该命令之后，不同环境下 Django 可能会有不同的提示。我们可以去数据库中使用 SQL 语言或可视化工具进行查看，如果创建成功，当前数据库中应该有一个 <code>TestModel_test</code> 的数据表。</p>
+<p>关于 <code>django-admin migrate</code> 命令的官方文档 <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/django-admin/#django-admin-migrate">django-admin and manage.py | Django documentation | Django (djangoproject.com)</a></p>
+<h3 id="23-数据库操作"><a class="markdownIt-Anchor" href="#23-数据库操作"></a> 2.3 数据库操作</h3>
+<p>接下来在 HelloWorld 包目录下添加 <code>testdb.py</code> 文件（文件名任意），该文件定义了对于数据库的一系列操作。之后修改 <code>urls.py</code> ，目的是我们要创建一个新的次级页面用于显示提示信息，类似于之前教程中使用了 <code>django.shorcuts.render()</code> 的函数 <code>hello()</code> 最终产生的在页面 <strong><a target="_blank" rel="noopener" href="http://localhost:8000/hello">http://localhost:8000/hello</a></strong> 上的效果。</p>
 <p><code>urls.py</code> 代码更改如下：</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>urls <span class="token keyword">import</span> path
 <span class="token keyword">from</span> <span class="token punctuation">.</span> <span class="token keyword">import</span> views<span class="token punctuation">,</span> testdb <span class="token comment"># 把 testdb 也导进来</span>
@@ -545,16 +469,14 @@ urlpatterns <span class="token operator">=</span> <span class="token punctuation
     path<span class="token punctuation">(</span><span class="token string">'hello/'</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>hello<span class="token punctuation">)</span><span class="token punctuation">,</span>
     path<span class="token punctuation">(</span><span class="token string">'testdb/'</span><span class="token punctuation">,</span> testdb<span class="token punctuation">.</span>testdb<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment"># 这里与上一行的语义一致，同样对应了文件中的一个函数</span>
 <span class="token punctuation">]</span></code></pre>
-<p>接下来，我们通过 <code>testdb.py</code>
-定义数据库的<strong>增删改查</strong>操作。</p>
-<h4 id="添加数据">2.3.1 添加数据</h4>
+<p>接下来，我们通过 <code>testdb.py</code> 定义数据库的<strong>增删改查</strong>操作。</p>
+<h4 id="231-添加数据"><a class="markdownIt-Anchor" href="#231-添加数据"></a> 2.3.1 添加数据</h4>
 <p>添加数据的方法是：</p>
-<ol type="1">
+<ol>
 <li>创建一个我们当时在用于生成数据库表结构的模型文件中声明过的那个类的实例，简单地说，就是实例化一个当前数据表对应模型类的实例对象。</li>
 <li>对上一步中生成的对象调用 <code>save()</code> 方法。</li>
 </ol>
-<p>例如，我们要在我们刚刚创建的数据库中添加一条记录，其属性值为
-<code>demo1</code> 。</p>
+<p>例如，我们要在我们刚刚创建的数据库中添加一条记录，其属性值为 <code>demo1</code> 。</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponse
 <span class="token keyword">from</span> TestModel<span class="token punctuation">.</span>models <span class="token keyword">import</span> Test <span class="token comment"># 导入对应的类</span>
  
@@ -564,46 +486,18 @@ urlpatterns <span class="token operator">=</span> <span class="token punctuation
     <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">"&lt;p>Success!&lt;/p>"</span><span class="token punctuation">)</span></code></pre>
 <p>这一句转化成 SQL 语言相当于：</p>
 <pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> TestModel_test <span class="token keyword">values</span> <span class="token punctuation">(</span><span class="token string">'demo1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>这时候访问 http://localhost:8000/testdb
-就可以看到数据添加成功的提示了，同时，查询数据库，可以看到数据库中多了一条
-name 为 demo1 的记录。</p>
-<h4 id="获取数据">2.3.2 获取数据</h4>
+<p>这时候访问 <a target="_blank" rel="noopener" href="http://localhost:8000/testdb">http://localhost:8000/testdb</a> 就可以看到数据添加成功的提示了，同时，查询数据库，可以看到数据库中多了一条 name 为 demo1 的记录。</p>
+<h4 id="232-获取数据"><a class="markdownIt-Anchor" href="#232-获取数据"></a> 2.3.2 获取数据</h4>
 <p>Django 提供了多种方式来获取数据库当中的内容。</p>
-<p>官方文档传送门：<a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/topics/db/queries/#retrieving-objects-1">Making
-queries | Django documentation | Django (djangoproject.com)</a></p>
+<p>官方文档传送门：<a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/topics/db/queries/#retrieving-objects-1">Making queries | Django documentation | Django (djangoproject.com)</a></p>
 <p>根据官方文档：</p>
 <blockquote>
-<p>To retrieve objects from your database, construct a <a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/models/querysets/#django.db.models.query.QuerySet"><code>QuerySet</code></a>
-via a <a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/topics/db/managers/#django.db.models.Manager"><code>Manager</code></a>
-on your model class.</p>
-<p>A <a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/models/querysets/#django.db.models.query.QuerySet"><code>QuerySet</code></a>
-represents a collection of objects from your database. It can have zero,
-one or many <em>filters</em>. Filters narrow down the query results
-based on the given parameters. In SQL terms, a <a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/models/querysets/#django.db.models.query.QuerySet"><code>QuerySet</code></a>
-equates to a statement, and a filter is a limiting clause such as or
-<code>SELECT</code> <code>WHERE</code> <code>LIMIT</code></p>
-<p>You get a <a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/models/querysets/#django.db.models.query.QuerySet"><code>QuerySet</code></a>
-by using your model’s <a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/topics/db/managers/#django.db.models.Manager"><code>Manager</code></a>.
-Each model has at least one <a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/topics/db/managers/#django.db.models.Manager"><code>Manager</code></a>,
-and it’s called <a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/models/class/#django.db.models.Model.objects"><code>objects</code></a>
-by default.</p>
+<p>To retrieve objects from your database, construct a <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/models/querysets/#django.db.models.query.QuerySet"><code>QuerySet</code></a> via a <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/topics/db/managers/#django.db.models.Manager"><code>Manager</code></a> on your model class.</p>
+<p>A <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/models/querysets/#django.db.models.query.QuerySet"><code>QuerySet</code></a> represents a collection of objects from your database. It can have zero, one or many <em>filters</em>. Filters narrow down the query results based on the given parameters. In SQL terms, a <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/models/querysets/#django.db.models.query.QuerySet"><code>QuerySet</code></a> equates to a statement, and a filter is a limiting clause such as or <code>SELECT</code> <code>WHERE</code> <code>LIMIT</code></p>
+<p>You get a <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/models/querysets/#django.db.models.query.QuerySet"><code>QuerySet</code></a> by using your model’s <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/topics/db/managers/#django.db.models.Manager"><code>Manager</code></a>. Each model has at least one <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/topics/db/managers/#django.db.models.Manager"><code>Manager</code></a>, and it’s called <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/models/class/#django.db.models.Model.objects"><code>objects</code></a> by default.</p>
 </blockquote>
-<p>每个数据表都提供了一个 Manager 用于从数据库中检索对象，默认叫做
-<code>objects</code> 。可以对于这个管理器添加 filter，对应到 SQL
-当众，一个 Manager
-可以理解成一个数据表的对象的集合，之后添加的过滤器可以理解为是限制子句。</p>
-<p>应注意的是，一个模型的 Manager
-只能通过模型类访问，而不是从模型实例进行访问，证明我们是针对表的查询而不是针对
-“记录” 的查询。</p>
+<p>每个数据表都提供了一个 Manager 用于从数据库中检索对象，默认叫做 <code>objects</code> 。可以对于这个管理器添加 filter，对应到 SQL 当众，一个 Manager 可以理解成一个数据表的对象的集合，之后添加的过滤器可以理解为是限制子句。</p>
+<p>应注意的是，一个模型的 Manager 只能通过模型类访问，而不是从模型实例进行访问，证明我们是针对表的查询而不是针对 “记录” 的查询。</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> Blog<span class="token punctuation">.</span>objects 	<span class="token comment"># 一个模型类</span>
 <span class="token operator">&lt;</span>django<span class="token punctuation">.</span>db<span class="token punctuation">.</span>models<span class="token punctuation">.</span>manager<span class="token punctuation">.</span>Manager <span class="token builtin">object</span> at <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">></span>
 <span class="token operator">>></span><span class="token operator">></span> b <span class="token operator">=</span> Blog<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> 	<span class="token comment"># 一个模型对象</span>
@@ -611,62 +505,46 @@ by default.</p>
 Traceback<span class="token punctuation">:</span>
     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 AttributeError<span class="token punctuation">:</span> <span class="token string">"Manager isn't accessible via Blog instances."</span></code></pre>
-<p>Django 定义了很多的过滤器，对于与 SQL
-语言的不同限制子句。下表列出了较为常用的几种过滤器，模型的 Manager
-简写为 <code>o</code> ，并省略参数，只提及方法名。</p>
+<p>Django 定义了很多的过滤器，对于与 SQL 语言的不同限制子句。下表列出了较为常用的几种过滤器，模型的 Manager 简写为 <code>o</code> ，并省略参数，只提及方法名。</p>
 <table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 65%" />
-<col style="width: 18%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th style="text-align: center;">Filter</th>
-<th style="text-align: center;">Funtion</th>
-<th style="text-align: center;">SQL</th>
+<tr>
+<th style="text-align:center">Filter</th>
+<th style="text-align:center">Funtion</th>
+<th style="text-align:center">SQL</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;"><code>o.all()</code></td>
-<td style="text-align: center;">检索所有对象</td>
-<td style="text-align: center;"><code>select * from</code></td>
+<tr>
+<td style="text-align:center"><code>o.all()</code></td>
+<td style="text-align:center">检索所有对象</td>
+<td style="text-align:center"><code>select * from</code></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;"><code>o.filter()</code></td>
-<td style="text-align: center;">返回一个新的 <code>QuerySet</code>
-包含与给定参数匹配的对象</td>
-<td style="text-align: center;"><code>where</code></td>
+<tr>
+<td style="text-align:center"><code>o.filter()</code></td>
+<td style="text-align:center">返回一个新的 <code>QuerySet</code> 包含与给定参数匹配的对象</td>
+<td style="text-align:center"><code>where</code></td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;"><code>o.exclude()</code></td>
-<td style="text-align: center;">返回一个新的 <code>QuerySet</code>
-包含与给定参数不匹配的对象</td>
-<td style="text-align: center;"><code>where not</code></td>
+<tr>
+<td style="text-align:center"><code>o.exclude()</code></td>
+<td style="text-align:center">返回一个新的 <code>QuerySet</code> 包含与给定参数不匹配的对象</td>
+<td style="text-align:center"><code>where not</code></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;"><code>o.get()</code></td>
-<td
-style="text-align: center;">返回与给定查找参数匹配的对象，保证唯一的查找</td>
-<td style="text-align: center;">None</td>
+<tr>
+<td style="text-align:center"><code>o.get()</code></td>
+<td style="text-align:center">返回与给定查找参数匹配的对象，保证唯一的查找</td>
+<td style="text-align:center">None</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;"><code>o.order_by()</code></td>
-<td style="text-align: center;">默认情况下，由 返回的结果按模型的
-选项给出的排序元组排序</td>
-<td style="text-align: center;"><code>order by</code></td>
+<tr>
+<td style="text-align:center"><code>o.order_by()</code></td>
+<td style="text-align:center">默认情况下，由 返回的结果按模型的 选项给出的排序元组排序</td>
+<td style="text-align:center"><code>order by</code></td>
 </tr>
 </tbody>
 </table>
-<p>官方提供的的全部 QuerySet API： <a
-target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/models/querysets/#queryset-api">QuerySet
-API reference | Django documentation | Django (djangoproject.com)</a>
-更详细的信息可以查阅官方文档。</p>
-<h4 id="更新数据">2.3.3 更新数据</h4>
-<p>修改数据可以使用 <code>save()</code> 或 <code>update()</code>
-，和数据库一致，都是先从数据库中进行查询，之后再进行更新。相当于 SQL 的
-<code>update</code> 。</p>
+<p>官方提供的的全部 QuerySet API： <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.0/ref/models/querysets/#queryset-api">QuerySet API reference | Django documentation | Django (djangoproject.com)</a> 更详细的信息可以查阅官方文档。</p>
+<h4 id="233-更新数据"><a class="markdownIt-Anchor" href="#233-更新数据"></a> 2.3.3 更新数据</h4>
+<p>修改数据可以使用 <code>save()</code> 或 <code>update()</code> ，和数据库一致，都是先从数据库中进行查询，之后再进行更新。相当于 SQL 的 <code>update</code> 。</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponse
 <span class="token keyword">from</span> TestModel<span class="token punctuation">.</span>models <span class="token keyword">import</span> Test
 
@@ -683,9 +561,8 @@ API reference | Django documentation | Django (djangoproject.com)</a>
     <span class="token comment"># Test.objects.all().update(name='Google')</span>
     
     <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">"&lt;p>修改成功&lt;/p>"</span><span class="token punctuation">)</span></code></pre>
-<h4 id="删除数据">2.3.4 删除数据</h4>
-<p>删除数据只需对某一个模型对象调用其 <code>delete()</code>
-方法即可。</p>
+<h4 id="234-删除数据"><a class="markdownIt-Anchor" href="#234-删除数据"></a> 2.3.4 删除数据</h4>
+<p>删除数据只需对某一个模型对象调用其 <code>delete()</code> 方法即可。</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponse
 <span class="token keyword">from</span> TestModel<span class="token punctuation">.</span>models <span class="token keyword">import</span> Test
  
@@ -777,14 +654,14 @@ API reference | Django documentation | Django (djangoproject.com)</a>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">349k</span>
+    <span title="站点总字数">387k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:17</span>
+    <span title="站点阅读时长">5:52</span>
   </span>
 </div>
 <div class="busuanzi-count">

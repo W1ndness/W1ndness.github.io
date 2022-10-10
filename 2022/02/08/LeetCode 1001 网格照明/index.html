@@ -30,6 +30,8 @@
 <meta property="og:description" content="LeetCode 1001 网格照明">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.shields.io/badge/Difficulty-Hard-red">
+<meta property="og:image" content="https://img.shields.io/badge/Date-2%2F7%2F2022-blueviolet">
+<meta property="og:image" content="https://img.shields.io/badge/Check-Accepted-brightgreen">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2020/08/19/illu_1.jpg">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2020/08/19/illu_step1.jpg">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2020/08/19/illu_step2.jpg">
@@ -106,9 +108,9 @@
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">71</span></a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">23</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">51</span></a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">72</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">24</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">52</span></a></li>
         <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
@@ -166,7 +168,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-1001-%E7%BD%91%E6%A0%BC%E7%85%A7%E6%98%8E"><span class="nav-text">LeetCode 1001 网格照明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-link"><span class="nav-text">Problem Link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-description"><span class="nav-text">Problem Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#submit-code"><span class="nav-text">Submit Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code-explanation"><span class="nav-text">Code Explanation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reference"><span class="nav-text">Reference</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-1001-%E7%BD%91%E6%A0%BC%E7%85%A7%E6%98%8E"><span class="nav-text"> LeetCode 1001 网格照明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-link"><span class="nav-text"> Problem Link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-description"><span class="nav-text"> Problem Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text"> Solution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#submit-code"><span class="nav-text"> Submit Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code-explanation"><span class="nav-text"> Code Explanation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reference"><span class="nav-text"> Reference</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -182,18 +184,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-count">72</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -325,7 +327,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>6.5k</span>
+      <span>6.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -343,62 +345,29 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="leetcode-1001-网格照明">LeetCode 1001 网格照明</h1>
+        <h1 id="leetcode-1001-网格照明"><a class="markdownIt-Anchor" href="#leetcode-1001-网格照明"></a> LeetCode 1001 网格照明</h1>
 <span id="more"></span>
-<h3 id="problem-link">Problem Link</h3>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/grid-illumination/">1001.
-网格照明 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
-<p><img src="https://img.shields.io/badge/Difficulty-Hard-red"
-alt="Difficulty: Medium (shields.io)" /><img
-src="https://img.shields.io/badge/Date-2%2F7%2F2022-blueviolet"
-alt="Date: 2/8/2022 (shields.io)" /> <img
-src="https://img.shields.io/badge/Check-Accepted-brightgreen"
-alt="Check: Accepted (shields.io)" /></p>
-<h3 id="problem-description">Problem Description</h3>
-<p>在大小为 <code>n x n</code> 的网格 <code>grid</code>
-上，每个单元格都有一盏灯，最初灯都处于 <strong>关闭</strong> 状态。</p>
-<p>给你一个由灯的位置组成的二维数组 <code>lamps</code> ，其中
-<code>lamps[i] = [rowi, coli]</code> 表示 <strong>打开</strong> 位于
-<code>grid[rowi][coli]</code> 的灯。即便同一盏灯可能在
-<code>lamps</code> 中多次列出，不会影响这盏灯处于 <strong>打开</strong>
-状态。</p>
-<p>当一盏灯处于打开状态，它将会照亮 <strong>自身所在单元格</strong>
-以及同一 <strong>行</strong> 、同一 <strong>列</strong> 和两条
-<strong>对角线</strong> 上的 <strong>所有其他单元格</strong> 。</p>
-<p>另给你一个二维数组 <code>queries</code> ，其中
-<code>queries[j] = [rowj, colj]</code> 。对于第 <code>j</code>
-个查询，如果单元格 <code>[rowj, colj]</code> 是被照亮的，则查询结果为
-<code>1</code> ，否则为 <code>0</code> 。在第 <code>j</code> 次查询之后
-[按照查询的顺序] ，<strong>关闭</strong> 位于单元格
-<code>grid[rowj][colj]</code> 上及相邻 8 个方向上（与单元格
-<code>grid[rowi][coli]</code> 共享角或边）的任何灯。</p>
-<p>返回一个整数数组 <code>ans</code> 作为答案， <code>ans[j]</code>
-应等于第 <code>j</code> 次查询 <code>queries[j]</code>
-的结果，<code>1</code> 表示照亮，<code>0</code> 表示未照亮。</p>
+<h3 id="problem-link"><a class="markdownIt-Anchor" href="#problem-link"></a> Problem Link</h3>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/grid-illumination/">1001. 网格照明 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<p><img src="https://img.shields.io/badge/Difficulty-Hard-red" alt="Difficulty: Medium (shields.io)" /><img src="https://img.shields.io/badge/Date-2%2F7%2F2022-blueviolet" alt="Date: 2/8/2022 (shields.io)" /> <img src="https://img.shields.io/badge/Check-Accepted-brightgreen" alt="Check: Accepted (shields.io)" /></p>
+<h3 id="problem-description"><a class="markdownIt-Anchor" href="#problem-description"></a> Problem Description</h3>
+<p>在大小为 <code>n x n</code> 的网格 <code>grid</code> 上，每个单元格都有一盏灯，最初灯都处于 <strong>关闭</strong> 状态。</p>
+<p>给你一个由灯的位置组成的二维数组 <code>lamps</code> ，其中 <code>lamps[i] = [rowi, coli]</code> 表示 <strong>打开</strong> 位于 <code>grid[rowi][coli]</code> 的灯。即便同一盏灯可能在 <code>lamps</code> 中多次列出，不会影响这盏灯处于 <strong>打开</strong> 状态。</p>
+<p>当一盏灯处于打开状态，它将会照亮 <strong>自身所在单元格</strong> 以及同一 <strong>行</strong> 、同一 <strong>列</strong> 和两条 <strong>对角线</strong> 上的 <strong>所有其他单元格</strong> 。</p>
+<p>另给你一个二维数组 <code>queries</code> ，其中 <code>queries[j] = [rowj, colj]</code> 。对于第 <code>j</code> 个查询，如果单元格 <code>[rowj, colj]</code> 是被照亮的，则查询结果为 <code>1</code> ，否则为 <code>0</code> 。在第 <code>j</code> 次查询之后 [按照查询的顺序] ，<strong>关闭</strong> 位于单元格 <code>grid[rowj][colj]</code> 上及相邻 8 个方向上（与单元格 <code>grid[rowi][coli]</code> 共享角或边）的任何灯。</p>
+<p>返回一个整数数组 <code>ans</code> 作为答案， <code>ans[j]</code> 应等于第 <code>j</code> 次查询 <code>queries[j]</code> 的结果，<code>1</code> 表示照亮，<code>0</code> 表示未照亮。</p>
 <p><strong>示例 1：</strong></p>
-<figure>
-<img src="https://assets.leetcode.com/uploads/2020/08/19/illu_1.jpg"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
+<p><img src="https://assets.leetcode.com/uploads/2020/08/19/illu_1.jpg" alt="img" /></p>
 <pre class="language-none"><code class="language-none">输入：n &#x3D; 5, lamps &#x3D; [[0,0],[4,4]], queries &#x3D; [[1,1],[1,0]]
 输出：[1,0]
 解释：最初所有灯都是关闭的。在执行查询之前，打开位于 [0, 0] 和 [4, 4] 的灯。第 0 次查询检查 grid[1][1] 是否被照亮（蓝色方框）。该单元格被照亮，所以 ans[0] &#x3D; 1 。然后，关闭红色方框中的所有灯。
 (Fig 1.1)
 第 1 次查询检查 grid[1][0] 是否被照亮（蓝色方框）。该单元格没有被照亮，所以 ans[1] &#x3D; 0 。然后，关闭红色矩形中的所有灯。
 (Fig 1.2)</code></pre>
-<figure>
-<img src="https://assets.leetcode.com/uploads/2020/08/19/illu_step1.jpg"
-alt="Fig1.1" />
-<figcaption aria-hidden="true">Fig1.1</figcaption>
-</figure>
-<p><span class="math inline">\(Fig\ 1.1\)</span></p>
-<figure>
-<img src="https://assets.leetcode.com/uploads/2020/08/19/illu_step2.jpg"
-alt="Fig1.2" />
-<figcaption aria-hidden="true">Fig1.2</figcaption>
-</figure>
-<p><span class="math inline">\(Fig\ 1.2\)</span></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/08/19/illu_step1.jpg" alt="Fig1.1" /></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mi>i</mi><mi>g</mi><mtext> </mtext><mn>1</mn><mi mathvariant="normal">.</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">Fig\ 1.1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mspace"> </span><span class="mord mathrm">1</span><span class="mord mathrm">.</span><span class="mord mathrm">1</span></span></span></span></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/08/19/illu_step2.jpg" alt="Fig1.2" /></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mi>i</mi><mi>g</mi><mtext> </mtext><mn>1</mn><mi mathvariant="normal">.</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">Fig\ 1.2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">F</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mspace"> </span><span class="mord mathrm">1</span><span class="mord mathrm">.</span><span class="mord mathrm">2</span></span></span></span></p>
 <p><strong>示例 2：</strong></p>
 <pre class="language-none"><code class="language-none">输入：n &#x3D; 5, lamps &#x3D; [[0,0],[4,4]], queries &#x3D; [[1,1],[1,1]]
 输出：[1,1]</code></pre>
@@ -415,38 +384,25 @@ alt="Fig1.2" />
 <li><code>queries[j].length == 2</code></li>
 <li><code>0 &lt;= rowj, colj &lt; n</code></li>
 </ul>
-<h3 id="solution">Solution</h3>
-<p>本题是一道困难题，但是实际上问题想清楚后比较简单。看完题目并且看到题目描述中的网格图，就容易想到一道类似的题目：“八皇后”
-。</p>
+<h3 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h3>
+<p>本题是一道困难题，但是实际上问题想清楚后比较简单。看完题目并且看到题目描述中的网格图，就容易想到一道类似的题目：“八皇后” 。</p>
 <p>传送门：</p>
 <ul>
-<li><p>题目链接 <a
-target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/845/">843. n-皇后问题 -
-AcWing题库</a></p></li>
-<li><p>相关博客 <a
-target="_blank" rel="noopener" href="http://leolang.top/2021/07/26/搜索与图论（一）DFS%20与%20BFS/">AcWing
-搜索与图论（一） | W1ndness的技术栈 (leolang.top)</a></p></li>
+<li>
+<p>题目链接 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/845/">843. n-皇后问题 - AcWing题库</a></p>
+</li>
+<li>
+<p>相关博客 [AcWing 搜索与图论（一） | W1ndness的技术栈 (leolang.top)](<a target="_blank" rel="noopener" href="http://leolang.top/2021/07/26/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA%EF%BC%88%E4%B8%80%EF%BC%89DFS">http://leolang.top/2021/07/26/搜索与图论（一）DFS</a> 与 BFS/)</p>
+</li>
 </ul>
 <p>接下来开始分析本题。</p>
 <p>对于本题应区分题中的两个容易混淆的概念：单元格被照亮、单元格灯亮。查询时查询单元格是否被照亮，而不是当前单元格灯是否亮；而熄灯则是熄灭单元格内的灯。</p>
-<p>解决本题分为两个部分：一是点亮 <code>lamps</code>
-中的所有灯；二是查询单元格状态，并按要求熄灭灯。</p>
-<p>首先想到的是最暴力的模拟，暴力模拟灯的开关和单元格被照亮的情况。当我们看到常数为
-<span class="math inline">\(n\le10^9\)</span> 时，常数过大，模拟一定会
-TLE ，于是暴力做法就被舍弃了。</p>
+<p>解决本题分为两个部分：一是点亮 <code>lamps</code> 中的所有灯；二是查询单元格状态，并按要求熄灭灯。</p>
+<p>首先想到的是最暴力的模拟，暴力模拟灯的开关和单元格被照亮的情况。当我们看到常数为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">n\le10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">9</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 时，常数过大，模拟一定会 TLE ，于是暴力做法就被舍弃了。</p>
 <p>那么，就应对暴力的模拟做法进行改进。我们首先考虑点亮的过程。</p>
-<p>首先，思考对于每一行（列、两对角线，以下省略，以行为例）是否能被照亮取决于什么。发现，当前行能被照亮的条件是当前行内存在被点亮的灯。那么为了能够查询，参考八皇后问题的记录方式，我们便记录每一行上被点亮的灯的数目，记为
-<span class="math inline">\(r_i\)</span> ，如果 <span
-class="math inline">\(r_i&gt;0\)</span> ，证明第 <span
-class="math inline">\(i\)</span>
-行存在点亮着的灯，那么该行就应该是被点亮的状态。由于前面提到，本题的常数达到
-<span class="math inline">\(10^9\)</span>
-，所以想到离散化的方式记录行中点亮的灯的数量的信息，即用哈希表进行记录。</p>
-<p>之后，对于每次给定的一盏灯，其对应的都有表格中的一个位置。记灯 <span
-class="math inline">\(lamp_i\)</span> 的坐标为 <span
-class="math inline">\((x_i,y_i)\)</span>
-。容易得到，其行、列、对角线信息为 <span class="math display">\[
-lamp_i\rightarrow
+<p>首先，思考对于每一行（列、两对角线，以下省略，以行为例）是否能被照亮取决于什么。发现，当前行能被照亮的条件是当前行内存在被点亮的灯。那么为了能够查询，参考八皇后问题的记录方式，我们便记录每一行上被点亮的灯的数目，记为  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>r</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">r_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02778em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> ，如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>r</mi><mi>i</mi></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">r_i&gt;0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02778em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&gt;</span><span class="mord mathrm">0</span></span></span></span> ，证明第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> 行存在点亮着的灯，那么该行就应该是被点亮的状态。由于前面提到，本题的常数达到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">9</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> ，所以想到离散化的方式记录行中点亮的灯的数量的信息，即用哈希表进行记录。</p>
+<p>之后，对于每次给定的一盏灯，其对应的都有表格中的一个位置。记灯 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>a</mi><mi>m</mi><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">lamp_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">a</span><span class="mord mathit">m</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> 的坐标为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><msub><mi>x</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>y</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">(x_i,y_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span> 。容易得到，其行、列、对角线信息为</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>a</mi><mi>m</mi><msub><mi>p</mi><mi>i</mi></msub><mo>→</mo><mrow><mo fence="true">{</mo><mtable><mtr><mtd><mrow><mtext><mi mathvariant="normal">R</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">w</mi></mtext><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub></mrow></mtd></mtr><mtr><mtd><mrow><mtext><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">n</mi></mtext><mo>=</mo><msub><mi>y</mi><mi>i</mi></msub></mrow></mtd></mtr><mtr><mtd><mrow><mtext><mi mathvariant="normal">D</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">l</mi></mtext><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><msub><mi>y</mi><mi>i</mi></msub></mrow></mtd></mtr><mtr><mtd><mrow><mtext><mi mathvariant="normal">A</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">-</mi><mi mathvariant="normal">D</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">l</mi></mtext><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mo>+</mo><msub><mi>y</mi><mi>i</mi></msub></mrow></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">lamp_i\rightarrow
 \left\{
 \begin{array}{l}
 \text{Row}=x_i\\
@@ -455,26 +411,14 @@ lamp_i\rightarrow
 \text{Anti-Diagonal}=x_i+y_i
 \end{array}
 \right.
-\]</span> (详细推导见八皇后题目分析 <a
-target="_blank" rel="noopener" href="http://leolang.top/2021/07/26/搜索与图论（一）DFS%20与%20BFS/">AcWing
-搜索与图论（一） | W1ndness的技术栈 (leolang.top)</a> )</p>
-<p>题目中提及同一盏灯可能在 <code>lamps</code>
-中多次列出，所以需要使用集合进行去重处理。于是，对于每一盏不重复的灯
-<span class="math inline">\(lamp_i\)</span>
-，更新行、列、对角线四个哈希表中的状态值。点亮过程完成。</p>
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:2.65002em;"></span><span class="strut bottom" style="height:4.80004em;vertical-align:-2.15002em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">a</span><span class="mord mathit">m</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">→</span><span class="minner displaystyle textstyle uncramped"><span class="style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing mult"><span class="vlist"><span style="top:1.25001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="delimsizinginner delim-size4"><span>⎩</span></span></span><span style="top:1.25001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:0.95001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-0.000010000000000065512em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="delimsizinginner delim-size4"><span>⎨</span></span></span><span style="top:-1.15001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-1.45001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-1.7500200000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="delimsizinginner delim-size4"><span>⎧</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span><span class="mord"><span class="mtable"><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-l"><span class="vlist"><span style="top:-1.8100000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="mord displaystyle textstyle uncramped"><span class="text mord displaystyle textstyle uncramped"><span class="mord mathrm">R</span><span class="mord mathrm">o</span><span class="mord mathrm" style="margin-right:0.01389em;">w</span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span><span style="top:-0.6100000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="mord displaystyle textstyle uncramped"><span class="text mord displaystyle textstyle uncramped"><span class="mord mathrm">C</span><span class="mord mathrm">o</span><span class="mord mathrm">l</span><span class="mord mathrm">u</span><span class="mord mathrm">m</span><span class="mord mathrm">n</span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span><span style="top:0.5900000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="mord displaystyle textstyle uncramped"><span class="text mord displaystyle textstyle uncramped"><span class="mord mathrm">D</span><span class="mord mathrm">i</span><span class="mord mathrm">a</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">o</span><span class="mord mathrm">n</span><span class="mord mathrm">a</span><span class="mord mathrm">l</span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">−</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span><span style="top:1.7900000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="mord displaystyle textstyle uncramped"><span class="text mord displaystyle textstyle uncramped"><span class="mord mathrm">A</span><span class="mord mathrm">n</span><span class="mord mathrm">t</span><span class="mord mathrm">i</span><span class="mord mathrm">-</span><span class="mord mathrm">D</span><span class="mord mathrm">i</span><span class="mord mathrm">a</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">o</span><span class="mord mathrm">n</span><span class="mord mathrm">a</span><span class="mord mathrm">l</span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="arraycolsep" style="width:0.5em;"></span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></p>
+<p>(详细推导见八皇后题目分析 [AcWing 搜索与图论（一） | W1ndness的技术栈 (leolang.top)](<a target="_blank" rel="noopener" href="http://leolang.top/2021/07/26/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA%EF%BC%88%E4%B8%80%EF%BC%89DFS">http://leolang.top/2021/07/26/搜索与图论（一）DFS</a> 与 BFS/) )</p>
+<p>题目中提及同一盏灯可能在 <code>lamps</code> 中多次列出，所以需要使用集合进行去重处理。于是，对于每一盏不重复的灯 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>a</mi><mi>m</mi><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">lamp_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">a</span><span class="mord mathit">m</span><span class="mord"><span class="mord mathit">p</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> ，更新行、列、对角线四个哈希表中的状态值。点亮过程完成。</p>
 <p>之后开始考虑查询过程。</p>
-<p>首先，对于单元格是否是被点亮的，我们在点亮过程中已经记录好了行、列、对角线的状态。对于任意单元格，若其坐标为
-<span class="math inline">\((r,c)\)</span> ，行 <span
-class="math inline">\(r\)</span> 、 列 <span
-class="math inline">\(c\)</span> 、对角线 <span
-class="math inline">\(r-c\)</span> 、反对角线 <span
-class="math inline">\(r+c\)</span>
-中任意一条线上存在一盏被点亮的灯，该单元格即被点亮。</p>
-<p>之后，进行熄灯过程。熄灯要对以查询单元格为中心，周围 <span
-class="math inline">\(3\times 3\)</span>
-范围内进行熄灯。由于之前我们维护过一个记录着所有被点亮的灯的集合，那么，熄灯过程就应该是查询该位置的灯是否是点亮的状态，如果被点亮，那么应将该灯熄灭，同时在集合中删除该灯坐标，并且更新状态哈希表的状态值。</p>
+<p>首先，对于单元格是否是被点亮的，我们在点亮过程中已经记录好了行、列、对角线的状态。对于任意单元格，若其坐标为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>r</mi><mo separator="true">,</mo><mi>c</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(r,c)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mord mathit">c</span><span class="mclose">)</span></span></span></span> ，行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">r</span></span></span></span> 、 列 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">c</span></span></span></span> 、对角线 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mo>−</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">r-c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mbin">−</span><span class="mord mathit">c</span></span></span></span> 、反对角线 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">r+c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mbin">+</span><span class="mord mathit">c</span></span></span></span> 中任意一条线上存在一盏被点亮的灯，该单元格即被点亮。</p>
+<p>之后，进行熄灯过程。熄灯要对以查询单元格为中心，周围 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">3\times 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">3</span><span class="mbin">×</span><span class="mord mathrm">3</span></span></span></span> 范围内进行熄灯。由于之前我们维护过一个记录着所有被点亮的灯的集合，那么，熄灯过程就应该是查询该位置的灯是否是点亮的状态，如果被点亮，那么应将该灯熄灭，同时在集合中删除该灯坐标，并且更新状态哈希表的状态值。</p>
 <p>查询过程完成，最终返回查询结果作为答案。</p>
-<h3 id="submit-code">Submit Code</h3>
+<h3 id="submit-code"><a class="markdownIt-Anchor" href="#submit-code"></a> Submit Code</h3>
 <p><strong>lang = C++</strong></p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
@@ -597,57 +541,38 @@ class="math inline">\(3\times 3\)</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">long</span><span class="token punctuation">)</span> x <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">long</span><span class="token punctuation">)</span> y <span class="token operator">&lt;&lt;</span> <span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
-<h3 id="code-explanation">Code Explanation</h3>
+<h3 id="code-explanation"><a class="markdownIt-Anchor" href="#code-explanation"></a> Code Explanation</h3>
 <p><strong>lang = C++</strong></p>
 <p><code>unordered_set</code> 的使用</p>
-<p><a
-target="_blank" rel="noopener" href="https://www.apiref.com/cpp-zh/cpp/container/unordered_set.html">std::unordered_set
-- C++中文 - API参考文档 (apiref.com)</a></p>
-<p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/7250.html">C++ STL
-unordered_set容器完全攻略 (biancheng.net)</a></p>
-<p><code>unordered_set</code>
-实现了对于基本类型的重载，但对于自定义类型不能使用，因为没有实现相应的
-hash 函数。如果想要使用，需要自己实现相应的 hash 函数，如一板块中 C++
-代码中写的</p>
+<p><a target="_blank" rel="noopener" href="https://www.apiref.com/cpp-zh/cpp/container/unordered_set.html">std::unordered_set - C++中文 - API参考文档 (apiref.com)</a></p>
+<p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/7250.html">C++ STL unordered_set容器完全攻略 (biancheng.net)</a></p>
+<p><code>unordered_set</code> 实现了对于基本类型的重载，但对于自定义类型不能使用，因为没有实现相应的 hash 函数。如果想要使用，需要自己实现相应的 hash 函数，如一板块中 C++ 代码中写的</p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">auto</span> hash_p <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">const</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">&amp;</span>p<span class="token punctuation">)</span> <span class="token operator">-></span> size_t <span class="token punctuation">&#123;</span>
             hash<span class="token operator">&lt;</span><span class="token keyword">long</span> <span class="token keyword">long</span><span class="token operator">></span> hash_ll<span class="token punctuation">;</span>
             <span class="token keyword">return</span> <span class="token function">hash_ll</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>first <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">long</span> <span class="token keyword">long</span><span class="token punctuation">)</span>p<span class="token punctuation">.</span>second <span class="token operator">&lt;&lt;</span> <span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
 <p>并且初始化写做</p>
 <pre class="language-cpp" data-language="cpp"><code class="language-cpp">unordered_set<span class="token operator">&lt;</span>pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token keyword">decltype</span><span class="token punctuation">(</span>hash_p<span class="token punctuation">)</span><span class="token operator">></span> <span class="token function">points</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> hash_p<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>表示以 <code>pair</code> 为基本元素的 <code>unordered_set</code>
-，使用 <code>decltype</code> 为自动推断类型，构造函数参数意为 0
-个元素的，以 <code>hash_p</code> 为 hash 函数的
-<code>unordered_set</code> 。</p>
-<p>注：若不自己实现 hash 函数就要求使用 <code>set</code>
-，但会增加时间复杂度。</p>
-<p>STL 的使用 <a
-target="_blank" rel="noopener" href="http://leolang.top/2021/07/25/C++%20之%20STL%20使用技巧/">AcWing
-C++ STL 使用技巧 | W1ndness的技术栈 (leolang.top)</a></p>
+<p>表示以 <code>pair</code> 为基本元素的 <code>unordered_set</code> ，使用 <code>decltype</code> 为自动推断类型，构造函数参数意为 0 个元素的，以 <code>hash_p</code> 为 hash 函数的 <code>unordered_set</code> 。</p>
+<p>注：若不自己实现 hash 函数就要求使用 <code>set</code> ，但会增加时间复杂度。</p>
+<p>STL 的使用 [AcWing C++ STL 使用技巧 | W1ndness的技术栈 (leolang.top)](<a target="_blank" rel="noopener" href="http://leolang.top/2021/07/25/C++">http://leolang.top/2021/07/25/C++</a> 之 STL 使用技巧/)</p>
 <p><strong>lang = Python3</strong></p>
 <p><code>collections.Counter</code> 的使用</p>
-<p><a
-target="_blank" rel="noopener" href="https://docs.python.org/3/library/collections.html#collections.Counter">collections
-— Container datatypes — Counter — Python 3.10.2 documentation</a>
-<code>Counter</code>
-为一计数器，实质上为一个字典即哈希表，可以用于记录某元素出现次数。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/collections.html#collections.Counter">collections — Container datatypes — Counter — Python 3.10.2 documentation</a><br />
+<code>Counter</code> 为一计数器，实质上为一个字典即哈希表，可以用于记录某元素出现次数。</p>
 <p><strong>lang = Java</strong></p>
-<p>Java 中没有像 C++ 一样的简单的 pair
-类型，所以这里就直接使用哈希表的原理，即给定一公式计算哈希值进行哈希，并将哈希值存在集合里。</p>
-<p>哈希函数为 <span class="math display">\[
-hash(x,y)=x+y\times2^{32}
-\]</span> 即</p>
+<p>Java 中没有像 C++ 一样的简单的 pair 类型，所以这里就直接使用哈希表的原理，即给定一公式计算哈希值进行哈希，并将哈希值存在集合里。</p>
+<p>哈希函数为</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>a</mi><mi>s</mi><mi>h</mi><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo><mo>=</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo>×</mo><msup><mn>2</mn><mrow><mn>3</mn><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">hash(x,y)=x+y\times2^{32}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8641079999999999em;"></span><span class="strut bottom" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">h</span><span class="mord mathit">a</span><span class="mord mathit">s</span><span class="mord mathit">h</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit">x</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mbin">×</span><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">3</span><span class="mord mathrm">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span></p>
+<p>即</p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">long</span> <span class="token function">hash</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">long</span><span class="token punctuation">)</span> x <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">long</span><span class="token punctuation">)</span> y <span class="token operator">&lt;&lt;</span> <span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <p>同时应注意 Java 中如何对 <code>HashMap</code> 进行更新和取值。</p>
-<h3 id="reference">Reference</h3>
-<p>LeetCode 官方题解 <a
-target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/grid-illumination/solution/wang-ge-zhao-ming-by-leetcode-solution-7omu/">网格照明
-- 网格照明 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
-<p>宫水三叶题解 <a
-target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/grid-illumination/solution/gong-shui-san-xie-ha-xi-biao-xian-ying-s-s48d/">【宫水三叶】哈希表
-+ 线映射模拟题 - 网格照明 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<h3 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h3>
+<p>LeetCode 官方题解 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/grid-illumination/solution/wang-ge-zhao-ming-by-leetcode-solution-7omu/">网格照明 - 网格照明 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<p>宫水三叶题解 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/grid-illumination/solution/gong-shui-san-xie-ha-xi-biao-xian-ying-s-s48d/">【宫水三叶】哈希表 + 线映射模拟题 - 网格照明 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
 
     </div>
 
@@ -727,14 +652,14 @@ target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/grid-illum
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">349k</span>
+    <span title="站点总字数">387k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:17</span>
+    <span title="站点阅读时长">5:52</span>
   </span>
 </div>
 <div class="busuanzi-count">
